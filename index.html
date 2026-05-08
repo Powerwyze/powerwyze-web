@@ -39,6 +39,7 @@
             <li><a href="#why">Why now</a></li>
             <li><a href="#suite">Product suite</a></li>
             <li><a href="#how">How it works</a></li>
+            <li><a href="#in-the-field">See it live</a></li>
             <li><a href="#traction">Traction</a></li>
             <li><a href="#model">Pricing</a></li>
           </ul>
@@ -50,6 +51,12 @@
     </header>
 
     <main id="main">
+      <!-- VIDEO LIGHTBOX -->
+      <div class="video-lightbox" id="video-lightbox" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+        <button type="button" class="video-lightbox-close" aria-label="Close video">&times;</button>
+        <video class="video-lightbox-player" controls playsinline></video>
+      </div>
+
       <!-- HERO -->
       <section class="hero">
         <div class="container hero-grid">
@@ -79,6 +86,15 @@
           </div>
           <div class="hero-visual">
             <img src="assets/hero.jpg" alt="PowerWyze RoboKiosk — compact AI ambassador kiosk with mint LED edge glow" />
+            <button type="button" class="hero-play" data-video="assets/video/launch-southbeach.mp4" data-poster="assets/video/launch-southbeach.jpg" aria-label="Watch the launch reel from South Beach Wine and Food Festival">
+              <span class="hero-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              <span class="hero-play-text">
+                <span class="hero-play-eyebrow">Watch · 0:15</span>
+                <span class="hero-play-title">Launch at South Beach Wine &amp; Food Festival</span>
+              </span>
+            </button>
           </div>
         </div>
       </section>
@@ -207,6 +223,41 @@
             <span class="pipe-pill">CRM enrichment</span>
             <span class="pipe-arrow">→</span>
             <span class="pipe-pill">Sales follow-up</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- IN THE FIELD -->
+      <section id="in-the-field" class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">In the field</span>
+            <h2 class="section-title">Real kiosks, real events, real conversations.</h2>
+            <p class="section-lede">Footage from Bartenura at South Beach Wine &amp; Food Festival and the Dominican Republic Tradeshow.</p>
+          </div>
+
+          <div class="video-grid">
+            <figure class="video-card video-portrait">
+              <video src="assets/video/event-festival-kiosk.mp4" poster="assets/video/event-festival-kiosk.jpg" muted loop playsinline preload="none" aria-label="PowerWyze kiosk at outdoor festival serving Bartenura activations"></video>
+              <figcaption>
+                <span class="video-tag">Festival activation</span>
+                <span class="video-caption">Outdoor Bartenura booth — kiosk-driven engagement.</span>
+              </figcaption>
+            </figure>
+            <figure class="video-card video-landscape">
+              <video src="assets/video/event-dr-engagement.mp4" poster="assets/video/event-dr-engagement.jpg" muted loop playsinline preload="none" aria-label="Dominican Republic Tradeshow attendee scanning PowerWyze kiosk QR code"></video>
+              <figcaption>
+                <span class="video-tag">DR Tradeshow</span>
+                <span class="video-caption">Scan-to-engage QR flow with on-screen AI ambassador.</span>
+              </figcaption>
+            </figure>
+            <figure class="video-card video-portrait">
+              <video src="assets/video/event-serving.mp4" poster="assets/video/event-serving.jpg" muted loop playsinline preload="none" aria-label="Bartenura serving moment at South Beach Wine and Food Festival booth"></video>
+              <figcaption>
+                <span class="video-tag">Booth in motion</span>
+                <span class="video-caption">South Beach pour moments — paired with kiosk capture.</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
