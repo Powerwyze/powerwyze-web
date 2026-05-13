@@ -3,433 +3,324 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PowerWyze — AI event kiosks for corporate activations</title>
-    <meta
-      name="description"
-      content="PowerWyze rents AI-powered event kiosks, brand ambassadors, and production lanes for trade shows, conferences, sponsorships, and corporate brand activations."
-    />
-    <meta property="og:title" content="PowerWyze — AI event kiosks for corporate activations" />
-    <meta
-      property="og:description"
-      content="Corporate event kiosks that qualify visitors, create branded takeaways, and prepare clean lead data for your team."
-    />
-    <meta property="og:image" content="assets/hero.jpg" />
-    <meta name="theme-color" content="#10251f" />
-    <link rel="preload" as="image" href="assets/hero.jpg" />
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css?v=5" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2310251f'/%3E%3Cpath d='M7 9h5l4 9 4-9h5l-7 16h-4L7 9Z' fill='%23b8f2d0'/%3E%3C/svg%3E"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-    <script src="script.js?v=5" defer></script>
+    <title>PowerWyze — AI-powered event kiosks</title>
+    <meta name="description" content="PowerWyze deploys AI brand ambassadors, lead-capture kiosks, and on-site production lanes for corporate events and brand activations." />
+    <meta property="og:title" content="PowerWyze — AI-powered event kiosks" />
+    <meta property="og:description" content="AI brand ambassadors, lead-capture kiosks, and on-site production lanes for corporate events." />
+    <meta property="og:image" content="https://powerwyze.vercel.app/assets/hero.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=6" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="PowerWyze home">
+        <img src="assets/logo.png" alt="PowerWyze" />
+      </a>
 
-    <header class="site-header" data-sticky>
-      <div class="shell header-shell">
-        <a class="brand" href="#top" aria-label="PowerWyze home">
-          <img class="brand-logo" src="assets/logo.png" alt="PowerWyze — AI Hardware Solutions" width="320" height="96" />
-        </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span></span><span></span>
+        <span class="sr-only">Menu</span>
+      </button>
 
-        <nav class="desktop-nav" aria-label="Primary navigation">
-          <a href="#proof">Field proof</a>
-          <a href="#system">System</a>
-          <a href="#products">Products</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-
-        <div class="header-actions">
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-          </button>
-          <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-controls="mobile-nav" aria-expanded="false">
-            <span></span><span></span>
-          </button>
-          <button class="btn btn-primary header-cta" type="button" data-quote>Request quote</button>
-        </div>
-      </div>
-      <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Mobile navigation">
-        <a href="#proof">Field proof</a>
+      <nav class="site-nav" id="site-nav" data-nav>
         <a href="#system">System</a>
-        <a href="#products">Products</a>
+        <a href="#field">In the field</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <button class="btn btn-primary" type="button" data-quote>Request corporate quote</button>
+        <a href="#about">About</a>
       </nav>
+
+      <a class="pill-cta header-cta" href="#quote" data-quote-cta>
+        <span>Request a quote</span>
+        <span class="arrow-badge" aria-hidden="true">↗</span>
+      </a>
     </header>
 
-    <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="shell hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow" data-gsap>AI KIOSK RENTALS FOR CORPORATE EVENT TEAMS</p>
-            <h1 id="hero-title" data-gsap>Make the booth impossible to walk past.</h1>
-            <p class="hero-lede" data-gsap>
-              PowerWyze deploys AI brand ambassadors, lead-capture kiosks, and on-site production lanes for trade shows, conferences, sponsorship footprints, and multi-day launches.
-            </p>
-            <div class="hero-actions" data-gsap>
-              <button class="btn btn-primary btn-large" type="button" data-quote>Request corporate quote</button>
-              <button class="btn btn-secondary btn-large" type="button" data-quote>Plan my activation</button>
-            </div>
-            <div class="proof-strip" aria-label="Selected real customer proof" data-gsap>
-              <span>Real deployments with</span>
-              <strong>Bartenura</strong>
-              <strong>ROM Barceló</strong>
-              <strong>Curaleaf</strong>
-              <strong>Dominican Republic Tradeshow</strong>
-            </div>
+    <main id="top">
+      <section class="hero dark-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title" data-split>AI-powered event kiosks for brands that need more than badge scans.</h1>
+          <p>PowerWyze deploys AI brand ambassadors, lead-capture kiosks, and on-site production lanes for trade shows, conferences, sponsorships, and multi-day launches.</p>
+          <a class="pill-cta light-on-dark" href="#quote" data-quote-cta>
+            <span>Request a quote</span>
+            <span class="arrow-badge" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="hero-media" aria-label="PowerWyze activation slideshow">
+          <div class="slide is-active">
+            <img src="assets/hero.jpg" alt="PowerWyze RoboKiosk render with illuminated booth hardware" />
+          </div>
+          <div class="slide">
+            <img src="assets/video/launch-southbeach.jpg" alt="South Beach Wine and Food Festival activation still" />
+          </div>
+          <div class="slide">
+            <img src="assets/product-uv.jpg" alt="PowerWyze AI customization studio with UV production lane" />
+          </div>
+          <div class="slide">
+            <img src="assets/video/event-dr-engagement.jpg" alt="Dominican Republic Tradeshow engagement station" />
+          </div>
+          <div class="slide-dots" role="tablist" aria-label="Hero slideshow pagination">
+            <button class="is-active" type="button" aria-label="Show slide 1" data-slide-dot="0"></button>
+            <button type="button" aria-label="Show slide 2" data-slide-dot="1"></button>
+            <button type="button" aria-label="Show slide 3" data-slide-dot="2"></button>
+            <button type="button" aria-label="Show slide 4" data-slide-dot="3"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split-section" id="about">
+        <div class="container split-grid">
+          <h2 class="reveal">A corporate activation system. Not a party booth.</h2>
+          <p class="large-body reveal">PowerWyze deploys AI brand ambassadors, lead-capture kiosks, and on-site production lanes built for trade shows, conferences, brand activations, and multi-day product launches. The booth grows attendees, gets them through a moment of brand interaction, captures the details your team needs, and produces a personalized takeaway that keeps the conversation moving after the event.</p>
+        </div>
+      </section>
+
+      <section class="urgency dark-section" aria-labelledby="urgency-title">
+        <div class="container urgency-inner">
+          <h2 id="urgency-title">Booking sponsorships and brand activations for the upcoming event season.</h2>
+          <a class="pill-cta light-on-dark" href="#quote" data-quote-cta>
+            <span>Request a quote</span>
+            <span class="arrow-badge" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="stats section" id="pricing" aria-label="PowerWyze proof points">
+        <div class="container stats-grid">
+          <div class="stat reveal">
+            <strong><span data-count="4" data-suffix="+">4+</span></strong>
+            <p>Brand activations deployed</p>
+          </div>
+          <div class="stat reveal">
+            <strong><span data-static="1:1">1:1</span></strong>
+            <p>Lead-to-image ratio</p>
+          </div>
+          <div class="stat reveal">
+            <strong><span data-count="100" data-suffix="%">100%</span></strong>
+            <p>On-site production</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services" id="system" aria-labelledby="services-title">
+        <div class="container section-heading centered">
+          <p class="kicker">Rental suite</p>
+          <h2 id="services-title">Every layer of an AI-powered activation.</h2>
+          <p>Start with a single AI kiosk. Add a production lane when the takeaway needs to be made on site.</p>
+        </div>
+
+        <div class="container services-grid">
+          <div class="sticky-image" aria-live="polite">
+            <img src="assets/product-robokiosk.jpg" alt="RoboKiosk activation hardware" data-service-image />
+            <span class="live-dot"><i></i> live image swap</span>
           </div>
 
-          <div class="hero-stage" data-gsap>
-            <figure class="hero-card">
-              <img src="assets/hero.jpg" width="1920" height="1047" alt="PowerWyze RoboKiosk render with a mint LED glow" />
-              <figcaption>
-                <span class="status-dot" aria-hidden="true"></span>
-                RoboKiosk with AI brand ambassador
-              </figcaption>
-            </figure>
-            <div class="hero-video-card" aria-label="South Beach Wine and Food Festival activation footage">
-              <video muted loop playsinline autoplay preload="metadata" poster="assets/video/launch-southbeach.jpg">
+          <div class="service-accordion" data-service-accordion>
+            <article class="service-item is-open" data-image="assets/product-robokiosk.jpg" data-alt="RoboKiosk activation hardware">
+              <button class="service-trigger" type="button" aria-expanded="true">
+                <span class="service-icon" aria-hidden="true">01</span>
+                <span>RoboKiosk</span>
+                <span class="plus">×</span>
+              </button>
+              <div class="service-panel">
+                <p>AI brand ambassador with custom software, lead capture, and CRM-ready output.</p>
+                <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="service-item" data-image="assets/product-uv.jpg" data-alt="AI Customization Studio with UV printer and robotic arm">
+              <button class="service-trigger" type="button" aria-expanded="false">
+                <span class="service-icon" aria-hidden="true">02</span>
+                <span>AI Customization Studio (Kiosk + UV)</span>
+                <span class="plus">+</span>
+              </button>
+              <div class="service-panel">
+                <p>Kiosk paired with UV printer and robotic arm to produce personalized branded merchandise on the floor.</p>
+                <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="service-item" data-image="assets/product-booth.jpg" data-alt="RoboBooth embroidery production lane">
+              <button class="service-trigger" type="button" aria-expanded="false">
+                <span class="service-icon" aria-hidden="true">03</span>
+                <span>RoboBooth (Kiosk + Embroidery)</span>
+                <span class="plus">+</span>
+              </button>
+              <div class="service-panel">
+                <p>Production lane with a Brother embroidery machine for branded apparel made live during the event.</p>
+                <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="service-item" data-image="assets/hero.jpg" data-alt="Custom PowerWyze kiosk build render">
+              <button class="service-trigger" type="button" aria-expanded="false">
+                <span class="service-icon" aria-hidden="true">04</span>
+                <span>Custom builds</span>
+                <span class="plus">+</span>
+              </button>
+              <div class="service-panel">
+                <p>Bespoke kiosk hardware + software for high-attendance trade shows and multi-day activations.</p>
+                <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="marquee-section" aria-labelledby="marquee-title">
+        <div class="container section-heading centered compact">
+          <h2 id="marquee-title">Built with recognizable brands.</h2>
+        </div>
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>Bartenura</span><span>ROM Barceló</span><span>Curaleaf</span><span>Dominican Republic Tradeshow</span><span>South Beach Wine & Food Festival</span><span>Bartenura</span><span>ROM Barceló</span><span>Curaleaf</span><span>DR Tradeshow</span><span>SoBeWFF</span>
+            <span>Bartenura</span><span>ROM Barceló</span><span>Curaleaf</span><span>Dominican Republic Tradeshow</span><span>South Beach Wine & Food Festival</span><span>Bartenura</span><span>ROM Barceló</span><span>Curaleaf</span><span>DR Tradeshow</span><span>SoBeWFF</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section field" id="field" aria-labelledby="field-title">
+        <div class="container section-heading centered">
+          <p class="kicker">In the field</p>
+          <h2 id="field-title">Real activations. Real footage.</h2>
+        </div>
+
+        <div class="container case-stack">
+          <article class="case-card reveal">
+            <div class="case-media">
+              <video muted loop playsinline preload="metadata" controls poster="assets/video/launch-southbeach.jpg">
                 <source src="assets/video/launch-southbeach.mp4" type="video/mp4" />
               </video>
-              <p>Bartenura at South Beach Wine &amp; Food Festival</p>
             </div>
-          </div>
-        </div>
-      </section>
+            <div class="case-copy">
+              <h3>South Beach Wine &amp; Food Festival</h3>
+              <p>Brand moment around the pour. Real footage from the launch reel.</p>
+              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
 
-      <section class="section intro-panel" aria-label="Conversion context">
-        <div class="shell intro-grid">
-          <p class="intro-kicker">Built for the teams that own pipeline, sponsorship value, and executive-facing event outcomes.</p>
-          <div class="intro-copy">
-            <h2>Not a party booth. A corporate activation system.</h2>
-            <p>
-              The kiosk greets attendees, guides them through a branded AI interaction, captures the details your team needs, and produces a personalized takeaway that keeps the conversation moving.
-            </p>
-          </div>
-          <button class="btn btn-dark" type="button" data-quote>Start a quote request</button>
-        </div>
-      </section>
+          <article class="case-card reveal">
+            <div class="case-media">
+              <video muted loop playsinline preload="metadata" controls poster="assets/video/event-dr-engagement.jpg">
+                <source src="assets/video/event-dr-engagement.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="case-copy">
+              <h3>Dominican Republic Tradeshow</h3>
+              <p>QR engagement and structured lead capture across a multi-day tradeshow.</p>
+              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
 
-      <section class="section proof-section" id="proof" aria-labelledby="proof-title">
-        <div class="shell section-heading split-heading">
-          <div>
-            <p class="eyebrow">Field proof</p>
-            <h2 id="proof-title">Real footage from real activations.</h2>
-          </div>
-          <p>
-            Use the videos the way an event producer does: to judge footprint, pace, energy, and how comfortably the experience lives inside a branded environment.
-          </p>
-        </div>
-
-        <div class="shell video-grid" data-video-grid>
-          <article class="video-tile video-tile-large reveal">
-            <video muted loop playsinline preload="metadata" poster="assets/video/event-dr-engagement.jpg" controls>
-              <source src="assets/video/event-dr-engagement.mp4" type="video/mp4" />
-            </video>
-            <div>
-              <p class="tile-label">Dominican Republic Tradeshow</p>
-              <h3>QR engagement and booth interaction.</h3>
+          <article class="case-card reveal">
+            <div class="case-media">
+              <video muted loop playsinline preload="metadata" controls poster="assets/video/event-festival-kiosk.jpg">
+                <source src="assets/video/event-festival-kiosk.mp4" type="video/mp4" />
+              </video>
             </div>
-          </article>
-          <article class="video-tile reveal">
-            <video muted loop playsinline preload="metadata" poster="assets/video/event-festival-kiosk.jpg" controls>
-              <source src="assets/video/event-festival-kiosk.mp4" type="video/mp4" />
-            </video>
-            <div>
-              <p class="tile-label">Outdoor sponsorship activation</p>
-              <h3>Kiosk flow in a festival setting.</h3>
+            <div class="case-copy">
+              <h3>Outdoor festival activation</h3>
+              <p>Outdoor kiosk activation built for high-throughput foot traffic.</p>
+              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
             </div>
-          </article>
-          <article class="video-tile reveal">
-            <video muted loop playsinline preload="metadata" poster="assets/video/event-serving.jpg" controls>
-              <source src="assets/video/event-serving.mp4" type="video/mp4" />
-            </video>
-            <div>
-              <p class="tile-label">South Beach Wine &amp; Food Festival</p>
-              <h3>Brand moment around the pour.</h3>
-            </div>
-          </article>
-          <article class="video-tile reveal">
-            <video muted loop playsinline preload="metadata" poster="assets/video/launch-southbeach.jpg" controls>
-              <source src="assets/video/launch-southbeach.mp4" type="video/mp4" />
-            </video>
-            <div>
-              <p class="tile-label">South Beach Wine &amp; Food Festival</p>
-              <h3>Launch reel from the Bartenura activation.</h3>
-            </div>
-          </article>
-          <article class="proof-card reveal">
-            <p class="tile-label">Customer proof</p>
-            <h3>Bartenura. ROM Barceló. Curaleaf. Dominican Republic Tradeshow.</h3>
-            <p>No invented counters or vanity numbers; the sales proof is the actual deployment record and the media from the floor.</p>
-            <button class="text-cta" type="button" data-quote>Ask what fits my event</button>
           </article>
         </div>
       </section>
 
-      <section class="section system-section" id="system" aria-labelledby="system-title">
-        <div class="shell system-layout">
-          <div class="section-heading sticky-copy">
-            <p class="eyebrow">The system</p>
-            <h2 id="system-title">A branded AI conversation, a tangible takeaway, and cleaner follow-up.</h2>
-            <p>
-              PowerWyze sits between experiential creative and event operations: hardware, software, branded content, and lead structure handled as one rental package.
-            </p>
-            <button class="btn btn-primary" type="button" data-quote>Scope the system</button>
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <div class="faq-left reveal">
+            <h2 id="faq-title">Answering your questions.</h2>
+            <a class="pill-cta" href="#quote" data-quote-cta><span>Get in touch</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
           </div>
 
-          <div class="system-stack">
-            <article class="system-step reveal">
-              <span>01</span>
-              <div>
-                <h3>AI brand ambassador</h3>
-                <p>Visitors interact with a guided AI experience tuned to the brand, product, theme, and event context.</p>
-              </div>
+          <div class="faq-accordion" data-faq-accordion>
+            <article class="faq-item is-open">
+              <button type="button" aria-expanded="true"><span>What event types does PowerWyze support?</span><span>×</span></button>
+              <div class="faq-panel"><p>Trade shows, conferences, sponsorship activations, brand launches, festival activations, multi-day corporate events. We build for floor-plan-driven environments where lead capture and branded takeaway matter.</p></div>
             </article>
-            <article class="system-step reveal">
-              <span>02</span>
-              <div>
-                <h3>Structured lead capture</h3>
-                <p>The flow collects the contact and qualification details your event team wants before follow-up begins.</p>
-              </div>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false"><span>How does the lead capture work?</span><span>+</span></button>
+              <div class="faq-panel"><p>Every attendee interaction generates a structured lead record (name, email, phone, opt-ins) tied 1:1 to the personalized takeaway. Output is CRM-ready CSV or pushed directly to your stack on request.</p></div>
             </article>
-            <article class="system-step reveal">
-              <span>03</span>
-              <div>
-                <h3>Personalized AI takeaway</h3>
-                <p>Attendees leave with a branded image, print, embroidery, UV print, or wearable concept depending on the package.</p>
-              </div>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false"><span>What does the production lane add?</span><span>+</span></button>
+              <div class="faq-panel"><p>On-site UV print and embroidery turns the AI interaction into a physical branded product the attendee walks away wearing — apparel, accessories, branded merchandise — made live during the event.</p></div>
             </article>
-            <article class="system-step reveal">
-              <span>04</span>
-              <div>
-                <h3>CRM-ready handoff</h3>
-                <p>Lead data is prepared for the brand’s sales or marketing workflow instead of living only in event notes.</p>
-              </div>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false"><span>How is pricing structured?</span><span>+</span></button>
+              <div class="faq-panel"><p>Base kiosk rate, production-lane add-on, plus custom-build pricing for multi-day or bespoke enclosures. Quote per event. Request a quote for details.</p></div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false"><span>Can the booth be branded for our company?</span><span>+</span></button>
+              <div class="faq-panel"><p>Yes. Every kiosk ships with a custom-wrapped enclosure, on-brand UI, and a tailored AI ambassador trained for your activation.</p></div>
+            </article>
+            <article class="faq-item">
+              <button type="button" aria-expanded="false"><span>Where do you operate?</span><span>+</span></button>
+              <div class="faq-panel"><p>Headquartered in South Florida, deployed nationally for trade shows and brand activations. International activations available on request.</p></div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section products-section" id="products" aria-labelledby="products-title">
-        <div class="shell section-heading centered-heading">
-          <p class="eyebrow">Rental suite</p>
-          <h2 id="products-title">Choose the activation layer that matches the floor plan.</h2>
-          <p>Start with a single AI kiosk, then add a production lane when the takeaway needs to be made on site — every layer is built around how your brand wants attendees to remember the booth.</p>
-        </div>
-
-        <div class="shell product-grid">
-          <article class="product-card product-feature reveal">
-            <img src="assets/product-robokiosk.jpg" width="1200" height="1200" loading="lazy" decoding="async" alt="RoboKiosk on an event floor with a branded base" />
-            <div class="product-copy">
-              <p class="tile-label">Core rental</p>
-              <h3>RoboKiosk</h3>
-              <p>Compact AI ambassador station for trade-show booths, conference lounges, and sponsorship footprints.</p>
-            </div>
-          </article>
-          <article class="product-card reveal">
-            <img src="assets/product-uv.jpg" width="1600" height="873" loading="lazy" decoding="async" alt="AI Customization Studio with kiosk, UV printer, and robotic arm" />
-            <div class="product-copy">
-              <p class="tile-label">Production lane</p>
-              <h3>AI Customization Studio</h3>
-              <p>Kiosk plus UV printer and robotic arm for on-site personalized branded goods.</p>
-            </div>
-          </article>
-          <article class="product-card reveal">
-            <img src="assets/product-booth.jpg" width="1600" height="873" loading="lazy" decoding="async" alt="RoboBooth with Brother embroidery machine for event personalization" />
-            <div class="product-copy">
-              <p class="tile-label">Production lane</p>
-              <h3>RoboBooth</h3>
-              <p>AI interaction paired with embroidery production for tactile, premium takeaways.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section pricing-section" id="pricing" aria-labelledby="pricing-title">
-        <div class="shell pricing-layout">
-          <div class="section-heading">
-            <p class="eyebrow">Budget anchors</p>
-            <h2 id="pricing-title">Quote-first pricing for corporate production realities.</h2>
-            <p>
-              These anchors help teams route approvals early. Final proposals account for event days, staffing, travel, branding, outputs, freight, and venue requirements.
-            </p>
+      <section class="section quote-section" id="quote" aria-labelledby="quote-title">
+        <div class="quote-wrap">
+          <div class="section-heading centered">
+            <h2 id="quote-title">Request a corporate quote.</h2>
+            <p>Ready to bring an AI-powered booth to your next event? We respond within one business day.</p>
           </div>
-          <div class="pricing-cards">
-            <article class="price-card reveal">
-              <p class="tile-label">RoboKiosk</p>
-              <h3>$1,200 <span>/ kiosk / day</span></h3>
-              <p>Base AI kiosk rental for corporate booths and activations.</p>
-            </article>
-            <article class="price-card featured-price reveal">
-              <p class="tile-label">Production lane</p>
-              <h3>$5,000 <span>/ day</span></h3>
-              <p>Kiosk plus UV or embroidery production setup for on-site personalized goods.</p>
-            </article>
-          </div>
-          <div class="pricing-cta">
-            <button class="btn btn-primary btn-large" type="button" data-quote>Request corporate quote</button>
-            <p>Tell us the city, event dates, footprint, and output idea. We’ll return a corporate quote built for that production plan.</p>
-          </div>
-        </div>
-      </section>
 
-      <section class="section process-section" aria-labelledby="process-title">
-        <div class="shell section-heading split-heading">
-          <div>
-            <p class="eyebrow">Activation path</p>
-            <h2 id="process-title">From creative direction to event-floor handoff.</h2>
-          </div>
-          <button class="btn btn-secondary" type="button" data-quote>Map my event</button>
-        </div>
-        <div class="shell process-rail" aria-label="PowerWyze activation process">
-          <article class="process-item reveal">
-            <span>Brief</span>
-            <h3>Brand, audience, and output</h3>
-            <p>Define event type, attendee profile, creative direction, lead fields, and the takeaway your team wants to produce.</p>
-          </article>
-          <article class="process-item reveal">
-            <span>Build</span>
-            <h3>Kiosk flow and production plan</h3>
-            <p>Configure the AI experience, branded assets, capture fields, staffing needs, and equipment package.</p>
-          </article>
-          <article class="process-item reveal">
-            <span>Deploy</span>
-            <h3>Floor-ready hardware</h3>
-            <p>Bring the kiosk or production lane into the booth footprint with the physical setup aligned to the venue.</p>
-          </article>
-          <article class="process-item reveal">
-            <span>Handoff</span>
-            <h3>Lead data for follow-up</h3>
-            <p>Package captured attendee information so sales and marketing teams can continue the conversation after the event.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section faq-section" id="faq" aria-labelledby="faq-title">
-        <div class="shell faq-layout">
-          <div class="section-heading">
-            <p class="eyebrow">Buyer questions</p>
-            <h2 id="faq-title">Answers for event marketers and producers.</h2>
-            <button class="btn btn-primary" type="button" data-quote>Get answers in a quote</button>
-          </div>
-          <div class="faq-list">
-            <details class="faq-item reveal" open>
-              <summary>What event types does PowerWyze support?</summary>
-              <p>Trade shows, conferences, sponsorship activations, brand launches, festival footprints, corporate lounges, and multi-day marketing programs.</p>
-            </details>
-            <details class="faq-item reveal">
-              <summary>Can the experience be branded?</summary>
-              <p>Yes. The flow can be shaped around campaign creative, product messaging, event theme, visual style, lead fields, and the intended attendee takeaway.</p>
-            </details>
-            <details class="faq-item reveal">
-              <summary>What does the production lane add?</summary>
-              <p>The production lane pairs the kiosk with UV printing or embroidery so personalized outputs can be created on site as part of the activation.</p>
-            </details>
-            <details class="faq-item reveal">
-              <summary>How should we request a quote?</summary>
-              <p>Send your dates, city, expected attendance, kiosk count, event type, and branding direction. The quote request form captures those details in one email.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section class="final-cta" aria-labelledby="final-title">
-        <div class="shell final-panel">
-          <p class="eyebrow">Ready for the floor?</p>
-          <h2 id="final-title">Tell PowerWyze what you’re producing.</h2>
-          <p>Use the quote form to package the essentials: company, contacts, event dates, venue, expected attendance, kiosk needs, branding direction, and notes.</p>
-          <button class="btn btn-primary btn-large" type="button" data-quote>Request corporate quote</button>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="shell footer-grid">
-        <a class="brand" href="#top" aria-label="PowerWyze home">
-          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-            <rect x="4" y="4" width="40" height="40" rx="12" fill="currentColor" opacity="0.12" />
-            <path d="M11 14h7.5L24 29l5.5-15H37L27.6 36h-7.2L11 14Z" fill="currentColor" />
-          </svg>
-          <span>PowerWyze</span>
-        </a>
-        <p>AI-powered corporate event kiosks for trade shows, conferences, launches, and brand activations.</p>
-        <button class="btn btn-secondary" type="button" data-quote>Request quote</button>
-      </div>
-    </footer>
-
-    <dialog class="quote-modal" data-quote-modal aria-labelledby="quote-title">
-      <div class="modal-shell">
-        <div class="modal-head">
-          <div>
-            <p class="eyebrow">Corporate quote request</p>
-            <h2 id="quote-title">Tell us about the activation.</h2>
-            <p>Submitting opens a prepared email to wyzer@powerwyze.com with every field included.</p>
-          </div>
-          <button class="modal-close" type="button" data-close-modal aria-label="Close quote form">×</button>
-        </div>
-
-        <form class="quote-form" data-quote-form>
-          <fieldset>
-            <legend>Contact</legend>
+          <form class="quote-form" data-quote-form>
             <div class="form-grid">
-              <label>Name <input name="Name" autocomplete="name" required /></label>
-              <label>Company <input name="Company" autocomplete="organization" required /></label>
-              <label>Work email <input name="Work email" type="email" autocomplete="email" required /></label>
-              <label>Phone <input name="Phone" type="tel" autocomplete="tel" required /></label>
-              <label>Title <input name="Title" autocomplete="organization-title" /></label>
-              <label>Referral <input name="Referral" placeholder="Agency, partner, colleague…" /></label>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Event</legend>
-            <div class="form-grid">
-              <label>Event name <input name="Event name" /></label>
-              <label>Event type
-                <select name="Event type">
-                  <option value="">Select one</option>
+              <label>Name<input name="name" type="text" autocomplete="name" required /></label>
+              <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+              <label>Phone<input name="phone" type="tel" autocomplete="tel" required /></label>
+              <label>Company<input name="company" type="text" autocomplete="organization" required /></label>
+              <label class="full">Event type
+                <select name="eventType" required>
+                  <option value="">Select event type</option>
                   <option>Trade show</option>
                   <option>Conference</option>
                   <option>Brand activation</option>
                   <option>Festival sponsorship</option>
-                  <option>Product launch</option>
                   <option>Multi-day corporate event</option>
-                  <option>Other corporate event</option>
+                  <option>Product launch</option>
+                  <option>Other</option>
                 </select>
               </label>
-              <label>Event dates <input name="Event dates" placeholder="e.g. Aug 12–15, 2026" /></label>
-              <label># days <input name="# days" type="number" min="1" inputmode="numeric" /></label>
-              <label># kiosks <input name="# kiosks" type="number" min="1" inputmode="numeric" /></label>
-              <label>Expected attendance <input name="Expected attendance" type="number" min="0" inputmode="numeric" /></label>
-              <label class="wide">Venue/city <input name="Venue/city" /></label>
+              <label class="full">Tell us about your event<textarea name="message" rows="5"></textarea></label>
             </div>
-          </fieldset>
+            <button class="submit-btn" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-          <fieldset>
-            <legend>Creative direction</legend>
-            <div class="form-grid">
-              <label class="wide">Branding direction <textarea name="Branding direction" rows="4" placeholder="Logos, colors, AI style, target output, CRM needs…"></textarea></label>
-              <label class="wide">Notes <textarea name="Notes" rows="4" placeholder="Anything else PowerWyze should know about the event footprint or production requirements?"></textarea></label>
-            </div>
-          </fieldset>
-
-          <div class="form-actions">
-            <p data-form-status role="status" aria-live="polite"></p>
-            <button class="btn btn-primary btn-large" type="submit">Request corporate quote</button>
-          </div>
-        </form>
+    <footer class="site-footer dark-section">
+      <div class="footer-inner">
+        <span class="footer-logo-frame"><img src="assets/logo.png" alt="PowerWyze" class="footer-logo" /></span>
+        <hr />
+        <dl class="footer-contact">
+          <div><dt>Office:</dt><dd>Hallandale Beach, FL</dd></div>
+          <div><dt>Email:</dt><dd><a href="mailto:wyzer@powerwyze.com">wyzer@powerwyze.com</a></dd></div>
+          <div><dt>Site:</dt><dd><a href="https://powerwyze.com">powerwyze.com</a></dd></div>
+        </dl>
+        <p class="follow">Follow us</p>
+        <div class="socials" aria-label="Social links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.9H3.7v10.4h3.24V8.9ZM5.32 4.03a1.88 1.88 0 1 0 0 3.76 1.88 1.88 0 0 0 0-3.76Zm13.98 9.3c0-3.13-1.67-4.58-3.9-4.58-1.8 0-2.6.99-3.05 1.68V8.9H9.24v10.4h3.24v-5.14c0-1.36.26-2.68 1.95-2.68 1.66 0 1.69 1.55 1.69 2.77v5.05h3.24l-.06-5.97Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9a4.7 4.7 0 0 1-4.7 4.7h-9a4.7 4.7 0 0 1-4.7-4.7v-9A4.7 4.7 0 0 1 7.5 2.8Zm0 1.8a2.9 2.9 0 0 0-2.9 2.9v9a2.9 2.9 0 0 0 2.9 2.9h9a2.9 2.9 0 0 0 2.9-2.9v-9a2.9 2.9 0 0 0-2.9-2.9h-9Zm4.5 3a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 1.8a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm5.03-2.08a1.03 1.03 0 1 1 0 2.06 1.03 1.03 0 0 1 0-2.06Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.2a2.62 2.62 0 0 0-1.85-1.86C18.1 4.9 12 4.9 12 4.9s-6.1 0-7.73.44A2.62 2.62 0 0 0 2.42 7.2 27.2 27.2 0 0 0 2 12a27.2 27.2 0 0 0 .42 4.8 2.62 2.62 0 0 0 1.85 1.86c1.63.44 7.73.44 7.73.44s6.1 0 7.73-.44a2.62 2.62 0 0 0 1.85-1.86A27.2 27.2 0 0 0 22 12a27.2 27.2 0 0 0-.42-4.8ZM10 15.1V8.9l5.2 3.1L10 15.1Z" fill="currentColor"/></svg></a>
+        </div>
+        <hr />
+        <p class="copyright">© POWERWYZE — ALL RIGHTS RESERVED</p>
       </div>
-    </dialog>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js?v=6" defer></script>
   </body>
 </html>
