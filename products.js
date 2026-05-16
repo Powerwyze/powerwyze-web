@@ -45,7 +45,7 @@
       const sumItLabel = $('#sum-it-label');
       const sumTotalLabel = $('#sum-total-label');
       if (mode === 'rental') {
-        sizeHelp.textContent = 'Rental base: 32" is $1,200/day. Each step up adds $500/day. Includes kiosk hardware, camera, software loadout, on-site setup and tear-down.';
+        sizeHelp.textContent = 'Floor-standing kiosk available in 32", 37", 43", 55", and 65" portrait displays. Each unit ships with an integrated overhead 4K camera mount for AI vision, capture, and audience analytics.';
         itHelp.textContent = 'IT support is included free during your activation rental. Unlimited edits and new simple app activations on-site.';
         brandingHelp.innerHTML = 'Custom wrap and on-brand UI for $500 (one-time per activation).';
         itTitle.textContent = 'Add IT support (included)';
@@ -55,7 +55,7 @@
         sumItLabel.textContent = 'IT support';
         sumTotalLabel.textContent = 'Per-day total';
       } else {
-        sizeHelp.textContent = 'Base 32" kiosk is $3,500. Each step up is $1,000. Includes kiosk hardware, camera, and software loadout.';
+        sizeHelp.textContent = 'Floor-standing kiosk available in 32", 37", 43", 55", and 65" portrait displays. Each unit ships with an integrated overhead 4K camera mount for AI vision, capture, and audience analytics.';
         itHelp.textContent = '$1,000 per year · Includes unlimited software and new simple app activations.';
         brandingHelp.innerHTML = 'Custom wrap and on-brand UI for $500 (one-time). <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.';
         itTitle.textContent = 'Add IT support';
