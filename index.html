@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=18" />
+    <link rel="stylesheet" href="styles.css?v=19" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -27,7 +27,7 @@
       <nav class="site-nav" id="site-nav" data-nav>
         <a href="#system">System</a>
         <a href="#field">In the field</a>
-        <a href="#pricing">Pricing</a>
+        <a href="/products">Products</a>
         <a href="#faq">FAQ</a>
         <a href="#about">About</a>
       </nav>
@@ -182,6 +182,25 @@
         </div>
       </section>
 
+      <section class="section products-teaser" id="products" aria-labelledby="products-teaser-title">
+        <div class="container products-teaser-grid">
+          <div class="products-teaser-copy reveal">
+            <p class="kicker">Order a kiosk</p>
+            <h2 id="products-teaser-title">Configure your RoboKiosk. Submit the order. No payment on the page.</h2>
+            <p>Choose size from 32&Prime; through 65&Prime;. Add simple app activations — Smart Queue, Wayfinder, Self-Order, AI Concierge, and more — with live previews you can open right in the browser. Add custom branding and we&rsquo;ll cover your first year of IT support.</p>
+            <ul class="teaser-list">
+              <li>Base 32&Prime; kiosk from $3,500 (kiosk + camera + software)</li>
+              <li>IT support $500 yr 1 · $1,000/yr after · unlimited edits &amp; app activations</li>
+              <li>Optional branding wrap &amp; UI: $500 — Year 1 IT free</li>
+            </ul>
+            <a class="pill-cta" href="/products"><span>Build your kiosk</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="products-teaser-visual reveal">
+            <img src="assets/kiosk-lineup.png" alt="PowerWyze RoboKiosk sizes 32 inch through 65 inch shown branded for real activations" />
+          </div>
+        </div>
+      </section>
+
       <section class="section field" id="field" aria-labelledby="field-title">
         <div class="container section-heading centered">
           <p class="kicker">In the field</p>
@@ -321,6 +340,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <script src="script.js?v=18" defer></script>
+    <script src="script.js?v=19" defer></script>
   </body>
 </html>
