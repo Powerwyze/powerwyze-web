@@ -271,3 +271,153 @@ dd { color: rgba(255,255,255,.72); }
   .products-teaser-grid { grid-template-columns: 1fr; }
   .products-teaser-visual { aspect-ratio: 16/12; }
 }
+
+/* === Leadership / About Us section === */
+.leadership-section {
+  padding: clamp(64px, 9vw, 120px) 0;
+  background: var(--cream-2, #F4EEE5);
+  border-top: 1px solid var(--line, #d8d3c8);
+}
+.leadership-inner {
+  width: var(--container, min(88vw, 1220px));
+  margin: 0 auto;
+}
+.leadership-head {
+  max-width: 780px;
+  margin: 0 auto clamp(40px, 6vw, 64px);
+  text-align: center;
+}
+.leadership-head .kicker {
+  color: var(--green-dark, #3FAA62);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.leadership-head h2 {
+  color: var(--navy, #1B2141);
+  font-family: 'PP Editorial New', 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.leadership-lead {
+  color: #4a4a52;
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+.badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--navy, #1B2141);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--line, #d8d3c8);
+  box-shadow: 0 1px 0 rgba(27, 33, 65, 0.04);
+}
+.badge-pill::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #96C754 0%, #7BC242 45%, #3FAA62 100%);
+  flex-shrink: 0;
+}
+
+.leadership-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr;
+  max-width: 880px;
+  margin: 0 auto;
+}
+@media (min-width: 720px) {
+  .leadership-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+}
+.leader-card {
+  background: #fff;
+  border: 1px solid var(--line, #d8d3c8);
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.leader-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -22px rgba(27, 33, 65, 0.25);
+}
+.leader-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--cream, #FCF7F1);
+  position: relative;
+}
+.leader-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.leader-photo-mono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #1B2141 0%, #283358 50%, #11162E 100%);
+}
+.leader-monogram {
+  font-family: 'PP Editorial New', 'Playfair Display', Georgia, serif;
+  font-size: clamp(72px, 12vw, 128px);
+  line-height: 1;
+  color: transparent;
+  background: linear-gradient(180deg, #96C754 0%, #7BC242 45%, #3FAA62 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.leader-body {
+  padding: 4px 6px 8px;
+}
+.leader-role {
+  color: var(--green-dark, #3FAA62);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+.leader-name {
+  color: var(--navy, #1B2141);
+  font-family: 'PP Editorial New', 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.15;
+  margin: 0 0 12px;
+  letter-spacing: -0.005em;
+}
+.leader-bio {
+  color: #4a4a52;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
