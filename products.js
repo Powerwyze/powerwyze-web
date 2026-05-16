@@ -123,42 +123,55 @@
     return Number(input.getAttribute(mode === 'rental' ? 'data-rent' : 'data-buy'));
   }
 
+  function getQty() {
+    const qtyEl = document.getElementById('qty');
+    if (!qtyEl) return 1;
+    let q = parseInt(qtyEl.value, 10);
+    if (isNaN(q) || q < 1) q = 1;
+    if (q > 50) q = 50;
+    return q;
+  }
+
   function updatePrice() {
     const sizeInput = sizeInputs.find((i) => i.checked);
-    const basePrice = sizeInput ? getSizePrice(sizeInput) : (mode === 'rental' ? 1200 : 3500);
+    const basePriceUnit = sizeInput ? getSizePrice(sizeInput) : (mode === 'rental' ? 1200 : 3500);
     const sizeLabel = sizeInput ? sizeInput.value + '"' : '32"';
+    const qty = getQty();
 
     const brandingOn = optBranding.checked;
     const itOn = optIt.checked;
 
-    let itCost, brandingCost;
+    let itCost, brandingCostUnit;
 
     if (mode === 'rental') {
-      // Rental: IT support always $0, branding is the only add-on
+      // Rental: IT support always $0, branding is the only add-on (per kiosk)
       itCost = 0;
-      brandingCost = brandingOn ? 500 : 0;
+      brandingCostUnit = brandingOn ? 500 : 0;
     } else {
-      // Purchase: IT $1,000/yr, branding $500 one-time + makes Year 1 IT free
+      // Purchase: IT $1,000/yr (per account, not multiplied), branding $500/kiosk + makes Year 1 IT free
       itCost = brandingOn ? 0 : (itOn ? 1000 : 0);
-      brandingCost = brandingOn ? 500 : 0;
+      brandingCostUnit = brandingOn ? 500 : 0;
     }
 
-    const total = basePrice + itCost + brandingCost;
+    const baseTotal = basePriceUnit * qty;
+    const brandingTotal = brandingCostUnit * qty;
+    const total = baseTotal + itCost + brandingTotal;
     const suffix = mode === 'rental' ? '/day' : '';
+    const qtySuffix = qty > 1 ? ' (×' + qty + ')' : '';
 
     // Update price card
     $('#price-total').textContent = fmt(total) + suffix;
     const lines = [];
     if (mode === 'rental') {
-      lines.push(sizeLabel + ' base kiosk: ' + fmt(basePrice) + '/day');
+      lines.push(qty + '× ' + sizeLabel + ' base kiosk: ' + fmt(baseTotal) + '/day');
       lines.push('IT support: included');
-      if (brandingOn) lines.push('Custom branding: $500 (one-time)');
+      if (brandingOn) lines.push('Custom branding: ' + fmt(brandingTotal) + ' (one-time)');
       lines.push('No payment taken on this page');
     } else {
-      lines.push(sizeLabel + ' base kiosk: ' + fmt(basePrice));
+      lines.push(qty + '× ' + sizeLabel + ' base kiosk: ' + fmt(baseTotal));
       if (itOn && brandingOn) lines.push('IT Year 1: free with branding');
       else if (itOn) lines.push('IT support: $1,000/yr');
-      if (brandingOn) lines.push('Custom branding: $500 (one-time)');
+      if (brandingOn) lines.push('Custom branding: ' + fmt(brandingTotal) + ' (one-time)');
       lines.push('No payment taken on this page');
     }
     $('#price-breakdown').textContent = lines.join(' · ');
@@ -175,18 +188,54 @@
 
     // Update order summary
     $('#sum-size').textContent = sizeLabel;
-    $('#sum-base').textContent = fmt(basePrice) + suffix;
+    const sumQtyEl = document.getElementById('sum-qty');
+    if (sumQtyEl) sumQtyEl.textContent = String(qty);
+    $('#sum-base').textContent = fmt(baseTotal) + suffix + (qty > 1 ? ' (' + qty + ' × ' + fmt(basePriceUnit) + suffix + ')' : '');
     if (mode === 'rental') {
       $('#sum-it').textContent = 'Included';
     } else {
       $('#sum-it').textContent = brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$1,000' : 'Not added');
     }
-    $('#sum-branding').textContent = brandingOn ? '$500' : '—';
+    $('#sum-branding').textContent = brandingOn ? (fmt(brandingTotal) + (qty > 1 ? ' (' + qty + ' × $500)' : '')) : '—';
     const appsChecked = $$('input[name="app"]:checked').length;
     $('#sum-apps').textContent = String(appsChecked);
     $('#sum-custom').textContent = optCustomApp.checked ? 'Requested' : '—';
     $('#sum-total').textContent = fmt(total) + suffix;
   }
+
+  // ===== Quantity stepper =====
+  const qtyEl = document.getElementById('qty');
+  const qtyMinus = document.getElementById('qty-minus');
+  const qtyPlus = document.getElementById('qty-plus');
+  function syncQtyButtons() {
+    if (!qtyEl || !qtyMinus || !qtyPlus) return;
+    const q = getQty();
+    qtyMinus.disabled = q <= 1;
+    qtyPlus.disabled = q >= 50;
+  }
+  if (qtyMinus) qtyMinus.addEventListener('click', () => {
+    const q = getQty();
+    qtyEl.value = Math.max(1, q - 1);
+    syncQtyButtons();
+    updatePrice();
+  });
+  if (qtyPlus) qtyPlus.addEventListener('click', () => {
+    const q = getQty();
+    qtyEl.value = Math.min(50, q + 1);
+    syncQtyButtons();
+    updatePrice();
+  });
+  if (qtyEl) qtyEl.addEventListener('input', () => {
+    // Allow typing; clamp on blur
+    syncQtyButtons();
+    updatePrice();
+  });
+  if (qtyEl) qtyEl.addEventListener('blur', () => {
+    qtyEl.value = String(getQty());
+    syncQtyButtons();
+    updatePrice();
+  });
+  syncQtyButtons();
 
   // Initialise once
   updatePrice();
@@ -231,20 +280,23 @@
 
     const sizeInput = sizeInputs.find((i) => i.checked);
     const size = sizeInput ? sizeInput.value + '"' : '32"';
-    const basePrice = sizeInput ? getSizePrice(sizeInput) : (mode === 'rental' ? 1200 : 3500);
+    const basePriceUnit = sizeInput ? getSizePrice(sizeInput) : (mode === 'rental' ? 1200 : 3500);
+    const qty = getQty();
     const brandingOn = optBranding.checked;
     const itOn = optIt.checked;
     const customAppOn = optCustomApp.checked;
 
-    let itCost, brandingCost;
+    let itCost, brandingCostUnit;
     if (mode === 'rental') {
       itCost = 0;
-      brandingCost = brandingOn ? 500 : 0;
+      brandingCostUnit = brandingOn ? 500 : 0;
     } else {
       itCost = brandingOn ? 0 : (itOn ? 1000 : 0);
-      brandingCost = brandingOn ? 500 : 0;
+      brandingCostUnit = brandingOn ? 500 : 0;
     }
-    const total = basePrice + itCost + brandingCost;
+    const baseTotal = basePriceUnit * qty;
+    const brandingTotal = brandingCostUnit * qty;
+    const total = baseTotal + itCost + brandingTotal;
     const apps = $$('input[name="app"]:checked').map((cb) => cb.value);
     const suffix = mode === 'rental' ? '/day' : '';
     const modeLabel = mode === 'rental' ? 'Activation rental' : 'Kiosk purchase';
@@ -263,13 +315,14 @@
     lines.push('');
     lines.push('--- KIOSK CONFIGURATION ---');
     lines.push('Size: ' + size);
-    lines.push('Base kiosk: ' + fmt(basePrice) + suffix);
+    lines.push('Quantity: ' + qty);
+    lines.push('Base kiosk: ' + fmt(baseTotal) + suffix + (qty > 1 ? '  (' + qty + ' × ' + fmt(basePriceUnit) + suffix + ')' : ''));
     if (mode === 'rental') {
       lines.push('IT support: Included free with rental');
     } else {
       lines.push('IT support (Year 1): ' + (brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$1,000' : 'Not added')));
     }
-    lines.push('Custom branding: ' + (brandingOn ? '$500 (one-time)' + (mode === 'purchase' ? ' · Year 1 IT free' : ' per activation') : 'Not added'));
+    lines.push('Custom branding: ' + (brandingOn ? fmt(brandingTotal) + ' one-time' + (qty > 1 ? '  (' + qty + ' × $500)' : '') + (mode === 'purchase' ? ' · Year 1 IT free' : ' per activation') : 'Not added'));
     if (brandingOn && fd.get('branding_description')) {
       lines.push('Branding description: ' + fd.get('branding_description'));
     }
