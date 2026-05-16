@@ -56,9 +56,9 @@
         sumTotalLabel.textContent = 'Per-day total';
       } else {
         sizeHelp.textContent = 'Base 32" kiosk is $3,500. Each step up is $1,000. Includes kiosk hardware, camera, and software loadout.';
-        itHelp.textContent = 'Year 1: $500 · Each year after: $1,000 · Includes unlimited edits and new simple app activations.';
-        brandingHelp.innerHTML = 'Custom wrap and on-brand UI for $500. <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.';
-        itTitle.textContent = 'Add IT support (Year 1)';
+        itHelp.textContent = '$1,000 per year · Includes unlimited software and new simple app activations.';
+        brandingHelp.innerHTML = 'Custom wrap and on-brand UI for $500 (one-time). <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.';
+        itTitle.textContent = 'Add IT support';
         priceLabel.textContent = 'Configured total';
         sumModeEl.textContent = 'Purchase';
         sumBaseLabel.textContent = 'Base kiosk';
@@ -138,8 +138,8 @@
       itCost = 0;
       brandingCost = brandingOn ? 500 : 0;
     } else {
-      // Purchase: IT yr1 $500, branding $500 + makes yr1 IT free
-      itCost = brandingOn ? 0 : (itOn ? 500 : 0);
+      // Purchase: IT $1,000/yr, branding $500 one-time + makes Year 1 IT free
+      itCost = brandingOn ? 0 : (itOn ? 1000 : 0);
       brandingCost = brandingOn ? 500 : 0;
     }
 
@@ -157,8 +157,8 @@
     } else {
       lines.push(sizeLabel + ' base kiosk: ' + fmt(basePrice));
       if (itOn && brandingOn) lines.push('IT Year 1: free with branding');
-      else if (itOn) lines.push('IT Year 1: $500');
-      if (brandingOn) lines.push('Custom branding: $500');
+      else if (itOn) lines.push('IT support: $1,000/yr');
+      if (brandingOn) lines.push('Custom branding: $500 (one-time)');
       lines.push('No payment taken on this page');
     }
     $('#price-breakdown').textContent = lines.join(' · ');
@@ -168,8 +168,9 @@
       itMeta.innerHTML = '<strong style="color: var(--green-dark);">Included free with rental</strong>';
     } else if (brandingOn) {
       itMeta.innerHTML = '<strong style="color: var(--green-dark);">Free Year 1 (branding bonus)</strong> · $1,000/yr after';
+      // ^ keep same string for branding-on case
     } else {
-      itMeta.textContent = itOn ? '$500 first year · $1,000/yr after' : '$500 first year';
+      itMeta.textContent = '$1,000 / year';
     }
 
     // Update order summary
@@ -178,7 +179,7 @@
     if (mode === 'rental') {
       $('#sum-it').textContent = 'Included';
     } else {
-      $('#sum-it').textContent = brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$500' : 'Not added');
+      $('#sum-it').textContent = brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$1,000' : 'Not added');
     }
     $('#sum-branding').textContent = brandingOn ? '$500' : '—';
     const appsChecked = $$('input[name="app"]:checked').length;
@@ -240,7 +241,7 @@
       itCost = 0;
       brandingCost = brandingOn ? 500 : 0;
     } else {
-      itCost = brandingOn ? 0 : (itOn ? 500 : 0);
+      itCost = brandingOn ? 0 : (itOn ? 1000 : 0);
       brandingCost = brandingOn ? 500 : 0;
     }
     const total = basePrice + itCost + brandingCost;
@@ -266,9 +267,9 @@
     if (mode === 'rental') {
       lines.push('IT support: Included free with rental');
     } else {
-      lines.push('IT support (Year 1): ' + (brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$500' : 'Not added')));
+      lines.push('IT support (Year 1): ' + (brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$1,000' : 'Not added')));
     }
-    lines.push('Custom branding: ' + (brandingOn ? '$500' + (mode === 'purchase' ? ' (Year 1 IT free)' : ' (one-time per activation)') : 'Not added'));
+    lines.push('Custom branding: ' + (brandingOn ? '$500 (one-time)' + (mode === 'purchase' ? ' · Year 1 IT free' : ' per activation') : 'Not added'));
     if (brandingOn && fd.get('branding_description')) {
       lines.push('Branding description: ' + fd.get('branding_description'));
     }

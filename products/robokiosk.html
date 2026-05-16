@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=20" />
-    <link rel="stylesheet" href="/products.css?v=5" />
+    <link rel="stylesheet" href="/products.css?v=6" />
   </head>
   <body class="products-body">
     <header class="site-header" data-header>
@@ -132,12 +132,12 @@
             <!-- 2. IT Support -->
             <fieldset class="opt-section">
               <legend><span class="step">2</span> IT support plan</legend>
-              <p class="opt-help" id="it-help">Year 1: $500 · Each year after: $1,000 · Includes unlimited edits and new simple app activations.</p>
+              <p class="opt-help" id="it-help">$1,000 per year · Includes unlimited software and new simple app activations.</p>
               <label class="check-card" id="it-card">
                 <input type="checkbox" id="opt-it" checked />
                 <div class="check-body">
-                  <span class="check-title" id="it-title">Add IT support (Year 1)</span>
-                  <span class="check-meta" id="it-meta">$500 first year</span>
+                  <span class="check-title" id="it-title">Add IT support</span>
+                  <span class="check-meta" id="it-meta">$1,000 / year</span>
                 </div>
               </label>
             </fieldset>
@@ -145,11 +145,11 @@
             <!-- 3. Branding -->
             <fieldset class="opt-section">
               <legend><span class="step">3</span> Custom branding</legend>
-              <p class="opt-help" id="branding-help">Custom wrap and on-brand UI for $500. <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.</p>
+              <p class="opt-help" id="branding-help">Custom wrap and on-brand UI for $500 (one-time). <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.</p>
               <label class="check-card">
                 <input type="checkbox" id="opt-branding" />
                 <div class="check-body">
-                  <span class="check-title">Add custom branding (+$500)</span>
+                  <span class="check-title">Add custom branding (+$500 one-time)</span>
                   <span class="check-meta" id="branding-bonus">Year 1 IT support becomes free</span>
                 </div>
               </label>
@@ -323,7 +323,7 @@
                     <li><span>Order type</span><span id="sum-mode">Purchase</span></li>
                     <li><span>Size</span><span id="sum-size">32"</span></li>
                     <li><span id="sum-base-label">Base kiosk</span><span id="sum-base">$3,500</span></li>
-                    <li><span id="sum-it-label">IT support (Year 1)</span><span id="sum-it">$500</span></li>
+                    <li><span id="sum-it-label">IT support (Year 1)</span><span id="sum-it">$1,000</span></li>
                     <li><span>Branding</span><span id="sum-branding">—</span></li>
                     <li><span>Apps selected</span><span id="sum-apps">0</span></li>
                     <li><span>Custom app</span><span id="sum-custom">—</span></li>
@@ -402,6 +402,6 @@
       </div>
     </div>
 
-    <script src="/products.js?v=3" defer></script>
+    <script src="/products.js?v=4" defer></script>
   </body>
 </html>
