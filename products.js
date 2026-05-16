@@ -1,4 +1,5 @@
 /* PowerWyze Products configurator
+   - Mode toggle (Purchase vs Activation Rental)
    - Price calc
    - Gallery thumbs
    - App preview modal (iframes the live kiosk demo)
@@ -14,6 +15,59 @@
   // ===== Year =====
   const yearEl = $('[data-year]');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // ===== Mode (purchase vs rental) =====
+  let mode = 'purchase'; // 'purchase' | 'rental'
+  const modeBtns = $$('.mode-btn');
+  modeBtns.forEach((b) => {
+    b.addEventListener('click', () => {
+      mode = b.getAttribute('data-mode');
+      modeBtns.forEach((x) => {
+        const active = x === b;
+        x.classList.toggle('is-active', active);
+        x.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      // Update size prices displayed on each option card
+      $$('.size-option').forEach((opt) => {
+        const input = opt.querySelector('input[name="size"]');
+        const priceEl = opt.querySelector('[data-size-price]');
+        const v = Number(input.getAttribute(mode === 'rental' ? 'data-rent' : 'data-buy'));
+        priceEl.textContent = fmt(v) + (mode === 'rental' ? '/day' : '');
+      });
+      // Update help copy
+      const sizeHelp = $('#size-help');
+      const itHelp = $('#it-help');
+      const brandingHelp = $('#branding-help');
+      const itTitle = $('#it-title');
+      const priceLabel = $('#price-label');
+      const sumModeEl = $('#sum-mode');
+      const sumBaseLabel = $('#sum-base-label');
+      const sumItLabel = $('#sum-it-label');
+      const sumTotalLabel = $('#sum-total-label');
+      if (mode === 'rental') {
+        sizeHelp.textContent = 'Rental base: 32" is $1,200/day. Each step up adds $500/day. Includes kiosk hardware, camera, software loadout, on-site setup and tear-down.';
+        itHelp.textContent = 'IT support is included free during your activation rental. Unlimited edits and new simple app activations on-site.';
+        brandingHelp.innerHTML = 'Custom wrap and on-brand UI for $500 (one-time per activation).';
+        itTitle.textContent = 'Add IT support (included)';
+        priceLabel.textContent = 'Per-day total';
+        sumModeEl.textContent = 'Activation rental';
+        sumBaseLabel.textContent = 'Base kiosk (per day)';
+        sumItLabel.textContent = 'IT support';
+        sumTotalLabel.textContent = 'Per-day total';
+      } else {
+        sizeHelp.textContent = 'Base 32" kiosk is $3,500. Each step up is $1,000. Includes kiosk hardware, camera, and software loadout.';
+        itHelp.textContent = 'Year 1: $500 · Each year after: $1,000 · Includes unlimited edits and new simple app activations.';
+        brandingHelp.innerHTML = 'Custom wrap and on-brand UI for $500. <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.';
+        itTitle.textContent = 'Add IT support (Year 1)';
+        priceLabel.textContent = 'Configured total';
+        sumModeEl.textContent = 'Purchase';
+        sumBaseLabel.textContent = 'Base kiosk';
+        sumItLabel.textContent = 'IT support (Year 1)';
+        sumTotalLabel.textContent = 'Total submitted';
+      }
+      updatePrice();
+    });
+  });
 
   // ===== Gallery =====
   const galleryMainImg = $('#gallery-main-img');
@@ -40,12 +94,11 @@
     });
   });
 
-  // ===== Branding toggle (shows details, makes IT yr1 free) =====
+  // ===== Branding toggle =====
   const optBranding = $('#opt-branding');
   const brandingDetails = $('#branding-details');
   const optIt = $('#opt-it');
   const itMeta = $('#it-meta');
-  const itCard = $('#it-card');
 
   optBranding.addEventListener('change', () => {
     brandingDetails.hidden = !optBranding.checked;
@@ -66,33 +119,54 @@
   $$('input[name="app"]').forEach((cb) => cb.addEventListener('change', updatePrice));
 
   // ===== Price calculation =====
+  function getSizePrice(input) {
+    return Number(input.getAttribute(mode === 'rental' ? 'data-rent' : 'data-buy'));
+  }
+
   function updatePrice() {
     const sizeInput = sizeInputs.find((i) => i.checked);
-    const basePrice = sizeInput ? Number(sizeInput.getAttribute('data-price')) : 3500;
+    const basePrice = sizeInput ? getSizePrice(sizeInput) : (mode === 'rental' ? 1200 : 3500);
     const sizeLabel = sizeInput ? sizeInput.value + '"' : '32"';
 
     const brandingOn = optBranding.checked;
     const itOn = optIt.checked;
 
-    // If branding is on, Year 1 IT support is free
-    const itYr1Cost = brandingOn ? 0 : (itOn ? 500 : 0);
-    const brandingCost = brandingOn ? 500 : 0;
+    let itCost, brandingCost;
 
-    const total = basePrice + itYr1Cost + brandingCost;
+    if (mode === 'rental') {
+      // Rental: IT support always $0, branding is the only add-on
+      itCost = 0;
+      brandingCost = brandingOn ? 500 : 0;
+    } else {
+      // Purchase: IT yr1 $500, branding $500 + makes yr1 IT free
+      itCost = brandingOn ? 0 : (itOn ? 500 : 0);
+      brandingCost = brandingOn ? 500 : 0;
+    }
+
+    const total = basePrice + itCost + brandingCost;
+    const suffix = mode === 'rental' ? '/day' : '';
 
     // Update price card
-    $('#price-total').textContent = fmt(total);
-    const lines = [
-      sizeLabel + ' base kiosk: ' + fmt(basePrice),
-    ];
-    if (itOn && brandingOn) lines.push('IT Year 1: free with branding');
-    else if (itOn) lines.push('IT Year 1: $500');
-    if (brandingOn) lines.push('Custom branding: $500');
-    lines.push('No payment taken on this page');
+    $('#price-total').textContent = fmt(total) + suffix;
+    const lines = [];
+    if (mode === 'rental') {
+      lines.push(sizeLabel + ' base kiosk: ' + fmt(basePrice) + '/day');
+      lines.push('IT support: included');
+      if (brandingOn) lines.push('Custom branding: $500 (one-time)');
+      lines.push('No payment taken on this page');
+    } else {
+      lines.push(sizeLabel + ' base kiosk: ' + fmt(basePrice));
+      if (itOn && brandingOn) lines.push('IT Year 1: free with branding');
+      else if (itOn) lines.push('IT Year 1: $500');
+      if (brandingOn) lines.push('Custom branding: $500');
+      lines.push('No payment taken on this page');
+    }
     $('#price-breakdown').textContent = lines.join(' · ');
 
-    // Update IT card meta to reflect branding bonus
-    if (brandingOn) {
+    // Update IT card meta
+    if (mode === 'rental') {
+      itMeta.innerHTML = '<strong style="color: var(--green-dark);">Included free with rental</strong>';
+    } else if (brandingOn) {
       itMeta.innerHTML = '<strong style="color: var(--green-dark);">Free Year 1 (branding bonus)</strong> · $1,000/yr after';
     } else {
       itMeta.textContent = itOn ? '$500 first year · $1,000/yr after' : '$500 first year';
@@ -100,13 +174,17 @@
 
     // Update order summary
     $('#sum-size').textContent = sizeLabel;
-    $('#sum-base').textContent = fmt(basePrice);
-    $('#sum-it').textContent = brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$500' : 'Not added');
+    $('#sum-base').textContent = fmt(basePrice) + suffix;
+    if (mode === 'rental') {
+      $('#sum-it').textContent = 'Included';
+    } else {
+      $('#sum-it').textContent = brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$500' : 'Not added');
+    }
     $('#sum-branding').textContent = brandingOn ? '$500' : '—';
     const appsChecked = $$('input[name="app"]:checked').length;
     $('#sum-apps').textContent = String(appsChecked);
     $('#sum-custom').textContent = optCustomApp.checked ? 'Requested' : '—';
-    $('#sum-total').textContent = fmt(total);
+    $('#sum-total').textContent = fmt(total) + suffix;
   }
 
   // Initialise once
@@ -152,14 +230,23 @@
 
     const sizeInput = sizeInputs.find((i) => i.checked);
     const size = sizeInput ? sizeInput.value + '"' : '32"';
-    const basePrice = sizeInput ? Number(sizeInput.getAttribute('data-price')) : 3500;
+    const basePrice = sizeInput ? getSizePrice(sizeInput) : (mode === 'rental' ? 1200 : 3500);
     const brandingOn = optBranding.checked;
     const itOn = optIt.checked;
     const customAppOn = optCustomApp.checked;
-    const itYr1 = brandingOn ? 0 : (itOn ? 500 : 0);
-    const branding = brandingOn ? 500 : 0;
-    const total = basePrice + itYr1 + branding;
+
+    let itCost, brandingCost;
+    if (mode === 'rental') {
+      itCost = 0;
+      brandingCost = brandingOn ? 500 : 0;
+    } else {
+      itCost = brandingOn ? 0 : (itOn ? 500 : 0);
+      brandingCost = brandingOn ? 500 : 0;
+    }
+    const total = basePrice + itCost + brandingCost;
     const apps = $$('input[name="app"]:checked').map((cb) => cb.value);
+    const suffix = mode === 'rental' ? '/day' : '';
+    const modeLabel = mode === 'rental' ? 'Activation rental' : 'Kiosk purchase';
 
     const lines = [];
     lines.push('Hi PowerWyze team,');
@@ -167,6 +254,7 @@
     lines.push("I'd like to place a kiosk order with the following configuration:");
     lines.push('');
     lines.push('--- ORDER DETAILS ---');
+    lines.push('Order type: ' + modeLabel);
     lines.push('Name: ' + (fd.get('name') || ''));
     lines.push('Email: ' + (fd.get('email') || ''));
     lines.push('Phone: ' + (fd.get('phone') || ''));
@@ -174,9 +262,13 @@
     lines.push('');
     lines.push('--- KIOSK CONFIGURATION ---');
     lines.push('Size: ' + size);
-    lines.push('Base kiosk: ' + fmt(basePrice));
-    lines.push('IT support (Year 1): ' + (brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$500' : 'Not added')));
-    lines.push('Custom branding: ' + (brandingOn ? '$500 (Year 1 IT free)' : 'Not added'));
+    lines.push('Base kiosk: ' + fmt(basePrice) + suffix);
+    if (mode === 'rental') {
+      lines.push('IT support: Included free with rental');
+    } else {
+      lines.push('IT support (Year 1): ' + (brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$500' : 'Not added')));
+    }
+    lines.push('Custom branding: ' + (brandingOn ? '$500' + (mode === 'purchase' ? ' (Year 1 IT free)' : ' (one-time per activation)') : 'Not added'));
     if (brandingOn && fd.get('branding_description')) {
       lines.push('Branding description: ' + fd.get('branding_description'));
     }
@@ -194,14 +286,14 @@
     }
     lines.push('');
     lines.push('--- ORDER TOTAL (submitted, no payment) ---');
-    lines.push('Total: ' + fmt(total));
+    lines.push('Total: ' + fmt(total) + suffix);
     lines.push('');
     lines.push('Please follow up to finalize scope, timeline, and payment.');
     lines.push('');
     lines.push('Thanks!');
 
     const body = encodeURIComponent(lines.join('\n'));
-    const subject = encodeURIComponent('Kiosk Order — ' + size + ' RoboKiosk (' + (fd.get('name') || 'New order') + ')');
+    const subject = encodeURIComponent('Kiosk Order — ' + modeLabel + ' · ' + size + ' RoboKiosk (' + (fd.get('name') || 'New order') + ')');
     const mailto = 'mailto:wyzer@powerwyze.com?subject=' + subject + '&body=' + body;
 
     window.location.href = mailto;

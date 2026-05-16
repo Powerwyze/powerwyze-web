@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PowerWyze — Order a RoboKiosk</title>
-    <meta name="description" content="Configure and order your PowerWyze RoboKiosk. Choose size, simple app activations, branding, and IT support. Submit your order — no payment required." />
-    <meta property="og:title" content="PowerWyze — Order a RoboKiosk" />
-    <meta property="og:description" content="Configure your kiosk: size, apps, branding, IT support. Submit your order — no payment taken." />
+    <title>PowerWyze — Products</title>
+    <meta name="description" content="PowerWyze hardware and activation systems: RoboKiosk, RoboKiosk Printing Edition, and AI Vendor Booth. Configure, order, and deploy on-brand kiosks for B2B events and activations." />
+    <meta property="og:title" content="PowerWyze — Products" />
+    <meta property="og:description" content="Explore PowerWyze hardware: RoboKiosk, RoboKiosk Printing Edition (coming soon), and AI Vendor Booth (coming soon)." />
     <meta property="og:image" content="https://powerwyze.vercel.app/assets/hero.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=19" />
-    <link rel="stylesheet" href="products.css?v=2" />
+    <link rel="stylesheet" href="/styles.css?v=20" />
+    <link rel="stylesheet" href="/products.css?v=4" />
   </head>
   <body class="products-body">
     <header class="site-header" data-header>
       <a class="brand" href="/" aria-label="PowerWyze home">
-        <img src="assets/logo-color.png?v=12" alt="PowerWyze" />
+        <img src="/assets/logo-color.png?v=12" alt="PowerWyze" />
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="/#system">System</a>
@@ -26,10 +26,6 @@
         <a href="/#faq">FAQ</a>
         <a href="/#about">About</a>
       </nav>
-      <a class="pill-cta light-on-light" href="#order-form">
-        <span>Submit order</span>
-        <span class="arrow-badge" aria-hidden="true">↗</span>
-      </a>
     </header>
 
     <main class="product-main" id="top">
@@ -38,297 +34,59 @@
         <div class="container">
           <a href="/">Home</a>
           <span aria-hidden="true">›</span>
-          <a href="/products">Products</a>
-          <span aria-hidden="true">›</span>
-          <span class="current">RoboKiosk</span>
+          <span class="current">Products</span>
         </div>
       </nav>
 
-      <!-- Amazon-style product layout: gallery left, configurator right -->
-      <section class="product-detail" aria-labelledby="product-title">
-        <div class="container product-grid">
-          <!-- Gallery -->
-          <div class="product-gallery">
-            <div class="gallery-main">
-              <img id="gallery-main-img" src="assets/kiosk-lineup.png" alt="PowerWyze RoboKiosk lineup — 32 inch through 65 inch sizes shown branded" />
+      <section class="catalog-hero">
+        <div class="container">
+          <p class="brand-eyebrow">PowerWyze · AI Hardware</p>
+          <h1>Products</h1>
+          <p>The PowerWyze hardware lineup. Pick the system, configure it, and submit your order — no payment required on this page.</p>
+        </div>
+      </section>
+
+      <section class="catalog">
+        <div class="container catalog-grid">
+          <!-- RoboKiosk (available) -->
+          <a class="catalog-card" href="/products/robokiosk">
+            <div class="catalog-image">
+              <img src="/assets/kiosk-robokiosk-hero.jpg" alt="PowerWyze RoboKiosk — AI-powered floor-ready kiosk for B2B activations" />
             </div>
-            <div class="gallery-thumbs" role="tablist" aria-label="Kiosk gallery">
-              <button class="thumb is-active" type="button" data-src="assets/kiosk-lineup.png" data-alt="Full kiosk size lineup, 32 to 65 inch" aria-label="Show size lineup">
-                <img src="assets/kiosk-lineup.png" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="assets/kiosk-robokiosk-hero.jpg" data-alt="PowerWyze RoboKiosk hero graphic" aria-label="Show RoboKiosk hero">
-                <img src="assets/kiosk-robokiosk-hero.jpg" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="assets/kiosk-elevate.png" data-alt="Elevate Driving Experiences kiosk activation" aria-label="Show Elevate kiosk">
-                <img src="assets/kiosk-elevate.png" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="assets/kiosk-techtuesday.png" data-alt="Tech Tuesday Miami crypto event kiosk" aria-label="Show Tech Tuesday kiosk">
-                <img src="assets/kiosk-techtuesday.png" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="assets/kiosk-royalwine.png" data-alt="Royal Wine retail kiosk activation" aria-label="Show Royal Wine kiosk">
-                <img src="assets/kiosk-royalwine.png" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="assets/kiosk-f1miami.png" data-alt="F1 Miami HQ NXU Circuit kiosk" aria-label="Show F1 Miami kiosk">
-                <img src="assets/kiosk-f1miami.png" alt="" />
-              </button>
+            <div class="catalog-body">
+              <p class="catalog-eyebrow">Available now</p>
+              <h2>RoboKiosk</h2>
+              <p>AI-powered floor-ready kiosk for B2B activations, retail, and corporate events. Five sizes from 32&Prime; through 65&Prime;. Configure size, apps, branding, and IT support — or rent it per day for a single activation.</p>
+              <span class="catalog-cta">Configure &amp; order <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <!-- RoboKiosk Printing Edition (coming soon) -->
+          <div class="catalog-card is-soon" aria-disabled="true">
+            <span class="soon-badge">Coming soon</span>
+            <div class="catalog-image">
+              <img src="/assets/product-printing-edition.png" alt="PowerWyze RoboKiosk Printing Edition — kiosk with integrated on-site printer for branded takeaways" />
+            </div>
+            <div class="catalog-body">
+              <p class="catalog-eyebrow coming-soon-tag">Coming soon</p>
+              <h2>RoboKiosk Printing Edition</h2>
+              <p>The RoboKiosk with an integrated on-site printer for live branded takeaways. Turn every engagement into a physical product handed to the attendee — apparel, prints, or branded merchandise produced right at the booth.</p>
+              <span class="catalog-cta">Join the waitlist <span class="arrow" aria-hidden="true">→</span></span>
             </div>
           </div>
 
-          <!-- Configurator -->
-          <div class="product-info">
-            <p class="brand-eyebrow">PowerWyze · AI Hardware</p>
-            <h1 id="product-title">RoboKiosk</h1>
-            <p class="product-summary">AI-powered floor-ready kiosk for B2B brand activations, retail, and corporate events. Includes the kiosk, camera, and software loadout. Configure size, apps, branding, and IT support — submit your order, no payment required.</p>
-
-            <div class="price-card">
-              <div class="price-row">
-                <span class="price-label">Configured total</span>
-                <strong class="price-total" id="price-total">$3,500</strong>
-              </div>
-              <p class="price-note" id="price-breakdown">32" base kiosk · IT support quoted at checkout · No payment taken on this page</p>
+          <!-- AI Vendor Booth (coming soon) -->
+          <div class="catalog-card is-soon" aria-disabled="true">
+            <span class="soon-badge">Coming soon</span>
+            <div class="catalog-image">
+              <img src="/assets/product-ai-vendor-booth.png" alt="PowerWyze AI Vendor Booth — self-service AI-powered vendor stall for trade shows and brand activations" />
             </div>
-
-            <!-- 1. Size selector -->
-            <fieldset class="opt-section">
-              <legend><span class="step">1</span> Choose your size</legend>
-              <p class="opt-help">Base 32" kiosk is $3,500. Each step up is $500. Includes kiosk hardware, camera, and software loadout.</p>
-              <div class="size-grid" role="radiogroup" aria-label="Kiosk size">
-                <label class="size-option is-selected">
-                  <input type="radio" name="size" value="32" data-price="3500" checked />
-                  <span class="size-num">32"</span>
-                  <span class="size-price">$3,500</span>
-                </label>
-                <label class="size-option">
-                  <input type="radio" name="size" value="37" data-price="4000" />
-                  <span class="size-num">37"</span>
-                  <span class="size-price">$4,000</span>
-                </label>
-                <label class="size-option">
-                  <input type="radio" name="size" value="43" data-price="4500" />
-                  <span class="size-num">43"</span>
-                  <span class="size-price">$4,500</span>
-                </label>
-                <label class="size-option">
-                  <input type="radio" name="size" value="55" data-price="5000" />
-                  <span class="size-num">55"</span>
-                  <span class="size-price">$5,000</span>
-                </label>
-                <label class="size-option">
-                  <input type="radio" name="size" value="65" data-price="5500" />
-                  <span class="size-num">65"</span>
-                  <span class="size-price">$5,500</span>
-                </label>
-              </div>
-            </fieldset>
-
-            <!-- 2. IT Support -->
-            <fieldset class="opt-section">
-              <legend><span class="step">2</span> IT support plan</legend>
-              <p class="opt-help">Year 1: $500 · Each year after: $1,000 · Includes unlimited edits and new simple app activations.</p>
-              <label class="check-card" id="it-card">
-                <input type="checkbox" id="opt-it" checked />
-                <div class="check-body">
-                  <span class="check-title">Add IT support (Year 1)</span>
-                  <span class="check-meta" id="it-meta">$500 first year</span>
-                </div>
-              </label>
-            </fieldset>
-
-            <!-- 3. Branding -->
-            <fieldset class="opt-section">
-              <legend><span class="step">3</span> Custom branding</legend>
-              <p class="opt-help">Custom wrap and on-brand UI for $500. <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.</p>
-              <label class="check-card">
-                <input type="checkbox" id="opt-branding" />
-                <div class="check-body">
-                  <span class="check-title">Add custom branding (+$500)</span>
-                  <span class="check-meta">Year 1 IT support becomes free</span>
-                </div>
-              </label>
-              <div class="branding-details" id="branding-details" hidden>
-                <label class="field">
-                  <span class="field-label">Describe your brand or activation</span>
-                  <textarea name="branding_description" rows="3" placeholder="Brand name, color palette, tone, what the kiosk should say or do for your event..."></textarea>
-                </label>
-                <label class="field">
-                  <span class="field-label">Upload logo or brand reference (optional)</span>
-                  <input type="file" id="branding-upload" name="branding_upload" accept="image/*" />
-                  <span class="upload-hint">JPG, PNG, or SVG · up to 10 MB</span>
-                </label>
-              </div>
-            </fieldset>
-
-            <!-- 4. Apps -->
-            <fieldset class="opt-section">
-              <legend><span class="step">4</span> Simple app activations</legend>
-              <p class="opt-help">Included with IT support. Click any card to preview the live demo. Check the apps you want loaded on your kiosk.</p>
-
-              <h3 class="apps-group-title">Live demo apps</h3>
-              <div class="apps-grid">
-                <article class="app-card" data-app="Smart Queue" data-url="https://powerwyze-kiosk.vercel.app/#queue">
-                  <label><input type="checkbox" name="app" value="Smart Queue" /> <span>Smart Queue</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#queue" data-preview-title="Smart Queue">Preview</button>
-                </article>
-                <article class="app-card" data-app="Wayfinder" data-url="https://powerwyze-kiosk.vercel.app/#wayfind">
-                  <label><input type="checkbox" name="app" value="Wayfinder" /> <span>Wayfinder</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#wayfind" data-preview-title="Wayfinder">Preview</button>
-                </article>
-                <article class="app-card" data-app="Self-Order" data-url="https://powerwyze-kiosk.vercel.app/#order">
-                  <label><input type="checkbox" name="app" value="Self-Order" /> <span>Self-Order</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#order" data-preview-title="Self-Order">Preview</button>
-                </article>
-                <article class="app-card" data-app="Visitor Check-In" data-url="https://powerwyze-kiosk.vercel.app/#checkin">
-                  <label><input type="checkbox" name="app" value="Visitor Check-In" /> <span>Visitor Check-In</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#checkin" data-preview-title="Visitor Check-In">Preview</button>
-                </article>
-                <article class="app-card" data-app="Pulse Survey" data-url="https://powerwyze-kiosk.vercel.app/#survey">
-                  <label><input type="checkbox" name="app" value="Pulse Survey" /> <span>Pulse Survey</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#survey" data-preview-title="Pulse Survey">Preview</button>
-                </article>
-                <article class="app-card" data-app="Digital Signage" data-url="https://powerwyze-kiosk.vercel.app/#sign">
-                  <label><input type="checkbox" name="app" value="Digital Signage" /> <span>Digital Signage</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#sign" data-preview-title="Digital Signage">Preview</button>
-                </article>
-                <article class="app-card" data-app="AI Concierge" data-url="https://powerwyze-kiosk.vercel.app/#concierge">
-                  <label><input type="checkbox" name="app" value="AI Concierge" /> <span>AI Concierge</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#concierge" data-preview-title="AI Concierge">Preview</button>
-                </article>
-                <article class="app-card" data-app="Scan & Identify" data-url="https://powerwyze-kiosk.vercel.app/#scan">
-                  <label><input type="checkbox" name="app" value="Scan & Identify" /> <span>Scan &amp; Identify</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#scan" data-preview-title="Scan &amp; Identify">Preview</button>
-                </article>
-                <article class="app-card" data-app="Wellness Check" data-url="https://powerwyze-kiosk.vercel.app/#wellness">
-                  <label><input type="checkbox" name="app" value="Wellness Check" /> <span>Wellness Check</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#wellness" data-preview-title="Wellness Check">Preview</button>
-                </article>
-                <article class="app-card" data-app="Pulse Catch" data-url="https://powerwyze-kiosk.vercel.app/#game">
-                  <label><input type="checkbox" name="app" value="Pulse Catch (game)" /> <span>Pulse Catch</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#game" data-preview-title="Pulse Catch">Preview</button>
-                </article>
-              </div>
-
-              <h3 class="apps-group-title">Mini-games</h3>
-              <div class="apps-grid">
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Tap Blitz (game)" /> <span>Tap Blitz</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#tapgame" data-preview-title="Tap Blitz">Preview</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Match Grid (game)" /> <span>Match Grid</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#matchgame" data-preview-title="Match Grid">Preview</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Charge Rush (game)" /> <span>Charge Rush</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#chargergame" data-preview-title="Charge Rush">Preview</button>
-                </article>
-              </div>
-
-              <h3 class="apps-group-title">Featured experiences</h3>
-              <div class="apps-grid">
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="PhotoBooth" /> <span>PhotoBooth</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#booth" data-preview-title="PhotoBooth">Preview</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Voice Agent" /> <span>Voice Agent</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#voice" data-preview-title="Voice Agent">Preview</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Data Dash" /> <span>Data Dash</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#data" data-preview-title="Data Dash">Preview</button>
-                </article>
-              </div>
-
-              <h3 class="apps-group-title">Concept cards <span class="muted-tag">(roadmap)</span></h3>
-              <div class="apps-grid">
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Charity Donation (concept)" /> <span>Charity Donation</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Charity Donation">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Smart Locker Pickup (concept)" /> <span>Smart Locker Pickup</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Smart Locker Pickup">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Loyalty Tap-In (concept)" /> <span>Loyalty Tap-In</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Loyalty Tap-In">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Lead Capture (concept)" /> <span>Lead Capture</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Lead Capture">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Event Schedule (concept)" /> <span>Event Schedule</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Event Schedule">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Hardware Catalog (concept)" /> <span>Hardware Catalog</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Hardware Catalog">Discover</button>
-                </article>
-              </div>
-
-              <!-- Custom app request -->
-              <div class="custom-app">
-                <label class="check-card">
-                  <input type="checkbox" id="opt-custom-app" />
-                  <div class="check-body">
-                    <span class="check-title">Request a custom simple app</span>
-                    <span class="check-meta">Describe what you need — we&rsquo;ll quote it separately</span>
-                  </div>
-                </label>
-                <div class="custom-app-details" id="custom-app-details" hidden>
-                  <label class="field">
-                    <span class="field-label">Custom app description</span>
-                    <textarea name="custom_app_description" rows="3" placeholder="What should this app do? Who is it for? Any data it needs to capture?"></textarea>
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-
-            <!-- 5. Order form -->
-            <fieldset class="opt-section" id="order-form">
-              <legend><span class="step">5</span> Submit your order</legend>
-              <p class="opt-help">No payment is taken on this page. We&rsquo;ll review your configuration and reach out within one business day to finalize scope and timeline.</p>
-              <form class="order-form" data-order-form>
-                <label class="field">
-                  <span class="field-label">Full name</span>
-                  <input type="text" name="name" required autocomplete="name" />
-                </label>
-                <div class="field-row">
-                  <label class="field">
-                    <span class="field-label">Email</span>
-                    <input type="email" name="email" required autocomplete="email" />
-                  </label>
-                  <label class="field">
-                    <span class="field-label">Phone</span>
-                    <input type="tel" name="phone" required autocomplete="tel" />
-                  </label>
-                </div>
-                <label class="field">
-                  <span class="field-label">Company / event (optional)</span>
-                  <input type="text" name="company" autocomplete="organization" />
-                </label>
-
-                <div class="summary-box" aria-live="polite">
-                  <h4>Order summary</h4>
-                  <ul id="order-summary-list">
-                    <li><span>Size</span><span id="sum-size">32"</span></li>
-                    <li><span>Base kiosk</span><span id="sum-base">$3,500</span></li>
-                    <li><span>IT support (Year 1)</span><span id="sum-it">$500</span></li>
-                    <li><span>Branding</span><span id="sum-branding">—</span></li>
-                    <li><span>Apps selected</span><span id="sum-apps">0</span></li>
-                    <li><span>Custom app</span><span id="sum-custom">—</span></li>
-                  </ul>
-                  <div class="summary-total"><span>Total submitted</span><strong id="sum-total">$4,000</strong></div>
-                </div>
-
-                <button type="submit" class="pill-cta light-on-light submit-btn">
-                  <span>Submit order</span>
-                  <span class="arrow-badge" aria-hidden="true">↗</span>
-                </button>
-                <p class="form-fineprint">By submitting, you agree to be contacted by PowerWyze about your kiosk order. We respond within one business day. No payment is processed on this page.</p>
-              </form>
-            </fieldset>
+            <div class="catalog-body">
+              <p class="catalog-eyebrow coming-soon-tag">Coming soon</p>
+              <h2>AI Vendor Booth</h2>
+              <p>A self-service AI vendor stall for trade shows and brand activations. AI camera array, integrated merchandise dispenser, and dual checkout displays — designed to staff an entire booth without a person at the counter.</p>
+              <span class="catalog-cta">Join the waitlist <span class="arrow" aria-hidden="true">→</span></span>
+            </div>
           </div>
         </div>
       </section>
@@ -340,19 +98,19 @@
           <h2 class="centered">Wrapped, branded, and deployed in the field.</h2>
           <div class="brand-cards">
             <figure class="brand-card">
-              <img src="assets/kiosk-elevate.png" alt="Elevate Driving Experiences custom kiosk" />
+              <img src="/assets/kiosk-elevate.png" alt="Elevate Driving Experiences custom kiosk" />
               <figcaption>Elevate · Luxury driving experience activation</figcaption>
             </figure>
             <figure class="brand-card">
-              <img src="assets/kiosk-techtuesday.png" alt="Tech Tuesday Miami crypto event kiosk" />
+              <img src="/assets/kiosk-techtuesday.png" alt="Tech Tuesday Miami crypto event kiosk" />
               <figcaption>Tech Tuesday Miami · Crypto Week sponsorship</figcaption>
             </figure>
             <figure class="brand-card">
-              <img src="assets/kiosk-royalwine.png" alt="Royal Wine kiosk activation" />
+              <img src="/assets/kiosk-royalwine.png" alt="Royal Wine kiosk activation" />
               <figcaption>Royal Wine · Retail and tasting activation</figcaption>
             </figure>
             <figure class="brand-card">
-              <img src="assets/kiosk-f1miami.png" alt="F1 Miami HQ NXU Circuit kiosk" />
+              <img src="/assets/kiosk-f1miami.png" alt="F1 Miami HQ NXU Circuit kiosk" />
               <figcaption>NXU Circuit · F1 Miami HQ activation</figcaption>
             </figure>
           </div>
@@ -363,7 +121,7 @@
     <footer class="site-footer" id="contact">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <span class="footer-logo-frame"><img src="assets/logo-color.png?v=12" alt="PowerWyze" class="footer-logo" /></span>
+          <span class="footer-logo-frame"><img src="/assets/logo-color.png?v=12" alt="PowerWyze" class="footer-logo" /></span>
           <p>AI event activation systems. South Florida. Deployed nationally.</p>
         </div>
         <nav aria-label="Footer">
@@ -376,23 +134,9 @@
       </div>
     </footer>
 
-    <!-- App preview modal -->
-    <div class="preview-modal" id="preview-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="preview-title">
-      <div class="preview-overlay" data-preview-close></div>
-      <div class="preview-window">
-        <header class="preview-header">
-          <h3 id="preview-title">App preview</h3>
-          <div class="preview-actions">
-            <a id="preview-open" class="preview-link" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
-            <button type="button" class="preview-close" data-preview-close aria-label="Close preview">×</button>
-          </div>
-        </header>
-        <div class="preview-frame">
-          <iframe id="preview-iframe" src="about:blank" title="App preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
-        </div>
-      </div>
-    </div>
-
-    <script src="products.js?v=1" defer></script>
+    <script>
+      // Year stamp
+      document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+    </script>
   </body>
 </html>
