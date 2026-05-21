@@ -421,3 +421,26 @@ dd { color: rgba(255,255,255,.72); }
   line-height: 1.6;
   margin: 0;
 }
+
+/* === Hero (text-only variant, after carousel removal) === */
+.hero.hero--text-only {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: auto;
+  padding-top: clamp(120px, 16vw, 200px);
+  padding-bottom: clamp(64px, 10vw, 140px);
+  text-align: left;
+}
+.hero.hero--text-only .hero-copy {
+  width: 100%;
+  max-width: var(--container, min(88vw, 1220px));
+  margin: 0 auto;
+  align-self: center;
+  padding-bottom: 0;
+  align-items: flex-start;
+}
+.hero.hero--text-only .hero-copy h1 {
+  max-width: 22ch;
+}
+.hero.hero--text-only .hero-copy p {
+  max-width: 64ch;
+}

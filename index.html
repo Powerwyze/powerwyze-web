@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=21" />
+    <link rel="stylesheet" href="styles.css?v=23" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -39,7 +39,7 @@
     </header>
 
     <main id="top">
-      <section class="hero dark-section" aria-labelledby="hero-title">
+      <section class="hero hero--text-only dark-section" aria-labelledby="hero-title">
         <div class="hero-copy">
           <h1 id="hero-title" data-split>Turn booth traffic into engagement, leads, and branded takeaways.</h1>
           <p>PowerWyze is the AI-powered event activation system for B2B brands. We turn every attendee interaction into a CRM-ready lead and a memorable branded moment — built for trade shows, conferences, sponsorships, and multi-day activations.</p>
@@ -48,26 +48,53 @@
             <span class="arrow-badge" aria-hidden="true">↗</span>
           </a>
         </div>
+      </section>
 
-        <div class="hero-media" aria-label="PowerWyze activation slideshow">
-          <div class="slide is-active">
-            <img src="assets/hero.jpg" alt="PowerWyze RoboKiosk render with illuminated booth hardware" />
-          </div>
-          <div class="slide">
-            <img src="assets/video/countryfest-medic-sign-01.jpg" alt="Outdoor festival medic-tent kiosk wayfinding activation" />
-          </div>
-          <div class="slide">
-            <img src="assets/product-uv.jpg" alt="PowerWyze AI customization studio with UV production lane" />
-          </div>
-          <div class="slide">
-            <img src="assets/video/anime-convention-kiosk-lostfound-01.jpg" alt="Convention kiosk lost-and-found and engagement station" />
-          </div>
-          <div class="slide-dots" role="tablist" aria-label="Hero slideshow pagination">
-            <button class="is-active" type="button" aria-label="Show slide 1" data-slide-dot="0"></button>
-            <button type="button" aria-label="Show slide 2" data-slide-dot="1"></button>
-            <button type="button" aria-label="Show slide 3" data-slide-dot="2"></button>
-            <button type="button" aria-label="Show slide 4" data-slide-dot="3"></button>
-          </div>
+      <section class="section field" id="field" aria-labelledby="field-title">
+        <div class="container section-heading centered">
+          <p class="kicker">In the field</p>
+          <h2 id="field-title">Real activations. Real attendee flow. Real lead capture.</h2>
+        </div>
+
+        <div class="container case-stack">
+          <article class="case-card reveal">
+            <div class="case-media">
+              <video muted loop playsinline preload="metadata" controls poster="assets/video/southbeach-serving-01.jpg">
+                <source src="assets/video/southbeach-serving-01.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="case-copy">
+              <h3>South Beach Wine &amp; Food Festival</h3>
+              <p>High-traffic sponsorship activation. Branded engagement around the pour, tied to structured lead capture for the marketing team.</p>
+              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <div class="case-media">
+              <video muted loop playsinline preload="metadata" controls poster="assets/video/dr-tradeshow-activation-01.jpg">
+                <source src="assets/video/dr-tradeshow-activation-01.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="case-copy">
+              <h3>Dominican Republic Tradeshow</h3>
+              <p>Multi-day exhibitor activation. AI-led attendee flow, QR engagement, and CRM-ready leads delivered to the booth team daily.</p>
+              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <div class="case-media">
+              <video muted loop playsinline preload="metadata" controls poster="assets/video/outdoor-festival-activation-01.jpg">
+                <source src="assets/video/outdoor-festival-activation-01.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="case-copy">
+              <h3>Corporate activation</h3>
+              <p>Corporate brand activation engineered for high-throughput foot traffic — engagement, capture, and branded takeaway in a single stop.</p>
+              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -199,54 +226,6 @@
             <span>Bartenura</span><span>ROM Barceló</span><span>Curaleaf</span><span>Dominican Republic Tradeshow</span><span>South Beach Wine & Food Festival</span><span>Bartenura</span><span>ROM Barceló</span><span>Curaleaf</span><span>DR Tradeshow</span><span>SoBeWFF</span>
             <span>Bartenura</span><span>ROM Barceló</span><span>Curaleaf</span><span>Dominican Republic Tradeshow</span><span>South Beach Wine & Food Festival</span><span>Bartenura</span><span>ROM Barceló</span><span>Curaleaf</span><span>DR Tradeshow</span><span>SoBeWFF</span>
           </div>
-        </div>
-      </section>
-
-      <section class="section field" id="field" aria-labelledby="field-title">
-        <div class="container section-heading centered">
-          <p class="kicker">In the field</p>
-          <h2 id="field-title">Real activations. Real attendee flow. Real lead capture.</h2>
-        </div>
-
-        <div class="container case-stack">
-          <article class="case-card reveal">
-            <div class="case-media">
-              <video muted loop playsinline preload="metadata" controls poster="assets/video/southbeach-serving-01.jpg">
-                <source src="assets/video/southbeach-serving-01.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="case-copy">
-              <h3>South Beach Wine &amp; Food Festival</h3>
-              <p>High-traffic sponsorship activation. Branded engagement around the pour, tied to structured lead capture for the marketing team.</p>
-              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="case-card reveal">
-            <div class="case-media">
-              <video muted loop playsinline preload="metadata" controls poster="assets/video/dr-tradeshow-activation-01.jpg">
-                <source src="assets/video/dr-tradeshow-activation-01.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="case-copy">
-              <h3>Dominican Republic Tradeshow</h3>
-              <p>Multi-day exhibitor activation. AI-led attendee flow, QR engagement, and CRM-ready leads delivered to the booth team daily.</p>
-              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="case-card reveal">
-            <div class="case-media">
-              <video muted loop playsinline preload="metadata" controls poster="assets/video/outdoor-festival-activation-01.jpg">
-                <source src="assets/video/outdoor-festival-activation-01.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="case-copy">
-              <h3>Corporate activation</h3>
-              <p>Corporate brand activation engineered for high-throughput foot traffic — engagement, capture, and branded takeaway in a single stop.</p>
-              <a class="pill-cta" href="#quote" data-quote-cta><span>Request a quote</span><span class="arrow-badge" aria-hidden="true">↗</span></a>
-            </div>
-          </article>
         </div>
       </section>
 
