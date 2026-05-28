@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=24" />
-    <link rel="stylesheet" href="/ambassadors.css?v=1" />
+    <link rel="stylesheet" href="/ambassadors.css?v=2" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -46,10 +46,116 @@
           <p class="kicker on-dark">Brand ambassador program</p>
           <h1 id="amb-hero-title">Bring AI activations to the brands you already work with.</h1>
           <p>PowerWyze partners with brand ambassadors, event producers, sponsorship reps, and connectors who introduce us to teams running trade shows, conferences, festivals, and corporate activations. If you have access to the rooms where activation budgets are decided, we want to work with you.</p>
-          <a class="pill-cta light-on-dark" href="#apply">
-            <span>Apply now</span>
-            <span class="arrow-badge" aria-hidden="true">↗</span>
-          </a>
+          <div class="hero-actions">
+            <a class="pill-cta light-on-dark" href="#apply">
+              <span>Apply now</span>
+              <span class="arrow-badge" aria-hidden="true">↗</span>
+            </a>
+            <a class="pill-cta ghost-on-dark" href="#bounty">
+              <span>See the payout</span>
+              <span class="arrow-badge" aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE OFFER — hero bounty section -->
+      <section class="section amb-bounty" id="bounty" aria-labelledby="bounty-title">
+        <div class="container">
+          <div class="bounty-card reveal">
+            <div class="bounty-stamp" aria-hidden="true">The offer</div>
+            <p class="kicker">Referral bonus</p>
+            <h2 id="bounty-title">Refer a rental over <span class="hl-amount">$1,500</span>. Make <span class="hl-amount hl-green">$200</span>. Get paid to work the event.</h2>
+            <p class="bounty-lead">Here&rsquo;s the deal &mdash; plain English. You introduce us to a brand, agency, or event producer. They book a PowerWyze RoboKiosk rental and the booking is <strong>over $1,500</strong>. You get a <strong>$200 cash bonus</strong> on top &mdash; <em>and</em> we pay you to be on-site working the activation with our team.</p>
+            <div class="bounty-stack">
+              <div class="bounty-row reveal">
+                <div class="bounty-num">$200</div>
+                <div class="bounty-row-body">
+                  <h3>Cash bonus per qualifying rental</h3>
+                  <p>Paid as soon as the rental clears and the event is delivered. Any RoboKiosk rental booking over $1,500 qualifies &mdash; single-day or multi-day.</p>
+                </div>
+              </div>
+              <div class="bounty-row reveal">
+                <div class="bounty-num">+</div>
+                <div class="bounty-row-body">
+                  <h3>Paid to work the event</h3>
+                  <p>You don&rsquo;t just hand off a lead &mdash; you come work it. We pay you a day rate to be on-site with the kiosk: greeting attendees, running the activation, repping PowerWyze with the client.</p>
+                </div>
+              </div>
+              <div class="bounty-row reveal">
+                <div class="bounty-num">∞</div>
+                <div class="bounty-row-body">
+                  <h3>Stack it as many times as you want</h3>
+                  <p>No cap. Refer ten events this quarter, get paid ten times. Top ambassadors move into territory deals with recurring book-of-business.</p>
+                </div>
+              </div>
+            </div>
+            <a class="pill-cta bounty-cta" href="#apply">
+              <span>Apply now &mdash; start earning</span>
+              <span class="arrow-badge" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product demo video -->
+      <section class="section amb-demo dark-section" aria-labelledby="demo-title">
+        <div class="container amb-demo-grid">
+          <div class="amb-demo-copy reveal">
+            <p class="kicker on-dark">Product demo</p>
+            <h2 id="demo-title">See what you&rsquo;ll be pitching.</h2>
+            <p>This is the RoboKiosk in action &mdash; the same hardware your brand and agency contacts will be renting and buying. Send this video, share the link, or play it on your phone in a meeting. It does most of the selling for you.</p>
+            <ul class="amb-demo-list">
+              <li>Portrait-format AI kiosk built for trade shows, conferences, and brand activations</li>
+              <li>Capture leads, surveys, photos, and on-brand interactions on every tap</li>
+              <li>Custom branding and content per client &mdash; deployed in days, not months</li>
+            </ul>
+          </div>
+          <div class="amb-demo-video reveal">
+            <video
+              src="/assets/product-demo.mp4"
+              poster="/assets/product-demo-poster.jpg"
+              controls
+              playsinline
+              preload="metadata"
+              aria-label="PowerWyze RoboKiosk product demo"
+            ></video>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section amb-how" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">How it works</p>
+            <h2 id="how-title">From intro to paid in five steps.</h2>
+          </div>
+          <ol class="amb-steps">
+            <li class="reveal"><span class="step-num">1</span><div><h3>Apply &amp; get approved</h3><p>Fill out the form below. We review every application within three business days and send you the ambassador welcome kit.</p></div></li>
+            <li class="reveal"><span class="step-num">2</span><div><h3>Get your sales kit</h3><p>Pitch deck, demo videos, pricing sheets, case studies, and a unique referral code so every lead is tracked back to you automatically.</p></div></li>
+            <li class="reveal"><span class="step-num">3</span><div><h3>Make the intro</h3><p>Send a warm intro to a brand, agency, or event producer. We take the call, run discovery, and close &mdash; you stay in the loop on every step.</p></div></li>
+            <li class="reveal"><span class="step-num">4</span><div><h3>Rental books at $1,500+</h3><p>The moment the booking clears and the rental is over $1,500, you&rsquo;re locked in for the $200 bonus and the on-site day rate.</p></div></li>
+            <li class="reveal"><span class="step-num">5</span><div><h3>Work the event &mdash; get paid</h3><p>You show up, rep PowerWyze with the client, and walk away with the bonus, your day rate, and a track record that compounds into bigger deals.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section amb-faq" aria-labelledby="amb-faq-title">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="kicker">FAQ</p>
+            <h2 id="amb-faq-title">Common questions</h2>
+          </div>
+          <div class="amb-faq-grid">
+            <details class="amb-faq-item reveal"><summary>What counts as a “qualifying” rental?</summary><p>Any RoboKiosk rental booking that totals over $1,500 in revenue to PowerWyze &mdash; single-day, multi-day, or multi-kiosk. The $200 bonus is paid per booking. Purchases and multi-event contracts have separate payout structures shared after onboarding.</p></details>
+            <details class="amb-faq-item reveal"><summary>What does &ldquo;paid to work the event&rdquo; mean?</summary><p>When your referral converts, we invite you on-site as part of the activation team. We pay you a day rate (set when the booking is confirmed) to greet attendees, run the kiosk, and represent PowerWyze with the client. You don&rsquo;t pay for travel, food, or hotel &mdash; that&rsquo;s on us.</p></details>
+            <details class="amb-faq-item reveal"><summary>How and when do I get paid?</summary><p>The $200 bonus is paid within 7 business days after the rental clears and the event is delivered. The day rate is paid the week of the event. Payouts via direct deposit, Zelle, or check &mdash; your choice.</p></details>
+            <details class="amb-faq-item reveal"><summary>What if my contact already knows PowerWyze?</summary><p>We track every lead by referral code and intro source. If you bring us a contact we&rsquo;re not already actively engaged with, you get credit &mdash; full stop. We&rsquo;ll always confirm attribution before the call.</p></details>
+            <details class="amb-faq-item reveal"><summary>Do I have to be in Miami / South Florida?</summary><p>No. PowerWyze deploys nationally. If you have warm intros to brands or agencies anywhere in the U.S., we&rsquo;ll get the kiosk there. The on-site work just means we cover your travel to whichever city the event lives in.</p></details>
+            <details class="amb-faq-item reveal"><summary>Is there an exclusive territory?</summary><p>Top performers move into formal partner status with exclusive territory rights and recurring deal flow. Until then, the program is open &mdash; anyone qualified can refer.</p></details>
+          </div>
         </div>
       </section>
 
@@ -92,8 +198,8 @@
           </div>
           <div class="amb-perks-grid">
             <div class="amb-perk reveal">
-              <h3>Competitive referral payouts</h3>
-              <p>Compensation tied to closed deals &mdash; flat fees for purchase orders, day-rate splits for rentals, and bonuses for multi-event contracts. Specific structure shared after you&rsquo;re onboarded.</p>
+              <h3>$200 + day rate per closed rental</h3>
+              <p>$200 cash bonus on every RoboKiosk rental over $1,500 &mdash; <em>plus</em> a day rate to work the event with our team. Purchase referrals and multi-event contracts pay even more. Full structure shared on onboarding.</p>
             </div>
             <div class="amb-perk reveal">
               <h3>Sales kit &amp; assets</h3>
@@ -178,6 +284,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <script src="/ambassadors.js?v=1" defer></script>
+    <script src="/ambassadors.js?v=2" defer></script>
   </body>
 </html>
