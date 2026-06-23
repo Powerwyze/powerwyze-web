@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PowerWyze — AI Business Cards</title>
+    <meta name="description" content="NFC-enabled business cards with bespoke landing pages and embedded AI secretary agents. Built for B2B promotion, networking, and event activations." />
+    <meta property="og:title" content="PowerWyze — AI Business Cards" />
+    <meta property="og:description" content="NFC-enabled business cards with bespoke landing pages and embedded AI secretary agents. Built for B2B promotion, networking, and event activations." />
+    <meta property="og:image" content="https://powerwyze.vercel.app/assets/hero.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=26" />
+    <link rel="stylesheet" href="/ai-cards.css?v=1" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="/" aria-label="PowerWyze home">
+        <img src="/assets/logo-color.png?v=12" alt="PowerWyze" />
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span></span><span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="/#system">System</a>
+        <a href="/#field">In the field</a>
+        <a href="/products">Products</a>
+        <a href="/ai-cards" aria-current="page">AI Cards</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#about">About</a>
+        <a href="/ambassadors">Ambassadors</a>
+      </nav>
+
+      <a class="pill-cta header-cta" href="#order">
+        <span>Order cards</span>
+        <span class="arrow-badge" aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="hero hero--text-only dark-section" aria-labelledby="ai-cards-hero-title">
+        <div class="hero-copy">
+          <p class="kicker on-dark">AI business cards</p>
+          <h1 id="ai-cards-hero-title">The business card that books the meeting for you.</h1>
+          <p>NFC-enabled smart business cards with a bespoke mobile landing page baked in, plus an optional always-on AI secretary that handles inbound messages, qualifies leads, and books calls 24/7. Built for B2B promotion, networking, and live activations.</p>
+          <div class="hero-actions">
+            <a class="pill-cta light-on-dark" href="#order">
+              <span>Order cards</span>
+              <span class="arrow-badge" aria-hidden="true">↗</span>
+            </a>
+            <a class="pill-cta ghost-on-dark" href="#pricing">
+              <span>See the tiers</span>
+              <span class="arrow-badge" aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section amb-how">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">How it works</p>
+            <h2>Four steps to automation.</h2>
+          </div>
+          <ol class="amb-steps">
+            <li class="reveal"><span class="step-num">1</span><div><h3>Tap or scan</h3><p>A single NFC tap (or QR scan) on any modern phone instantly opens the recipient's custom landing page. No app. No download.</p></div></li>
+            <li class="reveal"><span class="step-num">2</span><div><h3>Land on your branded page</h3><p>A bespoke mobile site we design and host for you: portfolio, calendar, socials, lead form, product catalog — whatever your business needs.</p></div></li>
+            <li class="reveal"><span class="step-num">3</span><div><h3>AI secretary takes over (optional)</h3><p>Visitors can chat with your trained AI agent — answers questions, qualifies leads, books meetings, sends follow-ups straight to your inbox.</p></div></li>
+            <li class="reveal"><span class="step-num">4</span><div><h3>You get the lead</h3><p>Every tap, chat, and conversion lands in your inbox the same second it happens.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Use cases -->
+      <section class="section dark-section amb-what">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker on-dark">Built for</p>
+            <h2>Transform how you connect.</h2>
+          </div>
+          <div class="use-case-grid">
+            <article class="amb-card reveal">
+              <h3>Promotion</h3>
+              <p>Replace your stack of business cards with a tap. Send every prospect to a branded landing page that updates whenever your offers change.</p>
+            </article>
+            <article class="amb-card reveal">
+              <h3>Networking</h3>
+              <p>At conferences, mixers, and trade shows, hand your contact a card they will actually keep. Capture every connection without typing a single email address.</p>
+            </article>
+            <article class="amb-card reveal">
+              <h3>Activations</h3>
+              <p>Drop cards into swag bags, VIP gifting, and on-site giveaways. Every tap is an opportunity for AI follow-up, even days after the event.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section class="section pricing-section" id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="kicker">Pricing</p>
+            <h2 id="pricing-title">Simple tiers. No hidden fees.</h2>
+          </div>
+          <div class="pricing-grid">
+            <div class="pricing-card reveal">
+              <h3 class="tier-name">Tier 1 — Custom card</h3>
+              <p class="tier-price">$30 <span>per card</span></p>
+              <p class="tier-desc">Includes one NFC business card with a custom landing page we design and host for you.</p>
+              <ul class="tier-features">
+                <li>NFC + QR fallback</li>
+                <li>Fully bespoke landing page</li>
+                <li>Lifetime hosting</li>
+                <li>Edit content anytime</li>
+              </ul>
+            </div>
+            <div class="pricing-card reveal">
+              <h3 class="tier-name">Tier 2 — Metal card</h3>
+              <p class="tier-price">$60 <span>per card</span></p>
+              <p class="tier-desc">Premium metal NFC card finish. Everything in Tier 1, plus:</p>
+              <ul class="tier-features">
+                <li>Premium metal finish</li>
+                <li>Laser-engraved branding</li>
+                <li>Heavier in-hand feel</li>
+                <li>Designed to be kept</li>
+              </ul>
+            </div>
+            <div class="pricing-card highlighted reveal">
+              <div class="stamp-wrapper"><div class="bounty-stamp" aria-hidden="true">MOST POPULAR</div></div>
+              <h3 class="tier-name">Tier 3 — AI Secretary card</h3>
+              <p class="tier-price">$75 <span>per card + $5/mo</span></p>
+              <p class="tier-desc">Everything in Tier 1, plus a dedicated trained AI agent (your knowledge base, your tone).</p>
+              <ul class="tier-features">
+                <li>24/7 chat on your landing page</li>
+                <li>Lead qualification + auto-routing</li>
+                <li>Meeting booking</li>
+                <li>Monthly performance summary</li>
+              </ul>
+              <p class="tier-subnote">The $5/mo covers ongoing AI compute, model updates, and agent retraining.</p>
+            </div>
+          </div>
+          <div class="pricing-notes reveal">
+            <p>Volume pricing available on orders of 25+. Ask about bundles for events and team rollouts.</p>
+            <p>Metal upgrade can be added to any tier. AI Secretary can be added to any tier.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section amb-faq" aria-labelledby="ai-faq-title">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="kicker">FAQ</p>
+            <h2 id="ai-faq-title">Common questions</h2>
+          </div>
+          <div class="amb-faq-grid">
+            <details class="amb-faq-item reveal"><summary>How does the NFC work?</summary><p>Modern iPhones (XR/2018 and newer) and Android phones read NFC automatically. Just tap. Older phones can scan the printed QR code on the back as a fallback.</p></details>
+            <details class="amb-faq-item reveal"><summary>Can I update my landing page later?</summary><p>Yes. Your card stays the same — we update the content behind it any time you need. No reprint, no new card.</p></details>
+            <details class="amb-faq-item reveal"><summary>What can the AI secretary actually do?</summary><p>It chats with visitors, answers questions about your business, qualifies leads, books meetings to your calendar, and routes hot leads to your inbox in real time. You set the tone, the rules, and the knowledge it draws from.</p></details>
+            <details class="amb-faq-item reveal"><summary>Why a monthly fee for the AI secretary?</summary><p>The $5/mo covers ongoing compute, model updates, and quarterly retraining as your business evolves. Cancel any time — your card and landing page keep working.</p></details>
+            <details class="amb-faq-item reveal"><summary>How long until I receive my cards?</summary><p>Custom cards ship in 7–10 business days. Metal cards ship in 10–14 business days. AI secretary is activated on delivery.</p></details>
+            <details class="amb-faq-item reveal"><summary>Are these only for individuals or can I order for my team?</summary><p>Most clients order for entire sales teams, founder teams, and event staff. Volume pricing available on orders of 25+.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order form -->
+      <section class="section quote-section" id="order" aria-labelledby="order-title">
+        <div class="quote-wrap">
+          <div class="section-heading centered">
+            <p class="kicker">Order</p>
+            <h2 id="order-title">Request my cards</h2>
+            <p>Tell us what you need and we'll get started.</p>
+          </div>
+
+          <form class="quote-form" data-aicards-form novalidate>
+            <div class="form-grid">
+              <label>Full name<input name="name" type="text" autocomplete="name" required /></label>
+              <label>Company / business<input name="company" type="text" required /></label>
+              <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+              <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
+              <label>Tier
+                <select name="tier" required>
+                  <option value="">Select a tier</option>
+                  <option value="Custom card ($30)">Custom card ($30)</option>
+                  <option value="Metal card ($60)">Metal card ($60)</option>
+                  <option value="AI Secretary card ($75 + $5/mo)">AI Secretary card ($75 + $5/mo)</option>
+                  <option value="Mixed / Not sure">Mixed / Not sure</option>
+                </select>
+              </label>
+              <label>Quantity<input name="quantity" type="number" min="1" required /></label>
+              <fieldset class="full">
+                <legend style="margin-bottom: 0.5rem; display: block; font-weight: 500;">Add AI Secretary?</legend>
+                <div style="display: flex; gap: 1rem;">
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Yes" required /> Yes</label>
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="No" /> No</label>
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Already included in tier" /> Already included in tier</label>
+                </div>
+              </fieldset>
+              <label class="full">Use case
+                <select name="use_case">
+                  <option value="">Select a use case</option>
+                  <option value="Promotion">Promotion</option>
+                  <option value="Networking">Networking</option>
+                  <option value="Activations / Events">Activations / Events</option>
+                  <option value="Multiple">Multiple</option>
+                </select>
+              </label>
+              <label class="full">Tell us about your brand and what your landing page should do<textarea name="brand_details" rows="6" required></textarea></label>
+            </div>
+            <button class="submit-btn" type="submit">Request my cards</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer dark-section">
+      <div class="footer-inner">
+        <span class="footer-logo-frame"><img src="/assets/logo-color.png?v=12" alt="PowerWyze" class="footer-logo" /></span>
+        <hr />
+        <dl class="footer-contact">
+          <div><dt>Office:</dt><dd>Hallandale Beach, FL</dd></div>
+          <div><dt>Email:</dt><dd><a href="mailto:wyzer@powerwyze.com">wyzer@powerwyze.com</a></dd></div>
+          <div><dt>Site:</dt><dd><a href="https://powerwyze.com">powerwyze.com</a></dd></div>
+        </dl>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/products">Products</a>
+          <a href="/#field">In the field</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#about">About</a>
+          <a href="/ambassadors">Ambassadors</a>
+          <a href="/ai-cards">AI Cards</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </nav>
+        <p class="follow">Follow us</p>
+        <div class="socials" aria-label="Social links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.9H3.7v10.4h3.24V8.9ZM5.32 4.03a1.88 1.88 0 1 0 0 3.76 1.88 1.88 0 0 0 0-3.76Zm13.98 9.3c0-3.13-1.67-4.58-3.9-4.58-1.8 0-2.6.99-3.05 1.68V8.9H9.24v10.4h3.24v-5.14c0-1.36.26-2.68 1.95-2.68 1.66 0 1.69 1.55 1.69 2.77v5.05h3.24l-.06-5.97Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9a4.7 4.7 0 0 1-4.7 4.7h-9a4.7 4.7 0 0 1-4.7-4.7v-9A4.7 4.7 0 0 1 7.5 2.8Zm0 1.8a2.9 2.9 0 0 0-2.9 2.9v9a2.9 2.9 0 0 0 2.9 2.9h9a2.9 2.9 0 0 0 2.9-2.9v-9a2.9 2.9 0 0 0-2.9-2.9h-9Zm4.5 3a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 1.8a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm5.03-2.08a1.03 1.03 0 1 1 0 2.06 1.03 1.03 0 0 1 0-2.06Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.2a2.62 2.62 0 0 0-1.85-1.86C18.1 4.9 12 4.9 12 4.9s-6.1 0-7.73.44A2.62 2.62 0 0 0 2.42 7.2 27.2 27.2 0 0 0 2 12a27.2 27.2 0 0 0 .42 4.8 2.62 2.62 0 0 0 1.85 1.86c1.63.44 7.73.44 7.73.44s6.1 0 7.73-.44a2.62 2.62 0 0 0 1.85-1.86A27.2 27.2 0 0 0 22 12a27.2 27.2 0 0 0-.42-4.8ZM10 15.1V8.9l5.2 3.1L10 15.1Z" fill="currentColor"/></svg></a>
+        </div>
+        <hr />
+        <p class="copyright">© POWERWYZE — ALL RIGHTS RESERVED</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="/ai-cards.js?v=1" defer></script>
+  </body>
+</html>
