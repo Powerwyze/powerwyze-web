@@ -1,5 +1,12 @@
 // ai-cards.js
 
+// Supabase client for artwork uploads. Public anon key — safe to expose;
+// the ai-cards-uploads bucket only allows insert + select for anon by policy.
+const SUPABASE_URL = "https://iabkupefwyvqjnflfcxl.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_gUeQU46FlSposxZgjXLo1Q_tk83r25m";
+const AI_CARDS_BUCKET = "ai-cards-uploads";
+const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB per file
+
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Setup ScrollTrigger
   gsap.registerPlugin(ScrollTrigger);
@@ -7,15 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Header scroll state
   const header = document.querySelector("[data-header]");
   if (header) {
-    let lastY = window.scrollY;
     window.addEventListener("scroll", () => {
-      const y = window.scrollY;
-      if (y > 50) {
+      if (window.scrollY > 50) {
         header.classList.add("is-scrolled");
       } else {
         header.classList.remove("is-scrolled");
       }
-      lastY = y;
     }, { passive: true });
   }
 
@@ -45,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const reveals = document.querySelectorAll(".reveal");
   if (reveals.length > 0) {
     reveals.forEach(el => {
-      gsap.fromTo(el, 
+      gsap.fromTo(el,
         { y: 30, opacity: 0 },
         {
           y: 0,
@@ -62,42 +66,174 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Form handling (Mailto)
-  const form = document.querySelector("[data-aicards-form]");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      
-      // Basic validation
-      if (!data.name || !data.company || !data.email || !data.tier || !data.quantity || !data.add_ai || !data.brand_details) {
-        alert("Please fill in all required fields.");
+  // Supabase client (lazy — only if the SDK loaded)
+  let supabase = null;
+  if (window.supabase && typeof window.supabase.createClient === "function") {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+
+  // File input — show file names + validate size as user picks
+  const fileInput = document.querySelector("[data-aicards-files]");
+  const fileList = document.querySelector("[data-aicards-file-list]");
+  if (fileInput && fileList) {
+    fileInput.addEventListener("change", () => {
+      const files = Array.from(fileInput.files || []);
+      if (files.length === 0) {
+        fileList.textContent = "";
         return;
       }
-      
+      const oversized = files.filter(f => f.size > MAX_FILE_BYTES);
+      if (oversized.length > 0) {
+        fileList.textContent = `${oversized.length} file(s) exceed 10 MB and will be rejected. Please compress or remove them.`;
+        fileList.classList.add("is-error");
+        return;
+      }
+      fileList.classList.remove("is-error");
+      const summary = files
+        .map(f => `${f.name} (${(f.size / 1024 / 1024).toFixed(2)} MB)`)
+        .join(", ");
+      fileList.textContent = `Selected: ${summary}`;
+    });
+  }
+
+  // Form submission — upload files first, then open mailto with links
+  const form = document.querySelector("[data-aicards-form]");
+  const submitBtn = document.querySelector("[data-aicards-submit]");
+  const statusEl = document.querySelector("[data-aicards-status]");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Basic validation
+      if (!data.name || !data.company || !data.email || !data.tier || !data.quantity || !data.add_ai || !data.brand_details) {
+        setStatus("Please fill in all required fields.", "error");
+        return;
+      }
+
+      const files = Array.from((fileInput && fileInput.files) || []);
+
+      // Reject oversized files up front
+      const oversized = files.filter(f => f.size > MAX_FILE_BYTES);
+      if (oversized.length > 0) {
+        setStatus(`${oversized.length} file(s) exceed 10 MB. Please remove or compress them.`, "error");
+        return;
+      }
+
+      let uploadedUrls = [];
+
+      if (files.length > 0) {
+        if (!supabase) {
+          setStatus("Upload service unavailable. Please refresh the page and try again.", "error");
+          return;
+        }
+
+        submitBtn.disabled = true;
+        setStatus(`Uploading ${files.length} file(s)…`, "info");
+
+        try {
+          uploadedUrls = await uploadFiles(supabase, files, data);
+        } catch (err) {
+          console.error("[ai-cards] upload failed", err);
+          setStatus("Something went wrong uploading your files. Please try again or email wyzer@powerwyze.com directly.", "error");
+          submitBtn.disabled = false;
+          return;
+        }
+
+        submitBtn.disabled = false;
+      }
+
+      // Build email body
       const subject = encodeURIComponent(`AI Cards order — ${data.name}`);
-      const bodyText = `
-Name: ${data.name}
+      let bodyText = `Name: ${data.name}
 Company: ${data.company}
 Email: ${data.email}
-Phone: ${data.phone || 'Not provided'}
+Phone: ${data.phone || "Not provided"}
 
 Order Details:
 Tier: ${data.tier}
 Quantity: ${data.quantity}
 Add AI Secretary: ${data.add_ai}
-Use Case: ${data.use_case || 'Not selected'}
+Use Case: ${data.use_case || "Not selected"}
 
 Brand Details & Requirements:
 ${data.brand_details}
-      `.trim();
-      
-      const body = encodeURIComponent(bodyText);
+`;
+
+      if (uploadedUrls.length > 0) {
+        bodyText += `\n\nUploaded Artwork (${uploadedUrls.length} file${uploadedUrls.length === 1 ? "" : "s"}):\n`;
+        uploadedUrls.forEach((entry) => {
+          bodyText += `- ${entry.name}: ${entry.url}\n`;
+        });
+      } else {
+        bodyText += `\n\nUploaded Artwork: none attached\n`;
+      }
+
+      const body = encodeURIComponent(bodyText.trim());
       const mailtoUrl = `mailto:wyzer@powerwyze.com?subject=${subject}&body=${body}`;
-      
+
+      setStatus(
+        uploadedUrls.length > 0
+          ? `Files uploaded. Opening your email app to finish sending…`
+          : `Opening your email app to finish sending…`,
+        "success"
+      );
+
       window.location.href = mailtoUrl;
     });
   }
+
+  function setStatus(msg, kind) {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.classList.remove("is-error", "is-success", "is-info");
+    if (kind === "error") statusEl.classList.add("is-error");
+    else if (kind === "success") statusEl.classList.add("is-success");
+    else statusEl.classList.add("is-info");
+  }
 });
+
+// Upload every selected file to Supabase Storage in parallel.
+// Object path: {yyyymmdd}/{uuid}-{safeFilename}. Returns [{name, url}].
+async function uploadFiles(supabase, files, formValues) {
+  const now = new Date();
+  const y = now.getUTCFullYear();
+  const m = String(now.getUTCMonth() + 1).padStart(2, "0");
+  const d = String(now.getUTCDate()).padStart(2, "0");
+  const datePrefix = `${y}${m}${d}`;
+
+  const companySlug = (formValues.company || "unknown")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 40) || "unknown";
+
+  const uploads = files.map(async (file) => {
+    const uid = (crypto.randomUUID && crypto.randomUUID()) || Math.random().toString(36).slice(2);
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]+/g, "_").slice(0, 80) || "artwork";
+    const path = `${datePrefix}/${companySlug}/${uid}-${safeName}`;
+
+    const { error } = await supabase.storage
+      .from("ai-cards-uploads")
+      .upload(path, file, {
+        cacheControl: "3600",
+        upsert: false,
+        contentType: file.type || "application/octet-stream",
+      });
+
+    if (error) {
+      throw new Error(`Upload failed for ${file.name}: ${error.message}`);
+    }
+
+    const { data: pub } = supabase.storage
+      .from("ai-cards-uploads")
+      .getPublicUrl(path);
+
+    return { name: file.name, url: pub.publicUrl };
+  });
+
+  return Promise.all(uploads);
+}
