@@ -108,9 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      // Basic validation
-      if (!data.name || !data.company || !data.email || !data.tier || !data.quantity || !data.add_ai || !data.brand_details) {
-        setStatus("Please fill in all required fields.", "error");
+      // Basic validation — only name + email are required
+      if (!data.name || !data.email) {
+        setStatus("Please fill in your name and email.", "error");
         return;
       }
 
@@ -149,18 +149,18 @@ document.addEventListener("DOMContentLoaded", () => {
       // Build email body
       const subject = encodeURIComponent(`AI Cards order — ${data.name}`);
       let bodyText = `Name: ${data.name}
-Company: ${data.company}
+Company: ${data.company || "Not provided"}
 Email: ${data.email}
 Phone: ${data.phone || "Not provided"}
 
 Order Details:
-Tier: ${data.tier}
-Quantity: ${data.quantity}
-Add AI Secretary: ${data.add_ai}
+Tier: ${data.tier || "Not selected"}
+Quantity: ${data.quantity || "Not specified"}
+Add AI Secretary: ${data.add_ai || "Not specified"}
 Use Case: ${data.use_case || "Not selected"}
 
 Brand Details & Requirements:
-${data.brand_details}
+${data.brand_details || "None provided"}
 `;
 
       if (uploadedUrls.length > 0) {

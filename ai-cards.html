@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=26" />
-    <link rel="stylesheet" href="/ai-cards.css?v=4" />
+    <link rel="stylesheet" href="/ai-cards.css?v=5" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -71,11 +71,11 @@
           <form class="quote-form" data-aicards-form novalidate>
             <div class="form-grid">
               <label>Full name<input name="name" type="text" autocomplete="name" required /></label>
-              <label>Company / business<input name="company" type="text" required /></label>
-              <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+              <label>Company / business<input name="company" type="text" /></label>
+              <label>Email<input name="email" type="email" autocomplete="email" required /></label>
               <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
               <label>Tier
-                <select name="tier" required>
+                <select name="tier">
                   <option value="">Select a tier</option>
                   <option value="Free — Tech Tuesday attendee (plastic card only, no AI)">Free — Tech Tuesday attendee (plastic card only, no AI)</option>
                   <option value="Custom card ($30)">Custom card ($30)</option>
@@ -84,11 +84,11 @@
                   <option value="Mixed / Not sure">Mixed / Not sure</option>
                 </select>
               </label>
-              <label>Quantity<input name="quantity" type="number" min="1" required /></label>
+              <label>Quantity<input name="quantity" type="number" min="1" /></label>
               <fieldset class="full">
                 <legend style="margin-bottom: 0.5rem; display: block; font-weight: 500;">Add AI Secretary?</legend>
                 <div style="display: flex; gap: 1rem;">
-                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Yes" required /> Yes</label>
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Yes" /> Yes</label>
                   <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="No" /> No</label>
                   <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Already included in tier" /> Already included in tier</label>
                 </div>
@@ -102,7 +102,7 @@
                   <option value="Multiple">Multiple</option>
                 </select>
               </label>
-              <label class="full">Tell us about your brand and what your landing page should do<textarea name="brand_details" rows="6" required></textarea></label>
+              <label class="full">Tell us about your brand and what your landing page should do<textarea name="brand_details" rows="6"></textarea></label>
               <label class="full file-upload">
                 <span class="file-upload-label">Upload your logo or artwork (optional)</span>
                 <span class="file-upload-hint">Attach a logo, or an image you want printed on the card. PNG, JPG, SVG, PDF, or AI &mdash; up to 10&nbsp;MB each, multiple files allowed.</span>
@@ -272,6 +272,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/ai-cards.js?v=4" defer></script>
+    <script src="/ai-cards.js?v=5" defer></script>
   </body>
 </html>
