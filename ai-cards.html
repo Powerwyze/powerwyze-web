@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=26" />
-    <link rel="stylesheet" href="/ai-cards.css?v=3" />
+    <link rel="stylesheet" href="/ai-cards.css?v=4" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -57,6 +57,62 @@
               <span class="arrow-badge" aria-hidden="true">↓</span>
             </a>
           </div>
+        </div>
+      </section>
+      <!-- Order form -->
+      <section class="section quote-section" id="order" aria-labelledby="order-title">
+        <div class="quote-wrap">
+          <div class="section-heading centered">
+            <p class="kicker">Order</p>
+            <h2 id="order-title">Request my cards</h2>
+            <p>Tell us what you need and we'll get started.</p>
+          </div>
+
+          <form class="quote-form" data-aicards-form novalidate>
+            <div class="form-grid">
+              <label>Full name<input name="name" type="text" autocomplete="name" required /></label>
+              <label>Company / business<input name="company" type="text" required /></label>
+              <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
+              <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
+              <label>Tier
+                <select name="tier" required>
+                  <option value="">Select a tier</option>
+                  <option value="Free — Tech Tuesday attendee (plastic card only, no AI)">Free — Tech Tuesday attendee (plastic card only, no AI)</option>
+                  <option value="Custom card ($30)">Custom card ($30)</option>
+                  <option value="Metal card ($60)">Metal card ($60)</option>
+                  <option value="AI Secretary card ($75 + $5/mo)">AI Secretary card ($75 + $5/mo)</option>
+                  <option value="Mixed / Not sure">Mixed / Not sure</option>
+                </select>
+              </label>
+              <label>Quantity<input name="quantity" type="number" min="1" required /></label>
+              <fieldset class="full">
+                <legend style="margin-bottom: 0.5rem; display: block; font-weight: 500;">Add AI Secretary?</legend>
+                <div style="display: flex; gap: 1rem;">
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Yes" required /> Yes</label>
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="No" /> No</label>
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Already included in tier" /> Already included in tier</label>
+                </div>
+              </fieldset>
+              <label class="full">Use case
+                <select name="use_case">
+                  <option value="">Select a use case</option>
+                  <option value="Promotion">Promotion</option>
+                  <option value="Networking">Networking</option>
+                  <option value="Activations / Events">Activations / Events</option>
+                  <option value="Multiple">Multiple</option>
+                </select>
+              </label>
+              <label class="full">Tell us about your brand and what your landing page should do<textarea name="brand_details" rows="6" required></textarea></label>
+              <label class="full file-upload">
+                <span class="file-upload-label">Upload your logo or artwork (optional)</span>
+                <span class="file-upload-hint">Attach a logo, or an image you want printed on the card. PNG, JPG, SVG, PDF, or AI &mdash; up to 10&nbsp;MB each, multiple files allowed.</span>
+                <input name="artwork" type="file" accept="image/png,image/jpeg,image/jpg,image/webp,image/svg+xml,image/gif,application/pdf,application/postscript,application/illustrator,image/vnd.adobe.photoshop" multiple data-aicards-files />
+                <span class="file-upload-list" data-aicards-file-list aria-live="polite"></span>
+              </label>
+            </div>
+            <p class="form-status" data-aicards-status role="status" aria-live="polite"></p>
+            <button class="submit-btn" type="submit" data-aicards-submit>Request my cards</button>
+          </form>
         </div>
       </section>
 
@@ -107,7 +163,19 @@
             <p class="kicker">Pricing</p>
             <h2 id="pricing-title">Simple tiers. No hidden fees.</h2>
           </div>
-          <div class="pricing-grid">
+          <div class="pricing-grid pricing-grid--four">
+            <div class="pricing-card pricing-card--free reveal">
+              <span class="tier-badge">Tech Tuesday</span>
+              <h3 class="tier-name">Free — Tech Tuesday attendee</h3>
+              <p class="tier-price">$0 <span>for attendees</span></p>
+              <p class="tier-desc">Our gift to the Tech Tuesday Miami community. Show up, tap in, walk out with your card.</p>
+              <ul class="tier-features">
+                <li>NFC + QR fallback</li>
+                <li>Custom landing page</li>
+                <li>Lifetime hosting</li>
+              </ul>
+              <p class="tier-subnote">"Plastic card only, no AI"</p>
+            </div>
             <div class="pricing-card reveal">
               <h3 class="tier-name">Tier 1 — Custom card</h3>
               <p class="tier-price">$30 <span>per card</span></p>
@@ -169,61 +237,6 @@
         </div>
       </section>
 
-      <!-- Order form -->
-      <section class="section quote-section" id="order" aria-labelledby="order-title">
-        <div class="quote-wrap">
-          <div class="section-heading centered">
-            <p class="kicker">Order</p>
-            <h2 id="order-title">Request my cards</h2>
-            <p>Tell us what you need and we'll get started.</p>
-          </div>
-
-          <form class="quote-form" data-aicards-form novalidate>
-            <div class="form-grid">
-              <label>Full name<input name="name" type="text" autocomplete="name" required /></label>
-              <label>Company / business<input name="company" type="text" required /></label>
-              <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
-              <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
-              <label>Tier
-                <select name="tier" required>
-                  <option value="">Select a tier</option>
-                  <option value="Custom card ($30)">Custom card ($30)</option>
-                  <option value="Metal card ($60)">Metal card ($60)</option>
-                  <option value="AI Secretary card ($75 + $5/mo)">AI Secretary card ($75 + $5/mo)</option>
-                  <option value="Mixed / Not sure">Mixed / Not sure</option>
-                </select>
-              </label>
-              <label>Quantity<input name="quantity" type="number" min="1" required /></label>
-              <fieldset class="full">
-                <legend style="margin-bottom: 0.5rem; display: block; font-weight: 500;">Add AI Secretary?</legend>
-                <div style="display: flex; gap: 1rem;">
-                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Yes" required /> Yes</label>
-                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="No" /> No</label>
-                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Already included in tier" /> Already included in tier</label>
-                </div>
-              </fieldset>
-              <label class="full">Use case
-                <select name="use_case">
-                  <option value="">Select a use case</option>
-                  <option value="Promotion">Promotion</option>
-                  <option value="Networking">Networking</option>
-                  <option value="Activations / Events">Activations / Events</option>
-                  <option value="Multiple">Multiple</option>
-                </select>
-              </label>
-              <label class="full">Tell us about your brand and what your landing page should do<textarea name="brand_details" rows="6" required></textarea></label>
-              <label class="full file-upload">
-                <span class="file-upload-label">Upload your logo or artwork (optional)</span>
-                <span class="file-upload-hint">Attach a logo, or an image you want printed on the card. PNG, JPG, SVG, PDF, or AI &mdash; up to 10&nbsp;MB each, multiple files allowed.</span>
-                <input name="artwork" type="file" accept="image/png,image/jpeg,image/jpg,image/webp,image/svg+xml,image/gif,application/pdf,application/postscript,application/illustrator,image/vnd.adobe.photoshop" multiple data-aicards-files />
-                <span class="file-upload-list" data-aicards-file-list aria-live="polite"></span>
-              </label>
-            </div>
-            <p class="form-status" data-aicards-status role="status" aria-live="polite"></p>
-            <button class="submit-btn" type="submit" data-aicards-submit>Request my cards</button>
-          </form>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer dark-section">
@@ -259,6 +272,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/ai-cards.js?v=3" defer></script>
+    <script src="/ai-cards.js?v=4" defer></script>
   </body>
 </html>

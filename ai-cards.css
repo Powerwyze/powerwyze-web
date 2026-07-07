@@ -26,6 +26,14 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: stretch;
   }
+  .pricing-grid--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1080px) {
+  .pricing-grid--four {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .pricing-card {
@@ -49,6 +57,38 @@
 }
 .pricing-card.highlighted:hover {
   box-shadow: 0 12px 40px rgba(123, 194, 66, 0.2);
+}
+
+/* Free tier — Tech Tuesday */
+.pricing-card--free {
+  background: linear-gradient(180deg, #F8F6EF 0%, #ffffff 60%);
+  border: 2px dashed rgba(14, 36, 57, 0.35);
+  box-shadow: 0 4px 16px rgba(14, 36, 57, 0.06);
+}
+.pricing-card--free:hover {
+  border-color: var(--navy-deep, #0e2439);
+  box-shadow: 0 12px 30px rgba(14, 36, 57, 0.10);
+}
+.pricing-card--free .tier-price {
+  color: var(--navy-deep, #0e2439);
+}
+.pricing-card--free .tier-subnote {
+  font-style: italic;
+  color: var(--navy-deep, #0e2439);
+  font-weight: 500;
+}
+.tier-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--navy-deep, #0e2439);
+  color: var(--cream, #FDFAF3);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full, 999px);
+  margin-bottom: var(--space-3, 0.75rem);
 }
 
 .stamp-wrapper {
