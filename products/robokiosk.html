@@ -11,15 +11,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=26" />
-    <link rel="stylesheet" href="/products.css?v=8" />
+    <link rel="stylesheet" href="/styles.css?v=27" />
+    <link rel="stylesheet" href="/products.css?v=9" />
   </head>
   <body class="products-body">
     <header class="site-header" data-header>
       <a class="brand" href="/" aria-label="PowerWyze home">
         <img src="/assets/logo-color.png?v=12" alt="PowerWyze" />
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span></span><span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
         <a href="/#system">System</a>
         <a href="/#field">In the field</a>
         <a href="/products" aria-current="page">Products</a>
@@ -28,6 +32,10 @@
         <a href="/#about">About</a>
         <a href="/ambassadors">Ambassadors</a>
       </nav>
+      <a class="pill-cta header-cta" href="/#quote">
+        <span>Request a quote</span>
+        <span class="arrow-badge" aria-hidden="true">↗</span>
+      </a>
     </header>
 
     <main class="product-main" id="top">
@@ -104,27 +112,27 @@
               <p class="opt-help" id="size-help">Floor-standing kiosk available in 32", 37", 43", 55", and 65" portrait displays. Each unit ships with an integrated overhead 4K camera mount for AI vision, capture, and audience analytics.</p>
               <div class="size-grid" role="radiogroup" aria-label="Kiosk size">
                 <label class="size-option is-selected">
-                  <input type="radio" name="size" value="32" data-buy="3500" data-rent="1200" checked />
+                  <input type="radio" name="size" value="32" data-buy="3500" data-rent="1200" form="robokiosk-order" checked />
                   <span class="size-num">32"</span>
                   <span class="size-price" data-size-price>$3,500</span>
                 </label>
                 <label class="size-option">
-                  <input type="radio" name="size" value="37" data-buy="4500" data-rent="1700" />
+                  <input type="radio" name="size" value="37" data-buy="4500" data-rent="1700" form="robokiosk-order" />
                   <span class="size-num">37"</span>
                   <span class="size-price" data-size-price>$4,500</span>
                 </label>
                 <label class="size-option">
-                  <input type="radio" name="size" value="43" data-buy="5500" data-rent="2200" />
+                  <input type="radio" name="size" value="43" data-buy="5500" data-rent="2200" form="robokiosk-order" />
                   <span class="size-num">43"</span>
                   <span class="size-price" data-size-price>$5,500</span>
                 </label>
                 <label class="size-option">
-                  <input type="radio" name="size" value="55" data-buy="6500" data-rent="2700" />
+                  <input type="radio" name="size" value="55" data-buy="6500" data-rent="2700" form="robokiosk-order" />
                   <span class="size-num">55"</span>
                   <span class="size-price" data-size-price>$6,500</span>
                 </label>
                 <label class="size-option">
-                  <input type="radio" name="size" value="65" data-buy="7500" data-rent="3200" />
+                  <input type="radio" name="size" value="65" data-buy="7500" data-rent="3200" form="robokiosk-order" />
                   <span class="size-num">65"</span>
                   <span class="size-price" data-size-price>$7,500</span>
                 </label>
@@ -137,7 +145,7 @@
               <p class="opt-help">Order multiple units for a fleet rollout or multi-location activation. Pricing scales per kiosk.</p>
               <div class="qty-stepper" role="group" aria-label="Kiosk quantity">
                 <button type="button" class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
-                <input type="number" id="qty" name="quantity" value="1" min="1" max="50" inputmode="numeric" aria-label="Quantity" />
+                <input type="number" id="qty" name="quantity" value="1" min="1" max="50" inputmode="numeric" aria-label="Quantity" form="robokiosk-order" />
                 <button type="button" class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
               </div>
             </fieldset>
@@ -147,7 +155,7 @@
               <legend><span class="step">3</span> IT support plan</legend>
               <p class="opt-help" id="it-help">$1,000 per year · Includes unlimited software and new simple app activations.</p>
               <label class="check-card" id="it-card">
-                <input type="checkbox" id="opt-it" checked />
+                <input type="checkbox" id="opt-it" name="it_support" value="Yes" form="robokiosk-order" checked />
                 <div class="check-body">
                   <span class="check-title" id="it-title">Add IT support</span>
                   <span class="check-meta" id="it-meta">$1,000 / year</span>
@@ -160,7 +168,7 @@
               <legend><span class="step">4</span> Custom branding</legend>
               <p class="opt-help" id="branding-help">Custom wrap and on-brand UI for $500 (one-time). <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.</p>
               <label class="check-card">
-                <input type="checkbox" id="opt-branding" />
+                <input type="checkbox" id="opt-branding" name="custom_branding" value="Yes" form="robokiosk-order" />
                 <div class="check-body">
                   <span class="check-title">Add custom branding (+$500 one-time)</span>
                   <span class="check-meta" id="branding-bonus">Year 1 IT support becomes free</span>
@@ -169,11 +177,11 @@
               <div class="branding-details" id="branding-details" hidden>
                 <label class="field">
                   <span class="field-label">Describe your brand or activation</span>
-                  <textarea name="branding_description" rows="3" placeholder="Brand name, color palette, tone, what the kiosk should say or do for your event..."></textarea>
+                  <textarea name="branding_description" rows="3" placeholder="Brand name, color palette, tone, what the kiosk should say or do for your event..." form="robokiosk-order"></textarea>
                 </label>
                 <label class="field">
                   <span class="field-label">Upload logo or brand reference (optional)</span>
-                  <input type="file" id="branding-upload" name="branding_upload" accept="image/*" />
+                  <input type="file" id="branding-upload" name="branding_upload" accept="image/*" form="robokiosk-order" />
                   <span class="upload-hint">JPG, PNG, or SVG · up to 10 MB</span>
                 </label>
               </div>
@@ -187,43 +195,43 @@
               <h3 class="apps-group-title">Live demo apps</h3>
               <div class="apps-grid">
                 <article class="app-card" data-app="Smart Queue" data-url="https://powerwyze-kiosk.vercel.app/#queue">
-                  <label><input type="checkbox" name="app" value="Smart Queue" /> <span>Smart Queue</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Smart Queue" /> <span>Smart Queue</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#queue" data-preview-title="Smart Queue">Preview</button>
                 </article>
                 <article class="app-card" data-app="Wayfinder" data-url="https://powerwyze-kiosk.vercel.app/#wayfind">
-                  <label><input type="checkbox" name="app" value="Wayfinder" /> <span>Wayfinder</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Wayfinder" /> <span>Wayfinder</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#wayfind" data-preview-title="Wayfinder">Preview</button>
                 </article>
                 <article class="app-card" data-app="Self-Order" data-url="https://powerwyze-kiosk.vercel.app/#order">
-                  <label><input type="checkbox" name="app" value="Self-Order" /> <span>Self-Order</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Self-Order" /> <span>Self-Order</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#order" data-preview-title="Self-Order">Preview</button>
                 </article>
                 <article class="app-card" data-app="Visitor Check-In" data-url="https://powerwyze-kiosk.vercel.app/#checkin">
-                  <label><input type="checkbox" name="app" value="Visitor Check-In" /> <span>Visitor Check-In</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Visitor Check-In" /> <span>Visitor Check-In</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#checkin" data-preview-title="Visitor Check-In">Preview</button>
                 </article>
                 <article class="app-card" data-app="Pulse Survey" data-url="https://powerwyze-kiosk.vercel.app/#survey">
-                  <label><input type="checkbox" name="app" value="Pulse Survey" /> <span>Pulse Survey</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Pulse Survey" /> <span>Pulse Survey</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#survey" data-preview-title="Pulse Survey">Preview</button>
                 </article>
                 <article class="app-card" data-app="Digital Signage" data-url="https://powerwyze-kiosk.vercel.app/#sign">
-                  <label><input type="checkbox" name="app" value="Digital Signage" /> <span>Digital Signage</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Digital Signage" /> <span>Digital Signage</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#sign" data-preview-title="Digital Signage">Preview</button>
                 </article>
                 <article class="app-card" data-app="AI Concierge" data-url="https://powerwyze-kiosk.vercel.app/#concierge">
-                  <label><input type="checkbox" name="app" value="AI Concierge" /> <span>AI Concierge</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="AI Concierge" /> <span>AI Concierge</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#concierge" data-preview-title="AI Concierge">Preview</button>
                 </article>
                 <article class="app-card" data-app="Scan & Identify" data-url="https://powerwyze-kiosk.vercel.app/#scan">
-                  <label><input type="checkbox" name="app" value="Scan & Identify" /> <span>Scan &amp; Identify</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Scan & Identify" /> <span>Scan &amp; Identify</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#scan" data-preview-title="Scan &amp; Identify">Preview</button>
                 </article>
                 <article class="app-card" data-app="Wellness Check" data-url="https://powerwyze-kiosk.vercel.app/#wellness">
-                  <label><input type="checkbox" name="app" value="Wellness Check" /> <span>Wellness Check</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Wellness Check" /> <span>Wellness Check</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#wellness" data-preview-title="Wellness Check">Preview</button>
                 </article>
                 <article class="app-card" data-app="Pulse Catch" data-url="https://powerwyze-kiosk.vercel.app/#game">
-                  <label><input type="checkbox" name="app" value="Pulse Catch (game)" /> <span>Pulse Catch</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Pulse Catch (game)" /> <span>Pulse Catch</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#game" data-preview-title="Pulse Catch">Preview</button>
                 </article>
               </div>
@@ -231,15 +239,15 @@
               <h3 class="apps-group-title">Mini-games</h3>
               <div class="apps-grid">
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Tap Blitz (game)" /> <span>Tap Blitz</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Tap Blitz (game)" /> <span>Tap Blitz</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#tapgame" data-preview-title="Tap Blitz">Preview</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Match Grid (game)" /> <span>Match Grid</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Match Grid (game)" /> <span>Match Grid</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#matchgame" data-preview-title="Match Grid">Preview</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Charge Rush (game)" /> <span>Charge Rush</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Charge Rush (game)" /> <span>Charge Rush</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#chargergame" data-preview-title="Charge Rush">Preview</button>
                 </article>
               </div>
@@ -247,15 +255,15 @@
               <h3 class="apps-group-title">Featured experiences</h3>
               <div class="apps-grid">
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="PhotoBooth" /> <span>PhotoBooth</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="PhotoBooth" /> <span>PhotoBooth</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#booth" data-preview-title="PhotoBooth">Preview</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Voice Agent" /> <span>Voice Agent</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Voice Agent" /> <span>Voice Agent</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#voice" data-preview-title="Voice Agent">Preview</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Data Dash" /> <span>Data Dash</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Data Dash" /> <span>Data Dash</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#data" data-preview-title="Data Dash">Preview</button>
                 </article>
               </div>
@@ -263,27 +271,27 @@
               <h3 class="apps-group-title">Concept cards <span class="muted-tag">(roadmap)</span></h3>
               <div class="apps-grid">
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Charity Donation (concept)" /> <span>Charity Donation</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Charity Donation (concept)" /> <span>Charity Donation</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Charity Donation">Discover</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Smart Locker Pickup (concept)" /> <span>Smart Locker Pickup</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Smart Locker Pickup (concept)" /> <span>Smart Locker Pickup</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Smart Locker Pickup">Discover</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Loyalty Tap-In (concept)" /> <span>Loyalty Tap-In</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Loyalty Tap-In (concept)" /> <span>Loyalty Tap-In</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Loyalty Tap-In">Discover</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Lead Capture (concept)" /> <span>Lead Capture</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Lead Capture (concept)" /> <span>Lead Capture</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Lead Capture">Discover</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Event Schedule (concept)" /> <span>Event Schedule</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Event Schedule (concept)" /> <span>Event Schedule</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Event Schedule">Discover</button>
                 </article>
                 <article class="app-card">
-                  <label><input type="checkbox" name="app" value="Hardware Catalog (concept)" /> <span>Hardware Catalog</span></label>
+                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Hardware Catalog (concept)" /> <span>Hardware Catalog</span></label>
                   <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Hardware Catalog">Discover</button>
                 </article>
               </div>
@@ -291,7 +299,7 @@
               <!-- Custom app request -->
               <div class="custom-app">
                 <label class="check-card">
-                  <input type="checkbox" id="opt-custom-app" />
+                  <input type="checkbox" id="opt-custom-app" name="custom_app" value="Yes" form="robokiosk-order" />
                   <div class="check-body">
                     <span class="check-title">Request a custom simple app</span>
                     <span class="check-meta">Describe what you need — we&rsquo;ll quote it separately</span>
@@ -300,7 +308,7 @@
                 <div class="custom-app-details" id="custom-app-details" hidden>
                   <label class="field">
                     <span class="field-label">Custom app description</span>
-                    <textarea name="custom_app_description" rows="3" placeholder="What should this app do? Who is it for? Any data it needs to capture?"></textarea>
+                    <textarea name="custom_app_description" rows="3" placeholder="What should this app do? Who is it for? Any data it needs to capture?" form="robokiosk-order"></textarea>
                   </label>
                 </div>
               </div>
@@ -310,7 +318,21 @@
             <fieldset class="opt-section" id="order-form">
               <legend><span class="step">6</span> Submit your order</legend>
               <p class="opt-help">No payment is taken on this page. We&rsquo;ll review your configuration and reach out within one business day to finalize scope and timeline.</p>
-              <form class="order-form" data-order-form>
+              <form class="order-form" id="robokiosk-order" data-order-form action="https://formsubmit.co/wyzer@powerwyze.com" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="PowerWyze RoboKiosk order" />
+                <input type="hidden" name="_next" value="https://powerwyze.com/thanks" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" />
+                <input type="hidden" name="order_type" id="order-type-value" />
+                <input type="hidden" name="order_total" id="order-total-value" />
+                <input type="hidden" name="configuration_summary" id="order-summary-value" />
+                <input type="hidden" name="kiosk_size" id="order-size-value" />
+                <input type="hidden" name="kiosk_quantity" id="order-qty-value" />
+                <input type="hidden" name="it_support_plan" id="order-it-value" />
+                <input type="hidden" name="branding_selection" id="order-branding-value" />
+                <input type="hidden" name="selected_apps" id="order-apps-value" />
+                <input type="hidden" name="custom_app_requested" id="order-custom-value" />
                 <label class="field">
                   <span class="field-label">Full name</span>
                   <input type="text" name="name" required autocomplete="name" />
@@ -383,13 +405,16 @@
       </section>
     </main>
 
-    <footer class="site-footer" id="contact">
-      <div class="container footer-grid">
-        <div class="footer-brand">
-          <span class="footer-logo-frame"><img src="/assets/logo-color.png?v=12" alt="PowerWyze" class="footer-logo" /></span>
-          <p>AI event activation systems. South Florida. Deployed nationally.</p>
-        </div>
-        <nav aria-label="Footer">
+    <footer class="site-footer dark-section" id="contact">
+      <div class="footer-inner">
+        <span class="footer-logo-frame"><img src="/assets/logo-color.png?v=12" alt="PowerWyze" class="footer-logo" /></span>
+        <hr />
+        <dl class="footer-contact">
+          <div><dt>Office:</dt><dd>Hallandale Beach, FL</dd></div>
+          <div><dt>Email:</dt><dd><a href="mailto:wyzer@powerwyze.com">wyzer@powerwyze.com</a></dd></div>
+          <div><dt>Site:</dt><dd><a href="https://powerwyze.com">powerwyze.com</a></dd></div>
+        </dl>
+        <nav class="footer-nav" aria-label="Footer">
           <a href="/#system">System</a>
           <a href="/#field">In the field</a>
           <a href="/products">Products</a>
@@ -399,7 +424,17 @@
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
         </nav>
-        <p class="footer-meta">© <span data-year>2026</span> PowerWyze. All rights reserved.</p>
+        <p class="follow">Follow us</p>
+        <div class="socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/company/powerwyze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.9H3.7v10.4h3.24V8.9ZM5.32 4.03a1.88 1.88 0 1 0 0 3.76 1.88 1.88 0 0 0 0-3.76Zm13.98 9.3c0-3.13-1.67-4.58-3.9-4.58-1.8 0-2.6.99-3.05 1.68V8.9H9.24v10.4h3.24v-5.14c0-1.36.26-2.68 1.95-2.68 1.66 0 1.69 1.55 1.69 2.77v5.05h3.24l-.06-5.97Z" fill="currentColor"/></svg></a>
+          <a href="https://www.instagram.com/powerwyze/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9a4.7 4.7 0 0 1-4.7 4.7h-9a4.7 4.7 0 0 1-4.7-4.7v-9A4.7 4.7 0 0 1 7.5 2.8Zm0 1.8a2.9 2.9 0 0 0-2.9 2.9v9a2.9 2.9 0 0 0 2.9 2.9h9a2.9 2.9 0 0 0 2.9-2.9v-9a2.9 2.9 0 0 0-2.9-2.9h-9Zm4.5 3a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 1.8a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm5.03-2.08a1.03 1.03 0 1 1 0 2.06 1.03 1.03 0 0 1 0-2.06Z" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/@powerwyze" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.2a2.62 2.62 0 0 0-1.85-1.86C18.1 4.9 12 4.9 12 4.9s-6.1 0-7.73.44A2.62 2.62 0 0 0 2.42 7.2 27.2 27.2 0 0 0 2 12a27.2 27.2 0 0 0 .42 4.8 2.62 2.62 0 0 0 1.85 1.86c1.63.44 7.73.44 7.73.44s6.1 0 7.73-.44a2.62 2.62 0 0 0 1.85-1.86A27.2 27.2 0 0 0 22 12a27.2 27.2 0 0 0-.42-4.8ZM10 15.1V8.9l5.2 3.1L10 15.1Z" fill="currentColor"/></svg></a>
+          <a href="https://www.tiktok.com/@powerwyze" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3h3.1c.3 1.8 1.3 3.2 3.2 3.8v3.2a9 9 0 0 1-3.2-1v6.2a5.8 5.8 0 1 1-5.8-5.8c.4 0 .8 0 1.2.1v3.2a2.7 2.7 0 1 0 1.5 2.5V3Z" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/powerwyze" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4a22 22 0 0 0-2.5-.1c-2.5 0-4.2 1.5-4.2 4.2V10H8v3h2.3v8h3.4Z" fill="currentColor"/></svg></a>
+          <a href="https://x.com/powerwyze" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3.6l3.8 5 4.3-5H19l-5.1 6 5.7 7H16l-4.1-5.4L7.2 17H5l5.5-6.4L5 4Z" fill="currentColor"/></svg></a>
+        </div>
+        <hr />
+        <p class="copyright">© POWERWYZE — ALL RIGHTS RESERVED</p>
       </div>
     </footer>
 
@@ -420,6 +455,7 @@
       </div>
     </div>
 
-    <script src="/products.js?v=6" defer></script>
+    <script src="/script.js?v=23" defer></script>
+    <script src="/products.js?v=11" defer></script>
   </body>
 </html>

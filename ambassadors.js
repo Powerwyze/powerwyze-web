@@ -1,14 +1,8 @@
 // Ambassador page interactions
 // - GSAP reveal on scroll
-// - Form submit: opens mailto to wyzer@powerwyze.com AND fires JSON POST to a
-//   Google Apps Script webhook (configurable via window.PW_AMBASSADOR_WEBHOOK or
-//   the AMBASSADOR_WEBHOOK_URL const below).
-//
-// To wire up sheet logging:
-//   1) Open the "PowerWyze CRM - Outreach Tracker" Google Sheet.
-//   2) Extensions → Apps Script. Paste the snippet at the bottom of this file.
-//   3) Deploy → New deployment → Web app. Execute as: Me. Who has access: Anyone.
-//   4) Copy the resulting /exec URL into AMBASSADOR_WEBHOOK_URL below.
+// - Form POST natively to FormSubmit (https://formsubmit.co/wyzer@powerwyze.com)
+// - Optional JSON POST to a Google Apps Script webhook (configurable via
+//   window.PW_AMBASSADOR_WEBHOOK or the AMBASSADOR_WEBHOOK_URL const below).
 
 const AMBASSADOR_WEBHOOK_URL = ""; // <-- paste deployed Apps Script /exec URL here
 
@@ -25,10 +19,20 @@ const AMBASSADOR_WEBHOOK_URL = ""; // <-- paste deployed Apps Script /exec URL h
   // Mobile nav toggle
   const toggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
+  function setMenuOpen(isOpen) {
+    if (!nav || !toggle) return;
+    nav.classList.toggle('is-open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('nav-open', isOpen);
+  }
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', String(open));
+    toggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setMenuOpen(!nav.classList.contains('is-open'));
+    });
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenuOpen(false));
     });
   }
 
@@ -51,8 +55,7 @@ const AMBASSADOR_WEBHOOK_URL = ""; // <-- paste deployed Apps Script /exec URL h
   const status = document.querySelector('[data-form-status]');
   if (!form) return;
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  form.addEventListener('submit', () => {
     if (status) {
       status.classList.remove('success', 'error');
       status.textContent = 'Sending your application…';
@@ -73,22 +76,12 @@ const AMBASSADOR_WEBHOOK_URL = ""; // <-- paste deployed Apps Script /exec URL h
       why: (fd.get('why') || '').toString().trim(),
     };
 
-    // Minimal required-field validation
-    if (!data.name || !data.email || !data.phone || !data.city || !data.state || !data.why || !data.audience) {
-      if (status) {
-        status.classList.add('error');
-        status.textContent = 'Please complete all required fields.';
-      }
-      return;
-    }
-
-    // 1) Fire-and-forget POST to Apps Script webhook if configured
+    // Optional sheet webhook — native FormSubmit POST continues regardless.
     const webhook =
       (typeof window !== 'undefined' && window.PW_AMBASSADOR_WEBHOOK) ||
       AMBASSADOR_WEBHOOK_URL;
     if (webhook) {
       try {
-        // no-cors mode: Apps Script web apps accept this; we don't read the response
         fetch(webhook, {
           method: 'POST',
           mode: 'no-cors',
@@ -99,39 +92,6 @@ const AMBASSADOR_WEBHOOK_URL = ""; // <-- paste deployed Apps Script /exec URL h
         /* non-blocking */
       }
     }
-
-    // 2) Open mailto so we always have an email copy
-    const subject = `Ambassador application — ${data.name}`;
-    const lines = [
-      `Name: ${data.name}`,
-      `Email: ${data.email}`,
-      `Phone: ${data.phone}`,
-      `City/State: ${data.city}, ${data.state}`,
-      `Audience size: ${data.audience}`,
-      `Instagram: ${data.instagram || '—'}`,
-      `TikTok: ${data.tiktok || '—'}`,
-      `Other socials: ${data.otherSocials || '—'}`,
-      '',
-      'Why PowerWyze:',
-      data.why,
-    ];
-    const body = encodeURIComponent(lines.join('\n'));
-    const mailto = `mailto:wyzer@powerwyze.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-    if (status) {
-      status.classList.add('success');
-      status.textContent = 'Thanks — your application has been logged. Opening your email to send a copy…';
-    }
-
-    // Small delay so the success message paints before the mailto handoff
-    setTimeout(() => {
-      window.location.href = mailto;
-    }, 350);
-
-    // Reset after a short pause (user may return to the page after the mailto)
-    setTimeout(() => {
-      form.reset();
-    }, 2000);
   });
 })();
 
