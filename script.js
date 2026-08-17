@@ -10,16 +10,25 @@
   setHeaderState();
   window.addEventListener('scroll', setHeaderState, { passive: true });
 
-  menuToggle?.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('is-open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  function setMenuOpen(isOpen) {
+    nav?.classList.toggle('is-open', isOpen);
+    menuToggle?.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('nav-open', Boolean(isOpen && nav));
+  }
+
+  menuToggle?.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!nav) return;
+    setMenuOpen(!nav.classList.contains('is-open'));
   });
 
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener('click', () => {
-      nav?.classList.remove('is-open');
-      menuToggle?.setAttribute('aria-expanded', 'false');
-    });
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
   });
 
   const heroTitle = document.querySelector('[data-split]');
@@ -163,28 +172,5 @@
     });
   });
 
-  const form = document.querySelector('[data-quote-form]');
-  form?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    const data = new FormData(form);
-    const get = (name) => String(data.get(name) || '').trim();
-    const company = get('company');
-    const fields = [
-      ['Name', get('name')],
-      ['Work email', get('email')],
-      ['Phone', get('phone')],
-      ['Company', company],
-      ['Event type', get('eventType')],
-      ['Tell us about your event', get('message') || ''],
-    ];
-    const body = fields.map(([label, value]) => `${label}: ${value}`).join('\n');
-    const subject = `Corporate quote request — ${company}`;
-    const mailtoUrl = `mailto:wyzer@powerwyze.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.__lastMailtoUrl = mailtoUrl;
-    window.location.href = mailtoUrl;
-  });
+  // Quote / contact forms POST natively to FormSubmit. Do not intercept with mailto.
 })();

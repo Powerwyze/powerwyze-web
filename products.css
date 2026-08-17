@@ -227,12 +227,16 @@
 /* Order form */
 .order-form { display: grid; gap: var(--space-4); }
 .summary-box {
-  background: var(--cream-2);
+  background: #fff;
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   border: 1.5px solid var(--line);
   display: grid;
   gap: var(--space-3);
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  box-shadow: 0 16px 40px rgba(27,33,65,.12);
 }
 .summary-box h4 { font-family: var(--font-display); font-size: 1.3rem; color: var(--navy); font-weight: 400; }
 .summary-box ul { list-style: none; display: grid; gap: var(--space-2); }
@@ -411,8 +415,6 @@
   max-width: 100%;
 }
 .catalog-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,33,65,.10); border-color: var(--green-light); }
-.catalog-card.is-soon { opacity: .92; }
-.catalog-card.is-soon:hover { transform: none; box-shadow: 0 8px 20px rgba(27,33,65,.06); border-color: var(--line); cursor: not-allowed; }
 .catalog-image {
   background: var(--cream);
   aspect-ratio: 4/5;
@@ -434,24 +436,7 @@
 .catalog-cta { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--navy); font-weight: 600; font-size: var(--text-sm); margin-top: var(--space-2); }
 .catalog-cta .arrow { transition: transform var(--transition); }
 .catalog-card:hover .catalog-cta .arrow { transform: translateX(4px); }
-.soon-badge {
-  position: absolute;
-  top: var(--space-4);
-  left: var(--space-4);
-  z-index: 2;
-  background: var(--navy-deep);
-  color: var(--cream);
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.coming-soon-tag {
-  color: var(--muted);
-  font-weight: 500;
-}
+.catalog-cta .arrow { transition: transform var(--transition); }
 
 /* Mobile */
 @media (max-width: 960px) {

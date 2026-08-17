@@ -26,11 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mobile nav toggle
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const siteNav = document.querySelector("[data-nav]");
+  function setMenuOpen(isOpen) {
+    if (!menuToggle || !siteNav) return;
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    siteNav.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
+  }
   if (menuToggle && siteNav) {
-    menuToggle.addEventListener("click", () => {
-      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", !expanded);
-      siteNav.classList.toggle("is-open");
+    menuToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setMenuOpen(!siteNav.classList.contains("is-open"));
     });
   }
 
