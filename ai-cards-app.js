@@ -170,7 +170,7 @@ Phone: ${data.phone || "Not provided"}
 Order Details:
 Tier: ${data.tier || "Not selected"}
 Quantity: ${data.quantity || "Not specified"}
-Add AI Secretary: ${data.add_ai || "Not specified"}
+Metal finish add-on: ${data.metal_addon || "Not specified"}
 Use Case: ${data.use_case || "Not selected"}
 
 Brand Details & Requirements:
