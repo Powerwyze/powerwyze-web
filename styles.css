@@ -263,45 +263,69 @@ body.nav-open { overflow: hidden; }
   }
   .menu-toggle span:not(.sr-only) { display: block; height: 2px; background: currentColor; }
   .header-cta { grid-area: cta; }
+  /* Compact sheet under the header — height hugs links + CTA, never 100vh. */
   .site-nav {
-    position: fixed;
-    top: 72px;
+    grid-area: 1 / 1 / 2 / -1;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
-    display: grid;
-    justify-items: center;
-    align-content: start;
-    gap: var(--space-6);
-    padding: var(--space-8) var(--space-6) var(--space-12);
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    max-height: min(fit-content, calc(100dvh - 72px));
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: .35rem 1.15rem 1rem;
     background: #11162E;
     color: #FCF7F1;
-    transform: translateY(-110%);
+    box-shadow: 0 18px 36px rgba(17, 22, 46, .32);
+    border-radius: 0 0 1rem 1rem;
+    transform: translateY(-120%);
     transition: transform 280ms var(--ease-out);
     z-index: 101;
     pointer-events: none;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     opacity: 1;
+    isolation: isolate;
   }
   .site-nav.is-open {
     transform: translateY(0);
     pointer-events: auto;
   }
   .site-nav a,
+  .site-header.is-light .site-nav a,
   .products-body .site-header .site-nav a {
+    display: block;
+    width: 100%;
+    padding: .72rem .15rem;
+    border-bottom: 1px solid rgba(252, 247, 241, .1);
     color: #FCF7F1;
     opacity: 1;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .site-nav a:hover {
+    opacity: .72;
   }
   .site-nav .nav-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-top: var(--space-2);
+    align-self: stretch;
+    width: 100%;
+    margin-top: .75rem;
     padding: .7rem 1.4rem;
+    border-bottom: 0;
     border-radius: var(--radius-full);
     background: var(--green-grad);
     color: var(--navy) !important;
     font-weight: 700;
+    text-align: center;
   }
 }
 

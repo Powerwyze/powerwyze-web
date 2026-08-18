@@ -30,14 +30,24 @@ document.addEventListener("DOMContentLoaded", () => {
     siteNav?.classList.toggle("is-open", isOpen);
     menuToggle?.setAttribute("aria-expanded", String(isOpen));
     document.body.classList.toggle("nav-open", Boolean(isOpen && siteNav));
+    if (!isOpen) document.body.style.removeProperty("overflow");
   }
   if (menuToggle && siteNav) {
     menuToggle.addEventListener("click", (event) => {
       event.preventDefault();
+      event.stopPropagation();
       setMenuOpen(!siteNav.classList.contains("is-open"));
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setMenuOpen(false);
+    });
+    document.addEventListener("click", (event) => {
+      if (!siteNav.classList.contains("is-open")) return;
+      if (siteNav.contains(event.target) || menuToggle.contains(event.target)) return;
+      setMenuOpen(false);
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1200) setMenuOpen(false);
     });
   }
 

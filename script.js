@@ -14,6 +14,7 @@
     nav?.classList.toggle('is-open', isOpen);
     menuToggle?.setAttribute('aria-expanded', String(isOpen));
     document.body.classList.toggle('nav-open', Boolean(isOpen && nav));
+    if (!isOpen) document.body.style.removeProperty('overflow');
   }
 
   menuToggle?.addEventListener('click', (event) => {
@@ -29,6 +30,17 @@
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') setMenuOpen(false);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!nav?.classList.contains('is-open')) return;
+    const target = event.target;
+    if (nav.contains(target) || menuToggle?.contains(target)) return;
+    setMenuOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1200) setMenuOpen(false);
   });
 
   const heroTitle = document.querySelector('[data-split]');
