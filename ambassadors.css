@@ -319,7 +319,8 @@
 .form-status.success { color: var(--green-dark, #3FAA62); font-weight: 500; }
 .form-status.error { color: #c0392b; font-weight: 500; }
 
-/* Footer nav (added) */
+#apply { scroll-margin-top: 132px; }
+#demo { scroll-margin-top: 108px; }
 .footer-nav {
   display: flex;
   flex-wrap: wrap;

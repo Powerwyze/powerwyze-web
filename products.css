@@ -386,15 +386,11 @@
 }
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 420px;
+  margin-inline: auto;
   gap: var(--space-6);
   padding-bottom: var(--space-20);
-}
-@media (min-width: 720px) {
-  .catalog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 719px) {
-  .catalog-grid { grid-template-columns: 1fr; }
 }
 .catalog-card {
   position: relative;
@@ -464,8 +460,9 @@
   .preview-modal { padding: 0; }
 }
 
-/* Force light header on products page (no dark hero) */
-.products-body .site-header { background: rgba(252,247,241,.94); color: var(--navy); box-shadow: 0 1px 0 rgba(27,33,65,.08); backdrop-filter: blur(14px); }
+/* Force light header on products page (no dark hero). Do not use backdrop-filter:
+   it makes position:fixed descendants (the mobile nav) a semi-transparent overlay. */
+.products-body .site-header { background: rgba(252,247,241,.94); color: var(--navy); box-shadow: 0 1px 0 rgba(27,33,65,.08); backdrop-filter: none; }
 .products-body .site-header .site-nav a { color: var(--navy); }
 .products-body .site-header .header-cta,
 .products-body .site-header .pill-cta { background: var(--green-grad); color: var(--navy); }
