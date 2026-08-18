@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=30" />
-    <link rel="stylesheet" href="/ai-cards.css?v=5" />
+    <link rel="stylesheet" href="/ai-cards.css?v=6" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -83,20 +83,17 @@
               <label>Tier
                 <select name="tier">
                   <option value="">Select a tier</option>
-                  <option value="Free — Tech Tuesday attendee (plastic card only, no AI)">Free — Tech Tuesday attendee (plastic card only, no AI)</option>
                   <option value="Custom card ($30)">Custom card ($30)</option>
-                  <option value="Metal card ($60)">Metal card ($60)</option>
                   <option value="AI Secretary card ($75 + $5/mo)">AI Secretary card ($75 + $5/mo)</option>
                   <option value="Mixed / Not sure">Mixed / Not sure</option>
                 </select>
               </label>
               <label>Quantity<input name="quantity" type="number" min="1" /></label>
               <fieldset class="full">
-                <legend style="margin-bottom: 0.5rem; display: block; font-weight: 500;">Add AI Secretary?</legend>
-                <div style="display: flex; gap: 1rem;">
-                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Yes" /> Yes</label>
-                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="No" /> No</label>
-                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="add_ai" value="Already included in tier" /> Already included in tier</label>
+                <legend style="margin-bottom: 0.5rem; display: block; font-weight: 500;">Metal finish add-on?</legend>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="metal_addon" value="Yes" /> Yes</label>
+                  <label style="flex-direction: row; align-items: center; gap: 0.5rem; font-weight: 400;"><input type="radio" name="metal_addon" value="No" /> No</label>
                 </div>
               </fieldset>
               <label class="full">Use case
@@ -169,47 +166,26 @@
             <p class="kicker">Pricing</p>
             <h2 id="pricing-title">Simple tiers. No hidden fees.</h2>
           </div>
-          <div class="pricing-grid pricing-grid--four">
-            <div class="pricing-card pricing-card--free reveal">
-              <span class="tier-badge">Tech Tuesday</span>
-              <h3 class="tier-name">Free — Tech Tuesday attendee</h3>
-              <p class="tier-price">$0 <span>for attendees</span></p>
-              <p class="tier-desc">Our gift to the Tech Tuesday Miami community. Show up, tap in, walk out with your card.</p>
-              <ul class="tier-features">
-                <li>NFC + QR fallback</li>
-                <li>Custom landing page</li>
-                <li>Lifetime hosting</li>
-              </ul>
-              <p class="tier-subnote">"Plastic card only, no AI"</p>
-            </div>
+          <div class="pricing-grid">
             <div class="pricing-card reveal">
-              <h3 class="tier-name">Tier 1 — Custom card</h3>
+              <h3 class="tier-name">Custom card</h3>
               <p class="tier-price">$30 <span>per card</span></p>
-              <p class="tier-desc">Includes one NFC business card with a custom landing page we design and host for you.</p>
+              <p class="tier-desc">NFC business card with a bespoke landing page we design and host for you. Lifetime hosting included.</p>
               <ul class="tier-features">
                 <li>NFC + QR fallback</li>
                 <li>Fully bespoke landing page</li>
                 <li>Lifetime hosting</li>
                 <li>Edit content anytime</li>
               </ul>
-            </div>
-            <div class="pricing-card reveal">
-              <h3 class="tier-name">Tier 2 — Metal card</h3>
-              <p class="tier-price">$60 <span>per card</span></p>
-              <p class="tier-desc">Premium metal NFC card finish. Everything in Tier 1, plus:</p>
-              <ul class="tier-features">
-                <li>Premium metal finish</li>
-                <li>Laser-engraved branding</li>
-                <li>Heavier in-hand feel</li>
-                <li>Designed to be kept</li>
-              </ul>
+              <p class="tier-subnote">Premium metal finish is an add-on, not a separate tier.</p>
             </div>
             <div class="pricing-card highlighted reveal">
               <div class="stamp-wrapper"><div class="bounty-stamp" aria-hidden="true">MOST POPULAR</div></div>
-              <h3 class="tier-name">Tier 3 — AI Secretary card</h3>
+              <h3 class="tier-name">AI Secretary card</h3>
               <p class="tier-price">$75 <span>per card + $5/mo</span></p>
-              <p class="tier-desc">Everything in Tier 1, plus a dedicated trained AI agent (your knowledge base, your tone).</p>
+              <p class="tier-desc">Everything in Custom, plus an always-on AI secretary that chats, qualifies, and books 24/7.</p>
               <ul class="tier-features">
+                <li>Everything in Custom card</li>
                 <li>24/7 chat on your landing page</li>
                 <li>Lead qualification + auto-routing</li>
                 <li>Meeting booking</li>
@@ -220,7 +196,8 @@
           </div>
           <div class="pricing-notes reveal">
             <p>Volume pricing available on orders of 25+. Ask about bundles for events and team rollouts.</p>
-            <p>Metal upgrade can be added to any tier. AI Secretary can be added to any tier.</p>
+            <p>Premium metal finish is an add-on to either card &mdash; not its own product.</p>
+            <p>Tech Tuesday Miami attendees: ask us about a complimentary plastic card (no AI).</p>
           </div>
         </div>
       </section>
@@ -237,7 +214,7 @@
             <details class="amb-faq-item reveal"><summary>Can I update my landing page later?</summary><p>Yes. Your card stays the same — we update the content behind it any time you need. No reprint, no new card.</p></details>
             <details class="amb-faq-item reveal"><summary>What can the AI secretary actually do?</summary><p>It chats with visitors, answers questions about your business, qualifies leads, books meetings to your calendar, and routes hot leads to your inbox in real time. You set the tone, the rules, and the knowledge it draws from.</p></details>
             <details class="amb-faq-item reveal"><summary>Why a monthly fee for the AI secretary?</summary><p>The $5/mo covers ongoing compute, model updates, and quarterly retraining as your business evolves. Cancel any time — your card and landing page keep working.</p></details>
-            <details class="amb-faq-item reveal"><summary>How long until I receive my cards?</summary><p>Custom cards ship in 7–10 business days. Metal cards ship in 10–14 business days. AI secretary is activated on delivery.</p></details>
+            <details class="amb-faq-item reveal"><summary>How long until I receive my cards?</summary><p>Custom cards ship in 7–10 business days. Metal finish add-ons ship in 10–14 business days. AI secretary is activated on delivery.</p></details>
             <details class="amb-faq-item reveal"><summary>Are these only for individuals or can I order for my team?</summary><p>Most clients order for entire sales teams, founder teams, and event staff. Volume pricing available on orders of 25+.</p></details>
           </div>
         </div>
@@ -281,6 +258,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/ai-cards-app.js?v=8" defer></script>
+    <script src="/ai-cards-app.js?v=9" defer></script>
   </body>
 </html>
