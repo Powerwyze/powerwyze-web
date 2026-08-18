@@ -471,6 +471,9 @@
 /* Mobile sheet is an opaque navy panel — keep cream links, don't inherit header navy. */
 @media (max-width: 1200px) {
   .products-body .site-header .site-nav {
+    justify-self: stretch;
+    width: 100%;
+    min-width: 100%;
     background: #11162E;
     color: #FCF7F1;
   }

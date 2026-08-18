@@ -261,19 +261,41 @@ body.nav-open { overflow: hidden; }
     z-index: 103;
     position: relative;
   }
-  .menu-toggle span:not(.sr-only) { display: block; height: 2px; background: currentColor; }
+  .menu-toggle span:not(.sr-only) {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    transform-origin: center;
+    transition: transform 200ms var(--ease-out);
+  }
+  .menu-toggle[aria-expanded="true"] span:not(.sr-only):nth-of-type(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] span:not(.sr-only):nth-of-type(2) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
   .header-cta { grid-area: cta; }
-  /* Compact sheet under the header — height hugs links + CTA, never 100vh. */
+  /*
+    Full-width sheet under the 72px header. The desktop rule `justify-self: center`
+    was shrinking this to ~204px (a tall skinny column with page flanks). Stretch
+    it, drop bottom/100vh, and let height hug the 7 links + CTA.
+  */
   .site-nav {
-    grid-area: 1 / 1 / 2 / -1;
-    position: absolute;
-    top: 100%;
+    justify-self: stretch;
+    align-self: start;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    position: fixed;
+    top: 72px;
     left: 0;
     right: 0;
     bottom: auto;
     width: 100%;
-    height: auto;
-    max-height: min(fit-content, calc(100dvh - 72px));
+    min-width: 100%;
+    max-width: none;
+    height: max-content;
+    max-height: calc(100dvh - 72px);
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -291,11 +313,17 @@ body.nav-open { overflow: hidden; }
     overflow-x: hidden;
     overflow-y: auto;
     opacity: 1;
-    isolation: isolate;
   }
   .site-nav.is-open {
-    transform: translateY(0);
+    transform: none;
     pointer-events: auto;
+  }
+  body.nav-open::before {
+    content: "";
+    position: fixed;
+    inset: 72px 0 0;
+    z-index: 99;
+    background: rgba(17, 22, 46, .42);
   }
   .site-nav a,
   .site-header.is-light .site-nav a,

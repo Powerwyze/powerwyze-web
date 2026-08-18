@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function setMenuOpen(isOpen) {
     siteNav?.classList.toggle("is-open", isOpen);
     menuToggle?.setAttribute("aria-expanded", String(isOpen));
+    const label = menuToggle?.querySelector(".sr-only");
+    if (label) label.textContent = isOpen ? "Close menu" : "Menu";
     document.body.classList.toggle("nav-open", Boolean(isOpen && siteNav));
     if (!isOpen) document.body.style.removeProperty("overflow");
   }
