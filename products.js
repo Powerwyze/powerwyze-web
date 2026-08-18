@@ -3,7 +3,7 @@
    - Price calc
    - Gallery thumbs
    - App preview modal (iframes the live kiosk demo)
-   - Order form submission via mailto
+   - Order form POSTs natively to FormSubmit
 */
 (function () {
   'use strict';
@@ -201,6 +201,24 @@
     $('#sum-apps').textContent = String(appsChecked);
     $('#sum-custom').textContent = optCustomApp.checked ? 'Requested' : '—';
     $('#sum-total').textContent = fmt(total) + suffix;
+    const typeField = document.getElementById('order-type-field');
+    if (typeField) typeField.value = mode === 'rental' ? 'Activation rental' : 'Kiosk purchase';
+    syncOrderConfigField();
+  }
+
+  function syncOrderConfigField() {
+    const field = document.getElementById('order-config-field');
+    const list = document.getElementById('order-summary-list');
+    const totalEl = document.getElementById('sum-total');
+    if (!field) return;
+    const lines = [];
+    if (list) {
+      list.querySelectorAll('li').forEach((li) => {
+        lines.push(li.innerText.replace(/\s+/g, ' ').trim());
+      });
+    }
+    if (totalEl) lines.push('Total: ' + totalEl.textContent.trim());
+    field.value = lines.join('\n');
   }
 
   // ===== Quantity stepper =====
@@ -272,84 +290,9 @@
     });
   });
 
-  // ===== Order form submission via mailto =====
+  // Order form POSTs natively to FormSubmit. Sync the config summary first.
   const form = $('[data-order-form]');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const fd = new FormData(form);
-
-    const sizeInput = sizeInputs.find((i) => i.checked);
-    const size = sizeInput ? sizeInput.value + '"' : '32"';
-    const basePriceUnit = sizeInput ? getSizePrice(sizeInput) : (mode === 'rental' ? 1200 : 3500);
-    const qty = getQty();
-    const brandingOn = optBranding.checked;
-    const itOn = optIt.checked;
-    const customAppOn = optCustomApp.checked;
-
-    let itCost, brandingCostUnit;
-    if (mode === 'rental') {
-      itCost = 0;
-      brandingCostUnit = brandingOn ? 500 : 0;
-    } else {
-      itCost = brandingOn ? 0 : (itOn ? 1000 : 0);
-      brandingCostUnit = brandingOn ? 500 : 0;
-    }
-    const baseTotal = basePriceUnit * qty;
-    const brandingTotal = brandingCostUnit * qty;
-    const total = baseTotal + itCost + brandingTotal;
-    const apps = $$('input[name="app"]:checked').map((cb) => cb.value);
-    const suffix = mode === 'rental' ? '/day' : '';
-    const modeLabel = mode === 'rental' ? 'Activation rental' : 'Kiosk purchase';
-
-    const lines = [];
-    lines.push('Hi PowerWyze team,');
-    lines.push('');
-    lines.push("I'd like to place a kiosk order with the following configuration:");
-    lines.push('');
-    lines.push('--- ORDER DETAILS ---');
-    lines.push('Order type: ' + modeLabel);
-    lines.push('Name: ' + (fd.get('name') || ''));
-    lines.push('Email: ' + (fd.get('email') || ''));
-    lines.push('Phone: ' + (fd.get('phone') || ''));
-    if (fd.get('company')) lines.push('Company/Event: ' + fd.get('company'));
-    lines.push('');
-    lines.push('--- KIOSK CONFIGURATION ---');
-    lines.push('Size: ' + size);
-    lines.push('Quantity: ' + qty);
-    lines.push('Base kiosk: ' + fmt(baseTotal) + suffix + (qty > 1 ? '  (' + qty + ' × ' + fmt(basePriceUnit) + suffix + ')' : ''));
-    if (mode === 'rental') {
-      lines.push('IT support: Included free with rental');
-    } else {
-      lines.push('IT support (Year 1): ' + (brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$1,000' : 'Not added')));
-    }
-    lines.push('Custom branding: ' + (brandingOn ? fmt(brandingTotal) + ' one-time' + (qty > 1 ? '  (' + qty + ' × $500)' : '') + (mode === 'purchase' ? ' · Year 1 IT free' : ' per activation') : 'Not added'));
-    if (brandingOn && fd.get('branding_description')) {
-      lines.push('Branding description: ' + fd.get('branding_description'));
-    }
-    if (brandingOn && fd.get('branding_upload') && fd.get('branding_upload').name) {
-      lines.push('Branding upload: ' + fd.get('branding_upload').name + ' (please attach to your reply)');
-    }
-    lines.push('');
-    lines.push('Apps selected (' + apps.length + '):');
-    if (apps.length === 0) lines.push('  (none)');
-    apps.forEach((a) => lines.push('  - ' + a));
-    if (customAppOn) {
-      lines.push('');
-      lines.push('Custom app requested:');
-      lines.push('  ' + (fd.get('custom_app_description') || '(no description provided)'));
-    }
-    lines.push('');
-    lines.push('--- ORDER TOTAL (submitted, no payment) ---');
-    lines.push('Total: ' + fmt(total) + suffix);
-    lines.push('');
-    lines.push('Please follow up to finalize scope, timeline, and payment.');
-    lines.push('');
-    lines.push('Thanks!');
-
-    const body = encodeURIComponent(lines.join('\n'));
-    const subject = encodeURIComponent('Kiosk Order — ' + modeLabel + ' · ' + size + ' RoboKiosk (' + (fd.get('name') || 'New order') + ')');
-    const mailto = 'mailto:wyzer@powerwyze.com?subject=' + subject + '&body=' + body;
-
-    window.location.href = mailto;
+  form?.addEventListener('submit', () => {
+    syncOrderConfigField();
   });
 })();

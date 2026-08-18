@@ -26,23 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mobile nav toggle
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const siteNav = document.querySelector("[data-nav]");
+  function setMenuOpen(isOpen) {
+    siteNav?.classList.toggle("is-open", isOpen);
+    menuToggle?.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("nav-open", Boolean(isOpen && siteNav));
+  }
   if (menuToggle && siteNav) {
-    menuToggle.addEventListener("click", () => {
-      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", !expanded);
-      siteNav.classList.toggle("is-open");
+    menuToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      setMenuOpen(!siteNav.classList.contains("is-open"));
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
     });
   }
 
   // Close mobile nav on link click
   const navLinks = document.querySelectorAll("[data-nav] a");
   navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      if (menuToggle && siteNav.classList.contains("is-open")) {
-        menuToggle.setAttribute("aria-expanded", "false");
-        siteNav.classList.remove("is-open");
-      }
-    });
+    link.addEventListener("click", () => setMenuOpen(false));
   });
 
   // Reveal animations

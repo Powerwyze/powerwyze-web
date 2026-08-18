@@ -1,6 +1,22 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.powerwyze.com" }],
+      "destination": "https://powerwyze.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/api/ai-cards",
+      "destination": "/ai-cards",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    { "source": "/ai-cards", "destination": "/ai-cards.html" }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

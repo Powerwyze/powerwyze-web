@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PowerWyze — Products</title>
-    <meta name="description" content="PowerWyze hardware: configure and order the RoboKiosk for B2B events and activations. No payment required on this page." />
-    <meta property="og:title" content="PowerWyze — Products" />
-    <meta property="og:description" content="Configure and order the PowerWyze RoboKiosk. No payment required on this page." />
+    <title>PowerWyze — Request received</title>
+    <meta name="description" content="Thanks for contacting PowerWyze. We respond within one business day." />
+    <meta name="robots" content="noindex,follow" />
+    <meta property="og:title" content="PowerWyze — Request received" />
+    <meta property="og:description" content="Thanks for contacting PowerWyze. We respond within one business day." />
     <meta property="og:image" content="https://powerwyze.com/assets/og-share.jpg" />
-    <meta property="og:url" content="https://powerwyze.com/products" />
+    <meta property="og:url" content="https://powerwyze.com/thanks.html" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -17,9 +18,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=28" />
-    <link rel="stylesheet" href="/products.css?v=9" />
   </head>
-  <body class="products-body">
+  <body>
     <header class="site-header" data-header>
       <a class="brand" href="/" aria-label="PowerWyze home">
         <img src="/assets/logo-color.png?v=12" alt="PowerWyze" />
@@ -28,10 +28,10 @@
         <span></span><span></span>
         <span class="sr-only">Menu</span>
       </button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
+      <nav class="site-nav" id="site-nav" data-nav>
         <a href="/#system">System</a>
         <a href="/#field">In the field</a>
-        <a href="/products" aria-current="page">Products</a>
+        <a href="/products">Products</a>
         <a href="/ai-cards">AI Cards</a>
         <a href="/#faq">FAQ</a>
         <a href="/#about">About</a>
@@ -44,69 +44,21 @@
       </a>
     </header>
 
-    <main class="product-main" id="top">
-      <!-- Breadcrumb -->
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <div class="container">
-          <a href="/">Home</a>
-          <span aria-hidden="true">›</span>
-          <span class="current">Products</span>
-        </div>
-      </nav>
-
-      <section class="catalog-hero">
-        <div class="container">
-          <p class="brand-eyebrow">PowerWyze · AI Hardware</p>
-          <h1>Products</h1>
-          <p>Configure the RoboKiosk and submit your order — no payment required on this page.</p>
-        </div>
-      </section>
-
-      <section class="catalog">
-        <div class="container catalog-grid">
-          <!-- RoboKiosk (available) -->
-          <a class="catalog-card" href="/products/robokiosk">
-            <div class="catalog-image">
-              <img src="/assets/kiosk-robokiosk-hero.jpg" alt="PowerWyze RoboKiosk — AI-powered floor-ready kiosk for B2B activations" />
-            </div>
-            <div class="catalog-body">
-              <p class="catalog-eyebrow">Available now</p>
-              <h2>RoboKiosk</h2>
-              <p>AI-powered floor-ready kiosk for B2B activations, retail, and corporate events. Five sizes from 32&Prime; through 65&Prime;. Configure size, apps, branding, and IT support — or rent it per day for a single activation.</p>
-              <span class="catalog-cta">Configure &amp; order <span class="arrow" aria-hidden="true">→</span></span>
-            </div>
+    <main id="top">
+      <section class="hero hero--text-only dark-section" aria-labelledby="thanks-title">
+        <div class="hero-copy">
+          <p class="kicker on-dark" data-thanks-kicker>Request received</p>
+          <h1 id="thanks-title">Thanks — we received your request.</h1>
+          <p data-thanks-body>Our team will follow up within one business day. If you need us sooner, email <a href="mailto:wyzer@powerwyze.com">wyzer@powerwyze.com</a>.</p>
+          <a class="pill-cta light-on-dark" href="/" data-thanks-cta>
+            <span>Back to PowerWyze</span>
+            <span class="arrow-badge" aria-hidden="true">↗</span>
           </a>
-        </div>
-      </section>
-
-      <!-- Brand showcase strip -->
-      <section class="brand-strip">
-        <div class="container">
-          <p class="kicker centered">Recent kiosk activations</p>
-          <h2 class="centered">Wrapped, branded, and deployed in the field.</h2>
-          <div class="brand-cards">
-            <figure class="brand-card">
-              <img src="/assets/kiosk-elevate.png" alt="Elevate Driving Experiences custom kiosk" />
-              <figcaption>Elevate · Luxury driving experience activation</figcaption>
-            </figure>
-            <figure class="brand-card">
-              <img src="/assets/kiosk-techtuesday.png" alt="Tech Tuesday Miami crypto event kiosk" />
-              <figcaption>Tech Tuesday Miami · Crypto Week sponsorship</figcaption>
-            </figure>
-            <figure class="brand-card">
-              <img src="/assets/kiosk-royalwine.png" alt="Royal Wine kiosk activation" />
-              <figcaption>Royal Wine · Retail and tasting activation</figcaption>
-            </figure>
-            <figure class="brand-card">
-              <img src="/assets/kiosk-f1miami.png" alt="F1 Miami HQ NXU Circuit kiosk" />
-              <figcaption>NXU Circuit · F1 Miami HQ activation</figcaption>
-            </figure>
-          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer dark-section" id="contact">
+    <footer class="site-footer dark-section">
       <div class="footer-inner">
         <span class="footer-logo-frame"><img src="/assets/logo-color.png?v=12" alt="PowerWyze" class="footer-logo" /></span>
         <hr />
@@ -125,20 +77,66 @@
           <a href="https://x.com/powerwyze" target="_blank" rel="noopener noreferrer" aria-label="X"><span aria-hidden="true">X</span></a>
         </div>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="/#system">System</a>
-          <a href="/#field">In the field</a>
-          <a href="/products">Products</a>
-          <a href="/#faq">FAQ</a>
-          <a href="/ambassadors">Ambassadors</a>
-          <a href="/ai-cards">AI Cards</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
+          <a href="/ai-cards">AI Cards</a>
         </nav>
         <hr />
         <p class="copyright">© POWERWYZE — ALL RIGHTS RESERVED</p>
       </div>
     </footer>
 
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const type = (params.get('type') || '').toLowerCase();
+        const title = document.getElementById('thanks-title');
+        const body = document.querySelector('[data-thanks-body]');
+        const kicker = document.querySelector('[data-thanks-kicker]');
+        const cta = document.querySelector('[data-thanks-cta] span');
+        const copy = {
+          quote: {
+            kicker: 'Quote request',
+            title: 'Thanks — your quote request is in.',
+            body: 'We’ll review your event details and follow up within one business day with scope, pricing, and a lead-capture plan.',
+            cta: 'Back to home',
+            href: '/'
+          },
+          order: {
+            kicker: 'Kiosk order',
+            title: 'Thanks — we received your RoboKiosk order.',
+            body: 'No payment was taken. We’ll confirm your configuration and follow up within one business day to finalize scope and timeline.',
+            cta: 'View products',
+            href: '/products'
+          },
+          ambassador: {
+            kicker: 'Ambassador application',
+            title: 'Thanks — your ambassador application is in.',
+            body: 'We review every application and respond within three business days with next steps.',
+            cta: 'Back to Ambassadors',
+            href: '/ambassadors'
+          }
+        };
+        const selected = copy[type];
+        if (!selected) return;
+        document.title = 'PowerWyze — ' + selected.title;
+        if (kicker) kicker.textContent = selected.kicker;
+        if (title) title.textContent = selected.title;
+        if (body) {
+          body.textContent = selected.body + ' ';
+          const mail = document.createElement('a');
+          mail.href = 'mailto:wyzer@powerwyze.com';
+          mail.textContent = 'wyzer@powerwyze.com';
+          body.appendChild(document.createTextNode('Need us sooner? Email '));
+          body.appendChild(mail);
+          body.appendChild(document.createTextNode('.'));
+        }
+        if (cta) {
+          cta.textContent = selected.cta;
+          cta.parentElement.setAttribute('href', selected.href);
+        }
+      })();
+    </script>
     <script src="/script.js?v=24" defer></script>
   </body>
 </html>
