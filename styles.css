@@ -233,9 +233,10 @@ dd { color: rgba(255,255,255,.72); }
 .site-footer .footer-grid nav a:hover { color: var(--green-light); }
 body.nav-open { overflow: hidden; }
 .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); }
-.socials a { display: grid; place-items: center; width: 2.8rem; height: 2.8rem; flex: 0 0 2.8rem; overflow: hidden; border: 1px solid rgba(252,247,241,.22); border-radius: 50%; color: var(--cream); transition: background var(--transition), color var(--transition), border-color var(--transition); }
+.socials a { display: grid; place-items: center; width: 2.8rem; height: 2.8rem; flex: 0 0 2.8rem; overflow: hidden; font-size: 0; line-height: 0; border: 1px solid rgba(252,247,241,.22); border-radius: 50%; color: var(--cream); transition: background var(--transition), color var(--transition), border-color var(--transition); }
 .socials a:hover { background: var(--green); color: var(--navy); border-color: var(--green); }
 .socials svg { width: 1.25rem; height: 1.25rem; display: block; }
+.socials a span { display: none; }
 .copyright { font-size: var(--text-xs); letter-spacing: .14em; color: rgba(255,255,255,.5); }
 
 .reveal { opacity: 1; }
