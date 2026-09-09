@@ -7,15 +7,15 @@
       "has": [{ "type": "host", "value": "www.powerwyze.com" }],
       "destination": "https://powerwyze.com/:path*",
       "permanent": true
-    },
-    {
-      "source": "/api/ai-cards",
-      "destination": "/ai-cards",
-      "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/ai-cards", "destination": "/ai-cards.html" }
+    { "source": "/ai-cards", "destination": "/ai-cards.html" },
+    { "source": "/ai-cards/", "destination": "/ai-cards.html" },
+    { "source": "/api/ai-cards", "destination": "/ai-cards.html" },
+    { "source": "/api/ai-cards/", "destination": "/ai-cards.html" },
+    { "source": "/thanks", "destination": "/thanks.html" },
+    { "source": "/thanks/", "destination": "/thanks.html" }
   ],
   "headers": [
     {

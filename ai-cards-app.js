@@ -1,4 +1,5 @@
-// ai-cards.js
+// AI Cards page script. Do not name this file ai-cards.js — Vercel treats
+// that as a serverless function and 307s /ai-cards to /api/ai-cards.
 
 // Supabase client for artwork uploads. Public anon key — safe to expose;
 // the ai-cards-uploads bucket only allows insert + select for anon by policy.
@@ -110,13 +111,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Form submission — upload files first, then open mailto with links
+  // Upload artwork to Supabase, then POST natively to FormSubmit (no mailto).
   const form = document.querySelector("[data-aicards-form]");
   const submitBtn = document.querySelector("[data-aicards-submit]");
   const statusEl = document.querySelector("[data-aicards-status]");
+  const urlsField = document.querySelector("[data-aicards-urls]");
+  let allowNativeSubmit = false;
 
   if (form) {
     form.addEventListener("submit", async (e) => {
+      if (allowNativeSubmit) return;
+
       e.preventDefault();
 
       const formData = new FormData(form);
@@ -145,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        submitBtn.disabled = true;
+        if (submitBtn) submitBtn.disabled = true;
         setStatus(`Uploading ${files.length} file(s)…`, "info");
 
         try {
@@ -153,50 +158,23 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (err) {
           console.error("[ai-cards] upload failed", err);
           setStatus("Something went wrong uploading your files. Please try again or email wyzer@powerwyze.com directly.", "error");
-          submitBtn.disabled = false;
+          if (submitBtn) submitBtn.disabled = false;
           return;
         }
-
-        submitBtn.disabled = false;
       }
 
-      // Build email body
-      const subject = encodeURIComponent(`AI Cards order — ${data.name}`);
-      let bodyText = `Name: ${data.name}
-Company: ${data.company || "Not provided"}
-Email: ${data.email}
-Phone: ${data.phone || "Not provided"}
-
-Order Details:
-Tier: ${data.tier || "Not selected"}
-Quantity: ${data.quantity || "Not specified"}
-Add AI Secretary: ${data.add_ai || "Not specified"}
-Use Case: ${data.use_case || "Not selected"}
-
-Brand Details & Requirements:
-${data.brand_details || "None provided"}
-`;
-
-      if (uploadedUrls.length > 0) {
-        bodyText += `\n\nUploaded Artwork (${uploadedUrls.length} file${uploadedUrls.length === 1 ? "" : "s"}):\n`;
-        uploadedUrls.forEach((entry) => {
-          bodyText += `- ${entry.name}: ${entry.url}\n`;
-        });
-      } else {
-        bodyText += `\n\nUploaded Artwork: none attached\n`;
+      if (urlsField) {
+        urlsField.value = uploadedUrls.length > 0
+          ? uploadedUrls.map((entry) => `${entry.name}: ${entry.url}`).join("\n")
+          : "none attached";
       }
 
-      const body = encodeURIComponent(bodyText.trim());
-      const mailtoUrl = `mailto:wyzer@powerwyze.com?subject=${subject}&body=${body}`;
+      // Do not POST binary files to FormSubmit — links are in artwork_urls.
+      if (fileInput) fileInput.removeAttribute("name");
 
-      setStatus(
-        uploadedUrls.length > 0
-          ? `Files uploaded. Opening your email app to finish sending…`
-          : `Opening your email app to finish sending…`,
-        "success"
-      );
-
-      window.location.href = mailtoUrl;
+      setStatus("Sending your request…", "info");
+      allowNativeSubmit = true;
+      form.submit();
     });
   }
 
