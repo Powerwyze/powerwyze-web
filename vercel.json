@@ -4,36 +4,80 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.powerwyze.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.powerwyze.com"
+        }
+      ],
       "destination": "https://powerwyze.com/:path*",
       "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/ai-cards", "destination": "/ai-cards.html" },
-    { "source": "/ai-cards/", "destination": "/ai-cards.html" },
-    { "source": "/api/ai-cards", "destination": "/ai-cards.html" },
-    { "source": "/api/ai-cards/", "destination": "/ai-cards.html" },
-    { "source": "/thanks", "destination": "/thanks.html" },
-    { "source": "/thanks/", "destination": "/thanks.html" }
+    {
+      "source": "/ai-cards/thanks",
+      "destination": "/ai-cards-thanks.html"
+    },
+    {
+      "source": "/ai-cards/builder",
+      "destination": "/ai-cards-builder.html"
+    },
+    {
+      "source": "/ai-cards/pricing",
+      "destination": "/ai-cards-pricing.html"
+    },
+    {
+      "source": "/ai-cards",
+      "destination": "/ai-cards.html"
+    },
+    {
+      "source": "/ai-cards/",
+      "destination": "/ai-cards.html"
+    },
+    {
+      "source": "/api/ai-cards",
+      "destination": "/ai-cards.html"
+    },
+    {
+      "source": "/api/ai-cards/",
+      "destination": "/ai-cards.html"
+    },
+    {
+      "source": "/thanks",
+      "destination": "/thanks.html"
+    },
+    {
+      "source": "/thanks/",
+      "destination": "/thanks.html"
+    }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/styles.css",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
       ]
     },
     {
       "source": "/script.js",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
       ]
     }
   ]
