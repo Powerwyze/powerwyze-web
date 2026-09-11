@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PowerWyze — Order a RoboKiosk</title>
-    <meta name="description" content="Configure and order your PowerWyze RoboKiosk. Choose purchase or activation rental, size, simple app activations, branding, and IT support. Submit your order — no payment required." />
-    <meta property="og:title" content="PowerWyze — Order a RoboKiosk" />
-    <meta property="og:description" content="Configure your kiosk: purchase or rental, size, apps, branding, IT support. Submit your order — no payment taken." />
+    <title>PowerWyze — Request a Smart Station quote</title>
+    <meta name="description" content="Rent a PowerWyze Smart Station or buy with a monthly software subscription. Choose your size, apps, and branding, then request a personalized quote." />
+    <meta property="og:title" content="PowerWyze — Request a Smart Station quote" />
+    <meta property="og:description" content="Rent or buy a Smart Station with a monthly software subscription. Choose size, apps, and branding, then request a quote." />
     <meta property="og:image" content="https://powerwyze.com/assets/og-share.jpg" />
     <meta property="og:url" content="https://powerwyze.com/products/robokiosk" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=31" />
-    <link rel="stylesheet" href="/products.css?v=11" />
+    <link rel="stylesheet" href="/products.css?v=12" />
   </head>
   <body class="products-body">
     <header class="site-header" data-header>
@@ -52,7 +52,7 @@
           <span aria-hidden="true">›</span>
           <a href="/products">Products</a>
           <span aria-hidden="true">›</span>
-          <span class="current">RoboKiosk</span>
+          <span class="current">Smart Station</span>
         </div>
       </nav>
 
@@ -62,13 +62,13 @@
           <!-- Gallery -->
           <div class="product-gallery">
             <div class="gallery-main">
-              <img id="gallery-main-img" src="/assets/kiosk-lineup.png" alt="PowerWyze RoboKiosk lineup — 32 inch through 65 inch sizes shown branded" />
+              <img id="gallery-main-img" src="/assets/kiosk-lineup.png" alt="PowerWyze Smart Station lineup — 32 inch through 65 inch sizes shown branded" />
             </div>
             <div class="gallery-thumbs" role="tablist" aria-label="Kiosk gallery">
               <button class="thumb is-active" type="button" data-src="/assets/kiosk-lineup.png" data-alt="Full kiosk size lineup, 32 to 65 inch" aria-label="Show size lineup">
                 <img src="/assets/kiosk-lineup.png" alt="" />
               </button>
-              <button class="thumb" type="button" data-src="/assets/kiosk-robokiosk-hero.jpg" data-alt="PowerWyze RoboKiosk hero graphic" aria-label="Show RoboKiosk hero">
+              <button class="thumb" type="button" data-src="/assets/kiosk-robokiosk-hero.jpg" data-alt="PowerWyze Smart Station hero graphic" aria-label="Show Smart Station hero">
                 <img src="/assets/kiosk-robokiosk-hero.jpg" alt="" />
               </button>
               <button class="thumb" type="button" data-src="/assets/kiosk-elevate.png" data-alt="Elevate Driving Experiences kiosk activation" aria-label="Show Elevate kiosk">
@@ -89,28 +89,19 @@
           <!-- Configurator -->
           <div class="product-info">
             <p class="brand-eyebrow">PowerWyze · AI Hardware</p>
-            <h1 id="product-title">RoboKiosk</h1>
-            <p class="product-summary">AI-powered floor-ready kiosk for B2B brand activations, retail, and corporate events. Includes the kiosk, camera, and software loadout. Configure size, apps, branding, and IT support — submit your order, no payment required.</p>
+            <h1 id="product-title">Smart Station</h1>
+            <p class="product-summary">AI-powered floor-ready kiosk for B2B brand activations, retail, and corporate events. Rent for your event, or buy the hardware with a monthly software subscription. Choose your size, apps, and branding, then request a personalized quote.</p>
 
-            <!-- Mode toggle: Purchase vs Activation Rental -->
-            <div class="mode-toggle" role="tablist" aria-label="Order type">
-              <button type="button" class="mode-btn is-active" data-mode="purchase" role="tab" aria-selected="true">
-                <span class="mode-title">Kiosk purchase</span>
-                <span class="mode-sub">One-time · own the hardware</span>
-              </button>
-              <button type="button" class="mode-btn" data-mode="rental" role="tab" aria-selected="false">
-                <span class="mode-title">Activation rental</span>
-                <span class="mode-sub">Per day · we deliver and run it</span>
-              </button>
-            </div>
-
-            <div class="price-card">
-              <div class="price-row">
-                <span class="price-label" id="price-label">Configured total</span>
-                <strong class="price-total" id="price-total">$3,500</strong>
-              </div>
-              <p class="price-note" id="price-breakdown">32" base kiosk · IT support quoted at checkout · No payment taken on this page</p>
-            </div>
+            <form class="order-form" id="robokiosk-order" data-order-form action="https://formsubmit.co/wyzer@powerwyze.com" method="POST" enctype="multipart/form-data">
+              <label class="field" for="order-type-field">
+                <span class="field-label">How would you like your Smart Station?</span>
+                <select id="order-type-field" name="order_type" required aria-describedby="ownership-help">
+                  <option value="">Choose rent or buy</option>
+                  <option value="Rent">Rent</option>
+                  <option value="Buy with monthly software subscription">Buy with a monthly software subscription</option>
+                </select>
+              </label>
+              <p class="opt-help" id="ownership-help">Rent for an event, or own the hardware with a monthly software subscription. Tell us what you need and we’ll prepare a personalized quote.</p>
 
             <!-- 1. Size selector -->
             <fieldset class="opt-section">
@@ -118,37 +109,32 @@
               <p class="opt-help" id="size-help">Floor-standing kiosk available in 32", 37", 43", 55", and 65" portrait displays. Each unit ships with an integrated overhead 4K camera mount for AI vision, capture, and audience analytics.</p>
               <div class="size-grid" role="radiogroup" aria-label="Kiosk size">
                 <label class="size-option is-selected">
-                  <input type="radio" name="size" value="32" data-buy="3500" data-rent="1200" form="robokiosk-order" checked />
+                  <input type="radio" name="size" value="32" form="robokiosk-order" checked />
                   <span class="size-num">32"</span>
-                  <span class="size-price" data-size-price>$3,500</span>
                 </label>
                 <label class="size-option">
-                  <input type="radio" name="size" value="37" data-buy="4500" data-rent="1700" form="robokiosk-order" />
+                  <input type="radio" name="size" value="37" form="robokiosk-order" />
                   <span class="size-num">37"</span>
-                  <span class="size-price" data-size-price>$4,500</span>
                 </label>
                 <label class="size-option">
-                  <input type="radio" name="size" value="43" data-buy="5500" data-rent="2200" form="robokiosk-order" />
+                  <input type="radio" name="size" value="43" form="robokiosk-order" />
                   <span class="size-num">43"</span>
-                  <span class="size-price" data-size-price>$5,500</span>
                 </label>
                 <label class="size-option">
-                  <input type="radio" name="size" value="55" data-buy="6500" data-rent="2700" form="robokiosk-order" />
+                  <input type="radio" name="size" value="55" form="robokiosk-order" />
                   <span class="size-num">55"</span>
-                  <span class="size-price" data-size-price>$6,500</span>
                 </label>
                 <label class="size-option">
-                  <input type="radio" name="size" value="65" data-buy="7500" data-rent="3200" form="robokiosk-order" />
+                  <input type="radio" name="size" value="65" form="robokiosk-order" />
                   <span class="size-num">65"</span>
-                  <span class="size-price" data-size-price>$7,500</span>
                 </label>
               </div>
             </fieldset>
 
             <!-- 2. Quantity -->
             <fieldset class="opt-section">
-              <legend><span class="step">2</span> How many kiosks?</legend>
-              <p class="opt-help">Order multiple units for a fleet rollout or multi-location activation. Pricing scales per kiosk.</p>
+              <legend><span class="step">2</span> How many Smart Stations?</legend>
+              <p class="opt-help">Choose the number of stations for your event or locations.</p>
               <div class="qty-stepper" role="group" aria-label="Kiosk quantity">
                 <button type="button" class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
                 <input type="number" id="qty" name="quantity" value="1" min="1" max="50" inputmode="numeric" aria-label="Quantity" form="robokiosk-order" />
@@ -156,28 +142,15 @@
               </div>
             </fieldset>
 
-            <!-- 3. IT Support -->
-            <fieldset class="opt-section">
-              <legend><span class="step">3</span> IT support plan</legend>
-              <p class="opt-help" id="it-help">$1,000 per year · Includes unlimited software and new simple app activations.</p>
-              <label class="check-card" id="it-card">
-                <input type="checkbox" id="opt-it" name="it_support" value="Yes" form="robokiosk-order" />
-                <div class="check-body">
-                  <span class="check-title" id="it-title">Add IT support</span>
-                  <span class="check-meta" id="it-meta">$1,000 / year</span>
-                </div>
-              </label>
-            </fieldset>
-
             <!-- 4. Branding -->
             <fieldset class="opt-section">
-              <legend><span class="step">4</span> Custom branding</legend>
-              <p class="opt-help" id="branding-help">Custom wrap and on-brand UI for $500 (one-time). <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.</p>
+              <legend><span class="step">3</span> Custom branding</legend>
+              <p class="opt-help" id="branding-help">Make the station your own with a custom wrap and on-brand interface.</p>
               <label class="check-card">
                 <input type="checkbox" id="opt-branding" name="branding" value="Yes" form="robokiosk-order" />
                 <div class="check-body">
-                  <span class="check-title">Add custom branding (+$500 one-time)</span>
-                  <span class="check-meta" id="branding-bonus">Year 1 IT support becomes free</span>
+                  <span class="check-title">Add custom branding</span>
+                  <span class="check-meta" id="branding-bonus">Tailored to your brand or activation</span>
                 </div>
               </label>
               <div class="branding-details" id="branding-details" hidden>
@@ -195,8 +168,8 @@
 
             <!-- 4. Apps -->
             <fieldset class="opt-section">
-              <legend><span class="step">5</span> Simple app activations</legend>
-              <p class="opt-help">Included with IT support. Click any card to preview the live demo. Check the apps you want loaded on your kiosk.</p>
+              <legend><span class="step">4</span> Simple app activations</legend>
+              <p class="opt-help">Preview the live demos and select the apps you’re interested in for your Smart Station.</p>
 
               <h3 class="apps-group-title">Live demo apps</h3>
               <div class="apps-grid">
@@ -322,14 +295,13 @@
 
             <!-- 5. Order form -->
             <fieldset class="opt-section" id="order-form">
-              <legend><span class="step">6</span> Submit your order</legend>
+              <legend><span class="step">5</span> Request your quote</legend>
               <p class="opt-help">No payment is taken on this page. We&rsquo;ll review your configuration and reach out within one business day to finalize scope and timeline.</p>
-              <form class="order-form" id="robokiosk-order" data-order-form action="https://formsubmit.co/wyzer@powerwyze.com" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_subject" value="PowerWyze RoboKiosk order" />
+
+                <input type="hidden" name="_subject" value="PowerWyze Smart Station inquiry" />
                 <input type="hidden" name="_next" value="https://powerwyze.com/thanks?type=order" />
                 <input type="hidden" name="_captcha" value="true" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="order_type" id="order-type-field" value="Purchase" />
                 <input type="hidden" name="configuration" id="order-config-field" />
                 <label class="field">
                   <span class="field-label">Full name</span>
@@ -351,27 +323,24 @@
                 </label>
 
                 <div class="summary-box" aria-live="polite">
-                  <h4>Order summary</h4>
+                  <h4>Your configuration</h4>
                   <ul id="order-summary-list">
-                    <li><span>Order type</span><span id="sum-mode">Purchase</span></li>
+                    <li><span>Rent or buy</span><span id="sum-mode">Choose rent or buy</span></li>
                     <li><span>Size</span><span id="sum-size">32"</span></li>
                     <li><span>Quantity</span><span id="sum-qty">1</span></li>
-                    <li><span id="sum-base-label">Base kiosk</span><span id="sum-base">$3,500</span></li>
-                    <li><span id="sum-it-label">IT support (Year 1)</span><span id="sum-it">Not added</span></li>
                     <li><span>Branding</span><span id="sum-branding">—</span></li>
                     <li><span>Apps selected</span><span id="sum-apps">0</span></li>
                     <li><span>Custom app</span><span id="sum-custom">—</span></li>
                   </ul>
-                  <div class="summary-total"><span id="sum-total-label">Total submitted</span><strong id="sum-total">$3,500</strong></div>
                 </div>
 
                 <button type="submit" class="pill-cta light-on-light submit-btn">
-                  <span>Submit order</span>
+                  <span>Request a quote</span>
                   <span class="arrow-badge" aria-hidden="true">↗</span>
                 </button>
-                <p class="form-fineprint">By submitting, you agree to be contacted by PowerWyze about your kiosk order. We respond within one business day. No payment is processed on this page.</p>
-              </form>
+                <p class="form-fineprint">By submitting, you agree to be contacted by PowerWyze about your Smart Station inquiry. We respond within one business day. No payment is processed on this page.</p>
             </fieldset>
+            </form>
           </div>
         </div>
       </section>
@@ -454,6 +423,6 @@
     </div>
 
     <script src="/script.js?v=26" defer></script>
-    <script src="/products.js?v=7" defer></script>
+    <script src="/products.js?v=8" defer></script>
   </body>
 </html>
