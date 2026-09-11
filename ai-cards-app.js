@@ -10,7 +10,8 @@ const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB per file
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Setup ScrollTrigger
-  gsap.registerPlugin(ScrollTrigger);
+  const canAnimate = Boolean(window.gsap && window.ScrollTrigger);
+  if (canAnimate) window.gsap.registerPlugin(window.ScrollTrigger);
 
   // Header scroll state
   const header = document.querySelector("[data-header]");
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Reveal animations
   const reveals = document.querySelectorAll(".reveal");
-  if (reveals.length > 0) {
+  if (canAnimate && reveals.length > 0) {
     reveals.forEach(el => {
       gsap.fromTo(el,
         { y: 30, opacity: 0 },
@@ -95,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const files = Array.from(fileInput.files || []);
       if (files.length === 0) {
         fileList.textContent = "";
+        fileList.classList.remove("is-error");
         return;
       }
       const oversized = files.filter(f => f.size > MAX_FILE_BYTES);
@@ -117,18 +119,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const statusEl = document.querySelector("[data-aicards-status]");
   const urlsField = document.querySelector("[data-aicards-urls]");
   let allowNativeSubmit = false;
+  let submitting = false;
 
   if (form) {
     form.addEventListener("submit", async (e) => {
       if (allowNativeSubmit) return;
 
       e.preventDefault();
+      if (submitting) return;
+      if (!form.reportValidity()) return;
 
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
       // Basic validation — only name + email are required
-      if (!data.name || !data.email) {
+      if (!data.name?.trim() || !data.email?.trim()) {
         setStatus("Please fill in your name and email.", "error");
         return;
       }
@@ -150,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
+        submitting = true;
         if (submitBtn) submitBtn.disabled = true;
         setStatus(`Uploading ${files.length} file(s)…`, "info");
 
@@ -158,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (err) {
           console.error("[ai-cards] upload failed", err);
           setStatus("Something went wrong uploading your files. Please try again or email wyzer@powerwyze.com directly.", "error");
+          submitting = false;
           if (submitBtn) submitBtn.disabled = false;
           return;
         }
