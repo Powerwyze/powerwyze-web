@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PowerWyze — Request a Smart Station quote</title>
-    <meta name="description" content="Rent a PowerWyze Smart Station or buy with a monthly software subscription. Choose your size, apps, and branding, then request a personalized quote." />
+    <meta name="description" content="Rent a PowerWyze Smart Station or buy with a monthly software subscription. Choose your model, apps, and branding, then request a personalized quote." />
     <meta property="og:title" content="PowerWyze — Request a Smart Station quote" />
-    <meta property="og:description" content="Rent or buy a Smart Station with a monthly software subscription. Choose size, apps, and branding, then request a quote." />
+    <meta property="og:description" content="Rent or buy a Smart Station with a monthly software subscription. Choose model, apps, and branding, then request a quote." />
     <meta property="og:image" content="https://powerwyze.com/assets/og-share.jpg" />
     <meta property="og:url" content="https://powerwyze.com/products/robokiosk" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -17,7 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=31" />
-    <link rel="stylesheet" href="/products.css?v=12" />
+    <link rel="stylesheet" href="/products.css?v=13" />
+    <link rel="stylesheet" href="/station-concepts.css?v=1" />
   </head>
   <body class="products-body">
     <header class="site-header" data-header>
@@ -62,10 +63,16 @@
           <!-- Gallery -->
           <div class="product-gallery">
             <div class="gallery-main">
-              <img id="gallery-main-img" src="/assets/kiosk-lineup.png" alt="PowerWyze Smart Station lineup — 32 inch through 65 inch sizes shown branded" />
+              <img id="gallery-main-img" src="/assets/station-white-model.jpg" alt="White Smart Station with slim stand and round base" />
             </div>
-            <div class="gallery-thumbs" role="tablist" aria-label="Kiosk gallery">
-              <button class="thumb is-active" type="button" data-src="/assets/kiosk-lineup.png" data-alt="Full kiosk size lineup, 32 to 65 inch" aria-label="Show size lineup">
+            <p id="gallery-caption" class="opt-help" aria-live="polite">White Model · Product reference</p>
+            <div class="gallery-thumbs" aria-label="Smart Station gallery">
+              <button class="thumb" type="button" data-src="/assets/white-ambassador-concept.jpg" data-alt="A white Smart Station with an AI ambassador at a trade-show booth — generated concept" data-caption="AI-generated concept — AI brand ambassador" aria-label="Show AI brand ambassador concept"><img src="/assets/white-ambassador-concept.jpg" alt="" loading="lazy" /></button>
+              <button class="thumb" type="button" data-src="/assets/white-photo-concept.jpg" data-alt="A white Smart Station showing a coastal photo experience — generated concept" data-caption="AI-generated concept — Personalized photo experiences" aria-label="Show Personalized photo experiences concept"><img src="/assets/white-photo-concept.jpg" alt="" loading="lazy" /></button>
+              <button class="thumb" type="button" data-src="/assets/white-checkin-concept.jpg" data-alt="A guest using a white Smart Station for event check-in — generated concept" data-caption="AI-generated concept — Event check-in" aria-label="Show Event check-in concept"><img src="/assets/white-checkin-concept.jpg" alt="" loading="lazy" /></button>
+              <button class="thumb is-active" type="button" data-src="/assets/station-white-model.jpg" data-alt="White Smart Station with slim stand and round base" aria-label="Show White Model"><img src="/assets/station-white-model.jpg" alt="" /></button>
+              <button class="thumb" type="button" data-src="/assets/station-black-model.jpg" data-alt="Black Smart Station enclosure" aria-label="Show Black Model"><img src="/assets/station-black-model.jpg" alt="" /></button>
+              <button class="thumb" type="button" data-src="/assets/kiosk-lineup.png" data-alt="Full kiosk size lineup, 32 to 65 inch" aria-label="Show size lineup">
                 <img src="/assets/kiosk-lineup.png" alt="" />
               </button>
               <button class="thumb" type="button" data-src="/assets/kiosk-robokiosk-hero.jpg" data-alt="PowerWyze Smart Station hero graphic" aria-label="Show Smart Station hero">
@@ -90,7 +97,7 @@
           <div class="product-info">
             <p class="brand-eyebrow">PowerWyze · AI Hardware</p>
             <h1 id="product-title">Smart Station</h1>
-            <p class="product-summary">AI-powered floor-ready kiosk for B2B brand activations, retail, and corporate events. Rent for your event, or buy the hardware with a monthly software subscription. Choose your size, apps, and branding, then request a personalized quote.</p>
+            <p class="product-summary">AI-powered floor-ready kiosk for B2B brand activations, retail, and corporate events. Rent for your event, or buy the hardware with a monthly software subscription. Choose your model, apps, and branding, then request a personalized quote.</p>
 
             <form class="order-form" id="robokiosk-order" data-order-form action="https://formsubmit.co/wyzer@powerwyze.com" method="POST" enctype="multipart/form-data">
               <label class="field" for="order-type-field">
@@ -103,30 +110,22 @@
               </label>
               <p class="opt-help" id="ownership-help">Rent for an event, or own the hardware with a monthly software subscription. Tell us what you need and we’ll prepare a personalized quote.</p>
 
-            <!-- 1. Size selector -->
+            <!-- 1. Model selector -->
             <fieldset class="opt-section">
-              <legend><span class="step">1</span> Choose your size</legend>
-              <p class="opt-help" id="size-help">Floor-standing kiosk available in 32", 37", 43", 55", and 65" portrait displays. Each unit ships with an integrated overhead 4K camera mount for AI vision, capture, and audience analytics.</p>
-              <div class="size-grid" role="radiogroup" aria-label="Kiosk size">
-                <label class="size-option is-selected">
-                  <input type="radio" name="size" value="32" form="robokiosk-order" checked />
-                  <span class="size-num">32"</span>
+              <legend><span class="step">1</span> Choose your model</legend>
+              <p class="opt-help">Choose the white display on a slim stand or the black enclosure. Both can be tailored to your brand and activation.</p>
+              <div class="model-grid">
+                <label class="model-option is-selected">
+                  <input type="radio" name="model" value="White Model" required checked />
+                  <img src="/assets/station-white-model.jpg" alt="White Smart Station with slim stand and round base" />
+                  <span class="model-name">White Model</span>
+                  <span class="model-description">Slim stand · White finish</span>
                 </label>
-                <label class="size-option">
-                  <input type="radio" name="size" value="37" form="robokiosk-order" />
-                  <span class="size-num">37"</span>
-                </label>
-                <label class="size-option">
-                  <input type="radio" name="size" value="43" form="robokiosk-order" />
-                  <span class="size-num">43"</span>
-                </label>
-                <label class="size-option">
-                  <input type="radio" name="size" value="55" form="robokiosk-order" />
-                  <span class="size-num">55"</span>
-                </label>
-                <label class="size-option">
-                  <input type="radio" name="size" value="65" form="robokiosk-order" />
-                  <span class="size-num">65"</span>
+                <label class="model-option">
+                  <input type="radio" name="model" value="Black Model" required />
+                  <img src="/assets/station-black-model.jpg" alt="Black Smart Station in a floor-standing enclosure" />
+                  <span class="model-name">Black Model</span>
+                  <span class="model-description">Full enclosure · Black finish</span>
                 </label>
               </div>
             </fieldset>
@@ -326,7 +325,7 @@
                   <h4>Your configuration</h4>
                   <ul id="order-summary-list">
                     <li><span>Rent or buy</span><span id="sum-mode">Choose rent or buy</span></li>
-                    <li><span>Size</span><span id="sum-size">32"</span></li>
+                    <li><span>Model</span><span id="sum-model">White Model</span></li>
                     <li><span>Quantity</span><span id="sum-qty">1</span></li>
                     <li><span>Branding</span><span id="sum-branding">—</span></li>
                     <li><span>Apps selected</span><span id="sum-apps">0</span></li>
@@ -341,6 +340,30 @@
                 <p class="form-fineprint">By submitting, you agree to be contacted by PowerWyze about your Smart Station inquiry. We respond within one business day. No payment is processed on this page.</p>
             </fieldset>
             </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section station-concepts" aria-labelledby="white-activations">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="kicker">The White Model</p>
+            <h2 id="white-activations">Built around your activation.</h2>
+            <p>Imagine your next activation. Concept previews show how the White Model can bring your brand experience to life.</p>
+          </div>
+          <div class="station-concept-grid">
+            <figure class="station-concept-card">
+              <img src="/assets/white-ambassador-concept.jpg" alt="A white Smart Station with an AI ambassador at a trade-show booth — generated concept" width="1536" height="1024" loading="lazy" />
+              <figcaption><span class="station-concept-label">AI-generated concept</span><h3>AI brand ambassador</h3><p>Start a conversation with your brand.</p></figcaption>
+            </figure>
+            <figure class="station-concept-card">
+              <img src="/assets/white-photo-concept.jpg" alt="A white Smart Station showing a coastal photo experience — generated concept" width="1536" height="1024" loading="lazy" />
+              <figcaption><span class="station-concept-label">AI-generated concept</span><h3>Personalized photo experiences</h3><p>Give guests a moment to make their own.</p></figcaption>
+            </figure>
+            <figure class="station-concept-card">
+              <img src="/assets/white-checkin-concept.jpg" alt="A guest using a white Smart Station for event check-in — generated concept" width="1536" height="1024" loading="lazy" />
+              <figcaption><span class="station-concept-label">AI-generated concept</span><h3>Event check-in</h3><p>Welcome guests into the experience.</p></figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -423,6 +446,6 @@
     </div>
 
     <script src="/script.js?v=26" defer></script>
-    <script src="/products.js?v=8" defer></script>
+    <script src="/products.js?v=9" defer></script>
   </body>
 </html>
