@@ -17,15 +17,15 @@
   "rewrites": [
     {
       "source": "/ai-cards/thanks",
-      "destination": "/ai-cards-thanks.html"
+      "destination": "/ai-cards-thanks"
     },
     {
       "source": "/ai-cards/builder",
-      "destination": "/ai-cards-builder.html"
+      "destination": "/ai-cards-builder"
     },
     {
       "source": "/ai-cards/pricing",
-      "destination": "/ai-cards-pricing.html"
+      "destination": "/ai-cards-pricing"
     },
     {
       "source": "/ai-cards",
