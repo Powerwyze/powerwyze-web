@@ -1,74 +1,10 @@
-/* PowerWyze Products configurator
-   - Mode toggle (Purchase vs Activation Rental)
-   - Price calc
-   - Gallery thumbs
-   - App preview modal (iframes the live kiosk demo)
-   - Order form POSTs natively to FormSubmit
-*/
+/* Smart Station inquiry form: gallery, configuration summary, and app previews. */
 (function () {
   'use strict';
-
-  const fmt = (n) => '$' + n.toLocaleString('en-US');
-  const $ = (sel, root) => (root || document).querySelector(sel);
-  const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
-
-  // ===== Year =====
-  const yearEl = $('[data-year]');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // ===== Mode (purchase vs rental) =====
-  let mode = 'purchase'; // 'purchase' | 'rental'
-  const modeBtns = $$('.mode-btn');
-  modeBtns.forEach((b) => {
-    b.addEventListener('click', () => {
-      mode = b.getAttribute('data-mode');
-      modeBtns.forEach((x) => {
-        const active = x === b;
-        x.classList.toggle('is-active', active);
-        x.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-      // Update size prices displayed on each option card
-      $$('.size-option').forEach((opt) => {
-        const input = opt.querySelector('input[name="size"]');
-        const priceEl = opt.querySelector('[data-size-price]');
-        const v = Number(input.getAttribute(mode === 'rental' ? 'data-rent' : 'data-buy'));
-        priceEl.textContent = fmt(v) + (mode === 'rental' ? '/day' : '');
-      });
-      // Update help copy
-      const sizeHelp = $('#size-help');
-      const itHelp = $('#it-help');
-      const brandingHelp = $('#branding-help');
-      const itTitle = $('#it-title');
-      const priceLabel = $('#price-label');
-      const sumModeEl = $('#sum-mode');
-      const sumBaseLabel = $('#sum-base-label');
-      const sumItLabel = $('#sum-it-label');
-      const sumTotalLabel = $('#sum-total-label');
-      if (mode === 'rental') {
-        sizeHelp.textContent = 'Floor-standing kiosk available in 32", 37", 43", 55", and 65" portrait displays. Each unit ships with an integrated overhead 4K camera mount for AI vision, capture, and audience analytics.';
-        itHelp.textContent = 'IT support is included free during your activation rental. Unlimited edits and new simple app activations on-site.';
-        brandingHelp.innerHTML = 'Custom wrap and on-brand UI for $500 (one-time per activation).';
-        itTitle.textContent = 'Add IT support (included)';
-        priceLabel.textContent = 'Per-day total';
-        sumModeEl.textContent = 'Activation rental';
-        sumBaseLabel.textContent = 'Base kiosk (per day)';
-        sumItLabel.textContent = 'IT support';
-        sumTotalLabel.textContent = 'Per-day total';
-      } else {
-        sizeHelp.textContent = 'Floor-standing kiosk available in 32", 37", 43", 55", and 65" portrait displays. Each unit ships with an integrated overhead 4K camera mount for AI vision, capture, and audience analytics.';
-        itHelp.textContent = '$1,000 per year · Includes unlimited software and new simple app activations.';
-        brandingHelp.innerHTML = 'Custom wrap and on-brand UI for $500 (one-time). <strong>Bonus:</strong> opt in for branding and the first year of IT support is on us.';
-        itTitle.textContent = 'Add IT support';
-        priceLabel.textContent = 'Configured total';
-        sumModeEl.textContent = 'Purchase';
-        sumBaseLabel.textContent = 'Base kiosk';
-        sumItLabel.textContent = 'IT support (Year 1)';
-        sumTotalLabel.textContent = 'Total submitted';
-      }
-      updatePrice();
-    });
-  });
-
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+  const form = $('[data-order-form]');
+  if (!form) return;
   // ===== Gallery =====
   const galleryMainImg = $('#gallery-main-img');
   $$('.thumb').forEach((t) => {
@@ -84,179 +20,38 @@
     });
   });
 
-  // ===== Size selection =====
-  const sizeInputs = $$('input[name="size"]');
-  sizeInputs.forEach((input) => {
-    input.addEventListener('change', () => {
-      $$('.size-option').forEach((opt) => opt.classList.remove('is-selected'));
-      input.closest('.size-option').classList.add('is-selected');
-      updatePrice();
+
+  const qtyEl = $('#qty');
+  const qtyMinus = $('#qty-minus');
+  const qtyPlus = $('#qty-plus');
+  const getQty = () => Math.min(50, Math.max(1, parseInt(qtyEl.value, 10) || 1));
+
+  function updateSummary() {
+    const selectedSize = $('input[name="size"]:checked');
+    $$('.size-option').forEach((option) => {
+      option.classList.toggle('is-selected', option.contains(selectedSize));
     });
-  });
-
-  // ===== Branding toggle =====
-  const optBranding = $('#opt-branding');
-  const brandingDetails = $('#branding-details');
-  const optIt = $('#opt-it');
-  const itMeta = $('#it-meta');
-
-  optBranding.addEventListener('change', () => {
-    brandingDetails.hidden = !optBranding.checked;
-    updatePrice();
-  });
-
-  optIt.addEventListener('change', updatePrice);
-
-  // ===== Custom app toggle =====
-  const optCustomApp = $('#opt-custom-app');
-  const customAppDetails = $('#custom-app-details');
-  optCustomApp.addEventListener('change', () => {
-    customAppDetails.hidden = !optCustomApp.checked;
-    updatePrice();
-  });
-
-  // ===== App checkboxes (update summary only) =====
-  $$('input[name="app"]').forEach((cb) => cb.addEventListener('change', updatePrice));
-
-  // ===== Price calculation =====
-  function getSizePrice(input) {
-    return Number(input.getAttribute(mode === 'rental' ? 'data-rent' : 'data-buy'));
+    $('#branding-details').hidden = !$('#opt-branding').checked;
+    $('#custom-app-details').hidden = !$('#opt-custom-app').checked;
+    $('#sum-mode').textContent = $('#order-type-field').selectedOptions[0].textContent;
+    $('#sum-size').textContent = selectedSize.value + '"';
+    $('#sum-qty').textContent = String(getQty());
+    $('#sum-branding').textContent = $('#opt-branding').checked ? 'Requested' : '—';
+    $('#sum-apps').textContent = String($$('input[name="app"]:checked').length);
+    $('#sum-custom').textContent = $('#opt-custom-app').checked ? 'Requested' : '—';
+    qtyMinus.disabled = getQty() <= 1;
+    qtyPlus.disabled = getQty() >= 50;
+    $('#order-config-field').value = $$('#order-summary-list li').map((li) =>
+      Array.from(li.children).map((span) => span.textContent.trim()).join(': ')
+    ).join('\n');
   }
-
-  function getQty() {
-    const qtyEl = document.getElementById('qty');
-    if (!qtyEl) return 1;
-    let q = parseInt(qtyEl.value, 10);
-    if (isNaN(q) || q < 1) q = 1;
-    if (q > 50) q = 50;
-    return q;
-  }
-
-  function updatePrice() {
-    const sizeInput = sizeInputs.find((i) => i.checked);
-    const basePriceUnit = sizeInput ? getSizePrice(sizeInput) : (mode === 'rental' ? 1200 : 3500);
-    const sizeLabel = sizeInput ? sizeInput.value + '"' : '32"';
-    const qty = getQty();
-
-    const brandingOn = optBranding.checked;
-    const itOn = optIt.checked;
-
-    let itCost, brandingCostUnit;
-
-    if (mode === 'rental') {
-      // Rental: IT support always $0, branding is the only add-on (per kiosk)
-      itCost = 0;
-      brandingCostUnit = brandingOn ? 500 : 0;
-    } else {
-      // Purchase: IT $1,000/yr (per account, not multiplied), branding $500/kiosk + makes Year 1 IT free
-      itCost = brandingOn ? 0 : (itOn ? 1000 : 0);
-      brandingCostUnit = brandingOn ? 500 : 0;
-    }
-
-    const baseTotal = basePriceUnit * qty;
-    const brandingTotal = brandingCostUnit * qty;
-    const total = baseTotal + itCost + brandingTotal;
-    const suffix = mode === 'rental' ? '/day' : '';
-    const qtySuffix = qty > 1 ? ' (×' + qty + ')' : '';
-
-    // Update price card
-    $('#price-total').textContent = fmt(total) + suffix;
-    const lines = [];
-    if (mode === 'rental') {
-      lines.push(qty + '× ' + sizeLabel + ' base kiosk: ' + fmt(baseTotal) + '/day');
-      lines.push('IT support: included');
-      if (brandingOn) lines.push('Custom branding: ' + fmt(brandingTotal) + ' (one-time)');
-      lines.push('No payment taken on this page');
-    } else {
-      lines.push(qty + '× ' + sizeLabel + ' base kiosk: ' + fmt(baseTotal));
-      if (itOn && brandingOn) lines.push('IT Year 1: free with branding');
-      else if (itOn) lines.push('IT support: $1,000/yr');
-      if (brandingOn) lines.push('Custom branding: ' + fmt(brandingTotal) + ' (one-time)');
-      lines.push('No payment taken on this page');
-    }
-    $('#price-breakdown').textContent = lines.join(' · ');
-
-    // Update IT card meta
-    if (mode === 'rental') {
-      itMeta.innerHTML = '<strong style="color: var(--green-dark);">Included free with rental</strong>';
-    } else if (brandingOn) {
-      itMeta.innerHTML = '<strong style="color: var(--green-dark);">Free Year 1 (branding bonus)</strong> · $1,000/yr after';
-      // ^ keep same string for branding-on case
-    } else {
-      itMeta.textContent = '$1,000 / year';
-    }
-
-    // Update order summary
-    $('#sum-size').textContent = sizeLabel;
-    const sumQtyEl = document.getElementById('sum-qty');
-    if (sumQtyEl) sumQtyEl.textContent = String(qty);
-    $('#sum-base').textContent = fmt(baseTotal) + suffix + (qty > 1 ? ' (' + qty + ' × ' + fmt(basePriceUnit) + suffix + ')' : '');
-    if (mode === 'rental') {
-      $('#sum-it').textContent = 'Included';
-    } else {
-      $('#sum-it').textContent = brandingOn && itOn ? 'Free (branding bonus)' : (itOn ? '$1,000' : 'Not added');
-    }
-    $('#sum-branding').textContent = brandingOn ? (fmt(brandingTotal) + (qty > 1 ? ' (' + qty + ' × $500)' : '')) : '—';
-    const appsChecked = $$('input[name="app"]:checked').length;
-    $('#sum-apps').textContent = String(appsChecked);
-    $('#sum-custom').textContent = optCustomApp.checked ? 'Requested' : '—';
-    $('#sum-total').textContent = fmt(total) + suffix;
-    const typeField = document.getElementById('order-type-field');
-    if (typeField) typeField.value = mode === 'rental' ? 'Activation rental' : 'Kiosk purchase';
-    syncOrderConfigField();
-  }
-
-  function syncOrderConfigField() {
-    const field = document.getElementById('order-config-field');
-    const list = document.getElementById('order-summary-list');
-    const totalEl = document.getElementById('sum-total');
-    if (!field) return;
-    const lines = [];
-    if (list) {
-      list.querySelectorAll('li').forEach((li) => {
-        lines.push(li.innerText.replace(/\s+/g, ' ').trim());
-      });
-    }
-    if (totalEl) lines.push('Total: ' + totalEl.textContent.trim());
-    field.value = lines.join('\n');
-  }
-
-  // ===== Quantity stepper =====
-  const qtyEl = document.getElementById('qty');
-  const qtyMinus = document.getElementById('qty-minus');
-  const qtyPlus = document.getElementById('qty-plus');
-  function syncQtyButtons() {
-    if (!qtyEl || !qtyMinus || !qtyPlus) return;
-    const q = getQty();
-    qtyMinus.disabled = q <= 1;
-    qtyPlus.disabled = q >= 50;
-  }
-  if (qtyMinus) qtyMinus.addEventListener('click', () => {
-    const q = getQty();
-    qtyEl.value = Math.max(1, q - 1);
-    syncQtyButtons();
-    updatePrice();
-  });
-  if (qtyPlus) qtyPlus.addEventListener('click', () => {
-    const q = getQty();
-    qtyEl.value = Math.min(50, q + 1);
-    syncQtyButtons();
-    updatePrice();
-  });
-  if (qtyEl) qtyEl.addEventListener('input', () => {
-    // Allow typing; clamp on blur
-    syncQtyButtons();
-    updatePrice();
-  });
-  if (qtyEl) qtyEl.addEventListener('blur', () => {
-    qtyEl.value = String(getQty());
-    syncQtyButtons();
-    updatePrice();
-  });
-  syncQtyButtons();
-
-  // Initialise once
-  updatePrice();
+  form.addEventListener('change', updateSummary);
+  qtyEl.addEventListener('input', updateSummary);
+  qtyEl.addEventListener('blur', () => { qtyEl.value = getQty(); updateSummary(); });
+  qtyMinus.addEventListener('click', () => { qtyEl.value = Math.max(1, getQty() - 1); updateSummary(); });
+  qtyPlus.addEventListener('click', () => { qtyEl.value = Math.min(50, getQty() + 1); updateSummary(); });
+  form.addEventListener('submit', updateSummary);
+  updateSummary();
 
   // ===== App preview modal =====
   const modal = $('#preview-modal');
@@ -290,9 +85,4 @@
     });
   });
 
-  // Order form POSTs natively to FormSubmit. Sync the config summary first.
-  const form = $('[data-order-form]');
-  form?.addEventListener('submit', () => {
-    syncOrderConfigField();
-  });
 })();
