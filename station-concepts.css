@@ -1,0 +1,8 @@
+/* Activation concepts use the existing site theme. */
+.station-concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: var(--space-6); }
+.station-concept-card { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-xl); background: var(--cream); }
+.station-concept-card img { display: block; width: 100%; height: auto; aspect-ratio: 3/2; object-fit: contain; }
+.station-concept-card figcaption { padding: var(--space-5); }
+.station-concept-label { display: block; font-size: var(--text-xs); color: var(--muted); margin-bottom: var(--space-3); }
+.station-concept-card h3 { font-family: var(--font-display); color: var(--navy); font-size: clamp(1.4rem, 2vw, 1.9rem); font-weight: 400; margin-bottom: var(--space-2); }
+.station-concept-card p { color: var(--muted); }

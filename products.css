@@ -544,3 +544,13 @@
 .product-gallery, .product-info, .opt-section, .thumb { min-width: 0; }
 .summary-box li { gap: var(--space-3); }
 .summary-box li span:last-child { text-align: right; }
+
+/* Hardware models retain the existing cream, navy, and green palette. */
+.model-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.model-option { position: relative; display: grid; align-content: start; gap: var(--space-2); border: 2px solid var(--line); border-radius: var(--radius-lg); padding: var(--space-3); cursor: pointer; min-width: 0; }
+.model-option input { width: 18px; height: 18px; accent-color: var(--green-dark); }
+.model-option.is-selected { border-color: var(--green); }
+.model-option:focus-within { outline: 2px solid var(--navy); outline-offset: 3px; }
+.model-option img { width: 100%; aspect-ratio: 3/4; object-fit: contain; border-radius: var(--radius-sm); }
+.model-name { font-weight: 600; color: var(--navy); }
+.model-description { font-size: var(--text-xs); color: var(--muted); }
