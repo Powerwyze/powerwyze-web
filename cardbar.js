@@ -6,6 +6,24 @@
  $('.dialog-close')?.addEventListener('click',()=>dialog.close());
  const suggestions={leads:'A branded landing page with lead capture is a great start. Add the Cardologist to answer questions and help visitors take the next step.',bookings:'Try the Service page style with your booking link. The Cardologist add-on can support appointment scheduling once your calendar is connected.',questions:'Pair a clear business profile with the Cardologist. During setup, provide your FAQs, services, and preferred tone for a chat or voice assistant.'};
  $$('[data-goal]').forEach(b=>b.addEventListener('click',()=>$('#guide-answer').textContent=suggestions[b.dataset.goal]));
+ // Showcase supplied artwork with a glossy card surface and accessible rotation controls.
+ $$ ('.card-gallery').forEach(gallery=>{
+  const slides=[...gallery.querySelectorAll('[data-card-slide]')];
+  const dots=[...gallery.querySelectorAll('[data-card-index]')];
+  const toggle=gallery.querySelector('.card-rotation');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let current=0, paused=reduced.matches, timer;
+  function show(index){current=index;slides.forEach((slide,i)=>slide.setAttribute('aria-hidden',String(i!==index)));dots.forEach((dot,i)=>dot.setAttribute('aria-pressed',String(i===index)));}
+  function schedule(){clearInterval(timer);toggle.textContent=paused?'Play rotation':'Pause rotation';if(!paused&&!document.hidden)timer=setInterval(()=>show((current+1)%slides.length),5000);}
+  dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);paused=true;schedule();}));
+  toggle.addEventListener('click',()=>{paused=!paused;schedule();});
+  gallery.addEventListener('mouseenter',()=>clearInterval(timer));
+  gallery.addEventListener('mouseleave',schedule);
+  gallery.addEventListener('focusin',()=>{paused=true;schedule();});
+  document.addEventListener('visibilitychange',schedule);
+  reduced.addEventListener('change',()=>{paused=reduced.matches;schedule();});
+  schedule();
+ });
  const f=$('#card-mix');if(!f)return;
  let step=0;
  const fields=f.elements;
