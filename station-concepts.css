@@ -6,3 +6,6 @@
 .station-concept-label { display: block; font-size: var(--text-xs); color: var(--muted); margin-bottom: var(--space-3); }
 .station-concept-card h3 { font-family: var(--font-display); color: var(--navy); font-size: clamp(1.4rem, 2vw, 1.9rem); font-weight: 400; margin-bottom: var(--space-2); }
 .station-concept-card p { color: var(--muted); }
+
+.station-demo-card img { aspect-ratio: 4/5; background: #f1f5f4; }
+.station-demo-card a { display:inline-block; margin-top:12px; color:var(--navy); text-decoration:underline; }
