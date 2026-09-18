@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=31" />
+    <link rel="stylesheet" href="styles.css?v=32" />
     <link rel="stylesheet" href="ambassadors.css?v=3" />
     <link rel="stylesheet" href="legal.css?v=1" />
     <link rel="stylesheet" href="/station-concepts.css?v=1" />
@@ -303,32 +303,44 @@
             <p>Tell us about your upcoming event. We respond within one business day with scope, pricing, and lead-capture plan.</p>
           </div>
 
-          <form class="quote-form" data-quote-form action="https://formsubmit.co/wyzer@powerwyze.com" method="POST">
-            <input type="hidden" name="_subject" value="PowerWyze quote request" />
-            <input type="hidden" name="_next" value="https://powerwyze.com/thanks?type=quote" />
-            <input type="hidden" name="_captcha" value="true" />
-            <input type="hidden" name="_template" value="table" />
-            <div class="form-grid">
-              <label>Name<input name="name" type="text" autocomplete="name" required /></label>
-              <label>Work email<input name="email" type="email" autocomplete="email" required /></label>
-              <label>Phone<input name="phone" type="tel" autocomplete="tel" required /></label>
-              <label>Company<input name="company" type="text" autocomplete="organization" required /></label>
-              <label class="full">Event type
-                <select name="eventType" required>
-                  <option value="">Select event type</option>
-                  <option>Trade show</option>
-                  <option>Conference</option>
-                  <option>Brand activation</option>
-                  <option>Festival sponsorship</option>
-                  <option>Multi-day corporate event</option>
-                  <option>Product launch</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <label class="full">Tell us about your event<textarea name="message" rows="5"></textarea></label>
-            </div>
-            <button class="submit-btn" type="submit">Submit</button>
-          </form>
+<form class="quote-form" data-quote-form action="https://formsubmit.co/wyzer@powerwyze.com" method="POST" enctype="multipart/form-data"><input type="hidden" name="_subject" value="PowerWyze quote request" />
+<input type="hidden" name="_next" value="https://powerwyze.com/thanks?type=quote" />
+<input type="hidden" name="_captcha" value="true" />
+<input type="hidden" name="_template" value="table" />
+<p>Fields marked * are required.</p>
+<h3>Kiosk Rental/Purchase Request Form</h3>
+<fieldset class="request-section"><legend>Contact Information</legend><div class="form-grid">
+<label>Full Name *<input name="Full Name" type="text" required></label>
+<label>Job Title *<input name="Job Title" type="text" required></label>
+<label>Company/Organization *<input name="Company/Organization" type="text" required></label>
+<label>Website *<input name="Website" type="text" required></label>
+</div></fieldset>
+<fieldset class="request-section"><legend>Event Details</legend><div class="form-grid">
+<label>Event Name *<input name="Event Name" type="text" required></label>
+<label>Event Date(s) *<input name="Event Date(s)" type="text" required></label>
+<label>What Time is the Event ? *<input name="What Time is the Event ?" type="text" required></label>
+<label>Event Location (City/Venue) *<input name="Event Location (City/Venue)" type="text" required></label>
+<label>Type of Event *<select name="Type of Event" required><option value="">Please Select</option><option value="Corporate Activation">Corporate Activation</option><option value="Festival">Festival</option><option value="Private Party">Private Party</option><option value="Trade Show">Trade Show</option><option value="Other">Other</option></select></label>
+<label>Expected Attendance *<input name="Expected Attendance" type="number" min="1" step="any" required></label>
+</div></fieldset>
+<fieldset class="request-section"><legend>Kiosk Needs</legend><div class="form-grid">
+<fieldset class="request-options full"><legend>Are you interested in renting or buying? *</legend><div class="request-radios"><label><input type="radio" name="Are you interested in renting or buying?" value="Rent" required> Rent</label><label><input type="radio" name="Are you interested in renting or buying?" value="Buy" required> Buy</label></div></fieldset>
+<label>Number of kiosks needed *<input name="Number of kiosks needed" type="number" min="1" step="any" required></label>
+<label>Preferred rental duration (days)<input name="Preferred rental duration (days)" type="number" min="1" step="any"></label>
+<label>Hours per day needed<input name="Hours per day needed" type="number" min="1" step="any" max="24"></label>
+<fieldset class="request-options full"><legend>Setup location *</legend><div class="request-radios"><label><input type="radio" name="Setup location" value="Indoor" required> Indoor</label><label><input type="radio" name="Setup location" value="Outdoor" required> Outdoor</label></div></fieldset>
+<fieldset class="request-options full"><legend>Do you need custom branding on the kiosk? *</legend><div class="request-radios"><label><input type="radio" name="Do you need custom branding on the kiosk?" value="Yes" required> Yes</label><label><input type="radio" name="Do you need custom branding on the kiosk?" value="No" required> No</label></div></fieldset>
+<label class="full">Specific use case and goal (e.g., lead capture, wayfinding, photo/video, voice interaction, other) *<textarea name="Specific use case and goal (e.g., lead capture, wayfinding, photo/video, voice interaction, other)" rows="4" required></textarea></label>
+<label class="full">Upload your Company logo here *<input name="attachment" type="file" required multiple aria-describedby="logo-help"><small id="logo-help">Upload your company logo files. Maximum 10 MB total.</small></label>
+</div></fieldset>
+<fieldset class="request-section"><legend>Logistics</legend><div class="form-grid">
+<fieldset class="request-options full"><legend>Will you have wifi and electricity available? We need a regular outlet. *</legend><div class="request-radios"><label><input type="radio" name="Will you have wifi and electricity available? We need a regular outlet." value="Yes" required> Yes</label><label><input type="radio" name="Will you have wifi and electricity available? We need a regular outlet." value="No" required> No</label></div></fieldset>
+<label>Logistics Coordinator&#x27;s Name *<input name="Logistics Coordinator&#x27;s Name" type="text" required></label>
+<label>Logistics Coordinator&#x27;s Phone Number *<input name="Logistics Coordinator&#x27;s Phone Number" type="tel" placeholder="(000) 000-0000" pattern="[0-9\s\(\)\+\.\-]{7,25}" required></label>
+<label>Logistics Coordinator&#x27;s Email *<input name="email" type="email" required></label>
+<fieldset class="request-options full"><legend>What is your preferred way to communicate with our design team? *</legend><div class="request-radios"><label><input type="radio" name="What is your preferred way to communicate with our design team?" value="WhatsApp" required> WhatsApp</label><label><input type="radio" name="What is your preferred way to communicate with our design team?" value="Text" required> Text</label><label><input type="radio" name="What is your preferred way to communicate with our design team?" value="Email" required> Email</label><label><input type="radio" name="What is your preferred way to communicate with our design team?" value="Slack" required> Slack</label></div></fieldset>
+<label class="full">Delivery time, date, loading and offloading instructions<textarea name="Delivery time, date, loading and offloading instructions" rows="4"></textarea></label>
+</div></fieldset><p id="request-file-status" role="status" aria-live="polite"></p><button class="submit-btn" type="submit">Submit Request</button></form>
         </div>
       </section>
 
@@ -419,5 +431,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="script.js?v=26" defer></script>
-  </body>
+  <script src="/request-form.js?v=1" defer></script>
+</body>
 </html>

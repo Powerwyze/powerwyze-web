@@ -608,3 +608,17 @@ body.nav-open { overflow: hidden; }
 .hero.hero--text-only .hero-copy p {
   max-width: 64ch;
 }
+
+/* Homepage kiosk request form */
+.request-section { min-width:0; border:0; padding:0; margin:0; }
+.request-section > legend { font-family:var(--font-display); font-size:1.6rem; color:var(--navy); margin-bottom:var(--space-5); padding-top:var(--space-4); }
+.request-options { min-width:0; border:0; padding:0; margin:0; }
+.request-options.full { grid-column:1/-1; }
+.request-options legend { font-size:var(--text-sm); font-weight:600; color:var(--navy); margin-bottom:12px; }
+.request-radios { display:flex; flex-wrap:wrap; gap:12px 24px; }
+.request-radios label { display:flex; align-items:center; min-height:44px; gap:10px; }
+.request-radios input { width:20px; height:20px; padding:0; accent-color:var(--green-dark); }
+.quote-form .form-grid > label { min-width:0; }
+.quote-form input[type=file] { max-width:100%; }
+.quote-form small { font-weight:400; }
+#request-file-status { color:var(--navy); }
