@@ -12,6 +12,11 @@
       ],
       "destination": "https://powerwyze.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/products",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
