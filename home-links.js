@@ -1,0 +1,2 @@
+// Preserve previously shared homepage section links.
+(()=>{const sections=["site-nav", "hero-title", "field", "field-title", "products", "products-teaser-title", "why", "urgency-title", "pricing", "system", "services-title", "white-experiences", "marquee-title", "faq", "faq-title", "quote", "quote-title", "logo-help", "request-file-status", "amb-callout-title", "about", "leadership-title"];const id=location.hash.slice(1);if(sections.includes(id))location.replace("/about"+location.search+location.hash);})();
