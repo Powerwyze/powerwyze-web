@@ -1,12 +1,7 @@
 // AI Cards page script. Do not name this file ai-cards.js — Vercel treats
 // that as a serverless function and 307s /ai-cards to /api/ai-cards.
 
-// Supabase client for artwork uploads. Public anon key — safe to expose;
-// the ai-cards-uploads bucket only allows insert + select for anon by policy.
-const SUPABASE_URL = "https://iabkupefwyvqjnflfcxl.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_gUeQU46FlSposxZgjXLo1Q_tk83r25m";
-const AI_CARDS_BUCKET = "ai-cards-uploads";
-const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB per file
+const MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024; // FormSubmit combined attachment limit
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Setup ScrollTrigger
@@ -82,108 +77,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Supabase client (lazy — only if the SDK loaded)
-  let supabase = null;
-  if (window.supabase && typeof window.supabase.createClient === "function") {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  }
-
-  // File input — show file names + validate size as user picks
+  // Submit artwork directly with the email; no external upload service is needed.
+  const form = document.querySelector("[data-aicards-form]");
   const fileInput = document.querySelector("[data-aicards-files]");
   const fileList = document.querySelector("[data-aicards-file-list]");
-  if (fileInput && fileList) {
-    fileInput.addEventListener("change", () => {
-      const files = Array.from(fileInput.files || []);
-      if (files.length === 0) {
-        fileList.textContent = "";
-        fileList.classList.remove("is-error");
-        return;
-      }
-      const oversized = files.filter(f => f.size > MAX_FILE_BYTES);
-      if (oversized.length > 0) {
-        fileList.textContent = `${oversized.length} file(s) exceed 10 MB and will be rejected. Please compress or remove them.`;
-        fileList.classList.add("is-error");
-        return;
-      }
-      fileList.classList.remove("is-error");
-      const summary = files
-        .map(f => `${f.name} (${(f.size / 1024 / 1024).toFixed(2)} MB)`)
-        .join(", ");
-      fileList.textContent = `Selected: ${summary}`;
-    });
-  }
-
-  // Upload artwork to Supabase, then POST natively to FormSubmit (no mailto).
-  const form = document.querySelector("[data-aicards-form]");
-  const submitBtn = document.querySelector("[data-aicards-submit]");
   const statusEl = document.querySelector("[data-aicards-status]");
-  const urlsField = document.querySelector("[data-aicards-urls]");
-  let allowNativeSubmit = false;
-  let submitting = false;
 
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      if (allowNativeSubmit) return;
-
-      e.preventDefault();
-      if (submitting) return;
-      if (!form.reportValidity()) return;
-
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-
-      // Basic validation — only name + email are required
-      if (!data.name?.trim() || !data.email?.trim()) {
-        setStatus("Please fill in your name and email.", "error");
-        return;
-      }
-
-      const files = Array.from((fileInput && fileInput.files) || []);
-
-      // Reject oversized files up front
-      const oversized = files.filter(f => f.size > MAX_FILE_BYTES);
-      if (oversized.length > 0) {
-        setStatus(`${oversized.length} file(s) exceed 10 MB. Please remove or compress them.`, "error");
-        return;
-      }
-
-      let uploadedUrls = [];
-
-      if (files.length > 0) {
-        if (!supabase) {
-          setStatus("Upload service unavailable. Please refresh the page and try again.", "error");
-          return;
-        }
-
-        submitting = true;
-        if (submitBtn) submitBtn.disabled = true;
-        setStatus(`Uploading ${files.length} file(s)…`, "info");
-
-        try {
-          uploadedUrls = await uploadFiles(supabase, files, data);
-        } catch (err) {
-          console.error("[ai-cards] upload failed", err);
-          setStatus("Something went wrong uploading your files. Please try again or email wyzer@powerwyze.com directly.", "error");
-          submitting = false;
-          if (submitBtn) submitBtn.disabled = false;
-          return;
-        }
-      }
-
-      if (urlsField) {
-        urlsField.value = uploadedUrls.length > 0
-          ? uploadedUrls.map((entry) => `${entry.name}: ${entry.url}`).join("\n")
-          : "none attached";
-      }
-
-      // Do not POST binary files to FormSubmit — links are in artwork_urls.
-      if (fileInput) fileInput.removeAttribute("name");
-
-      setStatus("Sending your request…", "info");
-      allowNativeSubmit = true;
-      form.submit();
-    });
+  function validateFiles() {
+    const files = Array.from(fileInput?.files || []);
+    const tooLarge = files.reduce((total, file) => total + file.size, 0) > MAX_ATTACHMENT_BYTES;
+    const message = tooLarge ? "Artwork must be 10 MB or less in total. Please remove or compress files." : "";
+    fileInput?.setCustomValidity(message);
+    if (fileList) {
+      fileList.textContent = message || files.map(file => `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`).join(", ");
+      fileList.classList.toggle("is-error", tooLarge);
+    }
+    return !tooLarge;
   }
+  fileInput?.addEventListener("change", validateFiles);
+  form?.addEventListener("submit", (event) => {
+    if (event.defaultPrevented) return;
+    if (!validateFiles() || !form.reportValidity()) {
+      event.preventDefault();
+      setStatus("Please check your details and artwork size before sending.", "error");
+      return;
+    }
+    setStatus("Opening secure verification. Complete the verification to send your request.", "info");
+    // Keep the native multipart POST and CAPTCHA, required for customer autoresponses.
+  });
 
   function setStatus(msg, kind) {
     if (!statusEl) return;
@@ -195,44 +116,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Upload every selected file to Supabase Storage in parallel.
-// Object path: {yyyymmdd}/{uuid}-{safeFilename}. Returns [{name, url}].
-async function uploadFiles(supabase, files, formValues) {
-  const now = new Date();
-  const y = now.getUTCFullYear();
-  const m = String(now.getUTCMonth() + 1).padStart(2, "0");
-  const d = String(now.getUTCDate()).padStart(2, "0");
-  const datePrefix = `${y}${m}${d}`;
-
-  const companySlug = (formValues.company || "unknown")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 40) || "unknown";
-
-  const uploads = files.map(async (file) => {
-    const uid = (crypto.randomUUID && crypto.randomUUID()) || Math.random().toString(36).slice(2);
-    const safeName = file.name.replace(/[^a-zA-Z0-9._-]+/g, "_").slice(0, 80) || "artwork";
-    const path = `${datePrefix}/${companySlug}/${uid}-${safeName}`;
-
-    const { error } = await supabase.storage
-      .from("ai-cards-uploads")
-      .upload(path, file, {
-        cacheControl: "3600",
-        upsert: false,
-        contentType: file.type || "application/octet-stream",
-      });
-
-    if (error) {
-      throw new Error(`Upload failed for ${file.name}: ${error.message}`);
-    }
-
-    const { data: pub } = supabase.storage
-      .from("ai-cards-uploads")
-      .getPublicUrl(path);
-
-    return { name: file.name, url: pub.publicUrl };
-  });
-
-  return Promise.all(uploads);
-}
