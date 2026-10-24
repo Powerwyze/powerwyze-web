@@ -8,41 +8,99 @@
    toggle.setAttribute('aria-expanded', 'false');
    document.body.classList.remove('menu-open');
    toggle.focus();
+   syncAllVideos();
  }
  toggle?.addEventListener('click', () => {
    menu.showModal();
    toggle.setAttribute('aria-expanded', 'true');
    document.body.classList.add('menu-open');
+   syncAllVideos();
  });
  menu?.querySelector('[data-menu-close]')?.addEventListener('click', closeMenu);
  menu?.addEventListener('cancel', event => { event.preventDefault(); closeMenu(); });
  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
- const hero = document.querySelector('#hero-video');
- const videoToggle = document.querySelector('[data-hero-toggle]');
+ // Silent clips only play while they are in view. Controls are native when JS/IO is unavailable.
  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
- let userPaused = false;
- if (hero && videoToggle) {
-   function reflect() {
-     videoToggle.textContent = hero.paused ? 'Play video' : 'Pause video';
-     videoToggle.setAttribute('aria-label', (hero.paused ? 'Play' : 'Pause') + ' background video');
+ const videoStates = new Map();
+ const videoGroups = [];
+ function wantsPlayback(state) {
+   return state.visible && !document.hidden && !menu?.open &&
+     !state.group.userPaused && (!reduced.matches || state.group.manualPlay);
+ }
+ function reflectVideos(group) {
+   const playing = group.states.some(state => !state.video.paused || state.pending);
+   group.button.textContent = playing ? 'Pause' : 'Play';
+   group.button.dataset.playing = String(playing);
+   group.button.setAttribute('aria-label', (playing ? 'Pause ' : 'Play ') + group.label + ' (silent)');
+ }
+ function syncVideo(state) {
+   const video = state.video;
+   if (!wantsPlayback(state)) {
+     video.pause();
+     reflectVideos(state.group);
+     return;
    }
-   hero.addEventListener('play', reflect);
-   hero.addEventListener('pause', reflect);
-   videoToggle.addEventListener('click', () => {
-     if (hero.paused) { userPaused = false; hero.play().catch(reflect); }
-     else { userPaused = true; hero.pause(); }
+   if (!video.paused || state.pending) return;
+   state.pending = true;
+   video.muted = true;
+   reflectVideos(state.group);
+   // A scroll or tab switch can happen before play() resolves.
+   video.play().then(() => {
+     if (!wantsPlayback(state)) video.pause();
+   }).catch(() => {
+     // Keep the poster and Play control available if autoplay is blocked.
+   }).finally(() => {
+     state.pending = false;
+     reflectVideos(state.group);
    });
-   if (!reduced.matches) hero.play().catch(reflect);
-   reduced.addEventListener('change', () => { if (reduced.matches) hero.pause(); });
-   document.addEventListener('visibilitychange', () => {
-     if (document.hidden) hero.pause();
-     else if (!userPaused && !reduced.matches) hero.play().catch(reflect);
+ }
+ function syncAllVideos() {
+   videoStates.forEach(syncVideo);
+ }
+ if ('IntersectionObserver' in window) {
+   const observer = new IntersectionObserver(entries => {
+     entries.forEach(entry => {
+       const state = videoStates.get(entry.target);
+       state.visible = entry.isIntersecting && entry.intersectionRatio >= 0.2;
+       syncVideo(state);
+     });
+   }, { threshold: [0, 0.2] });
+   document.querySelectorAll('[data-scroll-videos]').forEach(element => {
+     const button = element.querySelector('[data-video-toggle]');
+     const videos = [...element.querySelectorAll('video')];
+     if (!button || !videos.length) return;
+     const group = {
+       button, states: [], userPaused: false, manualPlay: false,
+       label: videos.length > 1 ? 'background videos' : (videos[0].getAttribute('aria-label') || 'video')
+     };
+     videos.forEach(video => {
+       video.muted = true;
+       video.defaultMuted = true;
+       video.loop = true;
+       video.playsInline = true;
+       video.controls = false;
+       const state = { video, group, visible: false, pending: false };
+       group.states.push(state);
+       videoStates.set(video, state);
+       video.addEventListener('play', () => reflectVideos(group));
+       video.addEventListener('pause', () => reflectVideos(group));
+       observer.observe(video);
+     });
+     button.hidden = false;
+     button.addEventListener('click', () => {
+       const playing = group.states.some(state => !state.video.paused || state.pending);
+       group.userPaused = playing;
+       group.manualPlay = !playing;
+       group.states.forEach(syncVideo);
+     });
+     reflectVideos(group);
+     videoGroups.push(group);
    });
-   if ('IntersectionObserver' in window) new IntersectionObserver(entries => {
-     if (!entries[0].isIntersecting) hero.pause();
-     else if (!userPaused && !reduced.matches && !document.hidden) hero.play().catch(reflect);
-   }, { threshold: 0.15 }).observe(hero);
-   reflect();
+   document.addEventListener('visibilitychange', syncAllVideos);
+   reduced.addEventListener('change', () => {
+     videoGroups.forEach(group => { group.manualPlay = false; });
+     syncAllVideos();
+   });
  }
  // Keep previously shared section URLs useful after the information architecture change.
  const hash = location.hash.slice(1);
