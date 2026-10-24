@@ -64,26 +64,50 @@
   form.addEventListener('submit', updateSummary);
   updateSummary();
 
+  const upload = $('#branding-upload');
+  const uploadStatus = $('#station-upload-status');
+  function validateUpload() {
+    const oversized = [...(upload?.files || [])].reduce((n, f) => n + f.size, 0) > 10 * 1024 * 1024;
+    const message = oversized ? 'Please choose an image of 10 MB or less.' : '';
+    upload?.setCustomValidity(message);
+    if (uploadStatus) uploadStatus.textContent = message;
+    return !oversized;
+  }
+  upload?.addEventListener('change', validateUpload);
+  form.addEventListener('submit', event => {
+    if (!validateUpload()) { event.preventDefault(); upload.reportValidity(); }
+  });
   // ===== App preview modal =====
   const modal = $('#preview-modal');
   const iframe = $('#preview-iframe');
   const titleEl = $('#preview-title');
   const openLink = $('#preview-open');
 
+  let previousFocus;
   function openModal(url, title) {
+    previousFocus = document.activeElement;
     titleEl.textContent = title || 'App preview';
     openLink.href = url;
     iframe.src = url;
     modal.hidden = false;
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    modal.querySelector('.preview-close').focus();
   }
   function closeModal() {
     modal.hidden = true;
     modal.setAttribute('aria-hidden', 'true');
     iframe.src = 'about:blank';
     document.body.style.overflow = '';
+    previousFocus?.focus();
   }
+  modal.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const focusable = [...modal.querySelectorAll('a[href],button,iframe')];
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  });
   $$('[data-preview-close]').forEach((el) => el.addEventListener('click', closeModal));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
 
