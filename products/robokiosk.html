@@ -1,441 +1,602 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PowerWyze — Request a Smart Station quote</title>
-    <meta name="description" content="Rent a PowerWyze Smart Station or buy with a monthly software subscription. Choose your model, apps, and branding, then request a personalized quote." />
-    <meta property="og:title" content="PowerWyze — Request a Smart Station quote" />
-    <meta property="og:description" content="Rent or buy a Smart Station with a monthly software subscription. Choose model, apps, and branding, then request a quote." />
-    <meta property="og:image" content="https://powerwyze.com/assets/og-share.jpg" />
-    <meta property="og:url" content="https://powerwyze.com/products/robokiosk" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=31" />
-    <link rel="stylesheet" href="/products.css?v=13" />
-    <link rel="stylesheet" href="/station-concepts.css?v=2" />
-  </head>
-  <body class="products-body">
-    <header class="site-header" data-header>
-      <a class="brand" href="/" aria-label="PowerWyze home">
-        <img src="/assets/logo-color.png?v=12" alt="PowerWyze" />
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
-        <span></span><span></span>
-        <span class="sr-only">Menu</span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
-        <a href="/about#system">System</a>
-        <a href="/about#field">In the field</a>
-        <a href="/" aria-current="page">Products</a>
-        <a href="/ai-cards">AI Cards</a>
-        <a href="/about#faq">FAQ</a>
-        <a href="/about">About</a>
-        <a href="/ambassadors">Ambassadors</a>
-        <a class="nav-cta" href="/about#quote">Request a quote</a>
-      </nav>
-      <a class="pill-cta header-cta" href="/about#quote">
-        <span>Request a quote</span>
-        <span class="arrow-badge" aria-hidden="true">↗</span>
-      </a>
-    </header>
-
-    <main class="product-main" id="top">
-      <!-- Breadcrumb -->
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <div class="container">
-          <a href="/">Home</a>
-          <span aria-hidden="true">›</span>
-          <a href="/">Products</a>
-          <span aria-hidden="true">›</span>
-          <span class="current">Smart Station</span>
-        </div>
-      </nav>
-
-      <!-- Amazon-style product layout: gallery left, configurator right -->
-      <section class="product-detail" aria-labelledby="product-title">
-        <div class="container product-grid">
-          <!-- Gallery -->
-          <div class="product-gallery">
-            <div class="gallery-main">
-              <img id="gallery-main-img" src="/assets/station-white-model.jpg" alt="White Smart Station with slim stand and round base" />
-            </div>
-            <p id="gallery-caption" class="opt-help" aria-live="polite">White Model · Product reference</p>
-            <div class="gallery-thumbs" aria-label="Smart Station gallery">
-              <button class="thumb" type="button" data-src="/assets/station-barcelo-demo.jpg" data-alt="White Smart Station displaying Barceló — screen mockup" data-caption="Barceló — Live demo screen mockup" aria-label="Show Barceló demo"><img src="/assets/station-barcelo-demo.jpg" alt="" loading="lazy" /></button>
-              <button class="thumb" type="button" data-src="/assets/station-crown-studio-demo.jpg" data-alt="White Smart Station displaying Crown Studio — screen mockup" data-caption="Crown Studio — Live demo screen mockup" aria-label="Show Crown Studio demo"><img src="/assets/station-crown-studio-demo.jpg" alt="" loading="lazy" /></button>
-              <button class="thumb" type="button" data-src="/assets/station-flow-demo.jpg" data-alt="White Smart Station displaying Flow Fort Lauderdale — screen mockup" data-caption="Flow Fort Lauderdale — Live demo screen mockup" aria-label="Show Flow Fort Lauderdale demo"><img src="/assets/station-flow-demo.jpg" alt="" loading="lazy" /></button>
-              <button class="thumb is-active" type="button" data-src="/assets/station-white-model.jpg" data-alt="White Smart Station with slim stand and round base" aria-label="Show White Model"><img src="/assets/station-white-model.jpg" alt="" /></button>
-              <button class="thumb" type="button" data-src="/assets/station-black-model.jpg" data-alt="Black Smart Station enclosure" aria-label="Show Black Model"><img src="/assets/station-black-model.jpg" alt="" /></button>
-              <button class="thumb" type="button" data-src="/assets/kiosk-lineup.png" data-alt="Full kiosk size lineup, 32 to 65 inch" aria-label="Show size lineup">
-                <img src="/assets/kiosk-lineup.png" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="/assets/kiosk-robokiosk-hero.jpg" data-alt="PowerWyze Smart Station hero graphic" aria-label="Show Smart Station hero">
-                <img src="/assets/kiosk-robokiosk-hero.jpg" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="/assets/kiosk-elevate.png" data-alt="Elevate Driving Experiences kiosk activation" aria-label="Show Elevate kiosk">
-                <img src="/assets/kiosk-elevate.png" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="/assets/kiosk-techtuesday.png" data-alt="Tech Tuesday Miami crypto event kiosk" aria-label="Show Tech Tuesday kiosk">
-                <img src="/assets/kiosk-techtuesday.png" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="/assets/station-barcelo-demo.jpg" data-alt="Barceló photo experience kiosk mockup" aria-label="Show Barceló kiosk">
-                <img src="/assets/station-barcelo-demo.jpg" alt="" />
-              </button>
-              <button class="thumb" type="button" data-src="/assets/kiosk-f1miami.png" data-alt="F1 Miami HQ NXU Circuit kiosk" aria-label="Show F1 Miami kiosk">
-                <img src="/assets/kiosk-f1miami.png" alt="" />
-              </button>
-            </div>
-          </div>
-
-          <!-- Configurator -->
-          <div class="product-info">
-            <p class="brand-eyebrow">PowerWyze · AI Hardware</p>
-            <h1 id="product-title">Smart Station</h1>
-            <p class="product-summary">AI-powered floor-ready kiosk for B2B brand activations, retail, and corporate events. Rent for your event, or buy the hardware with a monthly software subscription. Choose your model, apps, and branding, then request a personalized quote.</p>
-
-            <form class="order-form" id="robokiosk-order" data-order-form action="https://formsubmit.co/wyzer@powerwyze.com" method="POST" enctype="multipart/form-data">
-              <label class="field" for="order-type-field">
-                <span class="field-label">How would you like your Smart Station?</span>
-                <select id="order-type-field" name="order_type" required aria-describedby="ownership-help">
-                  <option value="">Choose rent or buy</option>
-                  <option value="Rent">Rent</option>
-                  <option value="Buy with monthly software subscription">Buy with a monthly software subscription</option>
-                </select>
-              </label>
-              <p class="opt-help" id="ownership-help">Rent for an event, or own the hardware with a monthly software subscription. Tell us what you need and we’ll prepare a personalized quote.</p>
-
-            <!-- 1. Model selector -->
-            <fieldset class="opt-section">
-              <legend><span class="step">1</span> Choose your model</legend>
-              <p class="opt-help">Choose the white display on a slim stand or the black enclosure. Both can be tailored to your brand and activation.</p>
-              <div class="model-grid">
-                <label class="model-option is-selected">
-                  <input type="radio" name="model" value="White Model" required checked />
-                  <img src="/assets/station-white-model.jpg" alt="White Smart Station with slim stand and round base" />
-                  <span class="model-name">White Model</span>
-                  <span class="model-description">Slim stand · White finish</span>
-                </label>
-                <label class="model-option">
-                  <input type="radio" name="model" value="Black Model" required />
-                  <img src="/assets/station-black-model.jpg" alt="Black Smart Station in a floor-standing enclosure" />
-                  <span class="model-name">Black Model</span>
-                  <span class="model-description">Full enclosure · Black finish</span>
-                </label>
-              </div>
-            </fieldset>
-
-            <!-- 2. Quantity -->
-            <fieldset class="opt-section">
-              <legend><span class="step">2</span> How many Smart Stations?</legend>
-              <p class="opt-help">Choose the number of stations for your event or locations.</p>
-              <div class="qty-stepper" role="group" aria-label="Kiosk quantity">
-                <button type="button" class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
-                <input type="number" id="qty" name="quantity" value="1" min="1" max="50" inputmode="numeric" aria-label="Quantity" form="robokiosk-order" />
-                <button type="button" class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
-              </div>
-            </fieldset>
-
-            <!-- 4. Branding -->
-            <fieldset class="opt-section">
-              <legend><span class="step">3</span> Custom branding</legend>
-              <p class="opt-help" id="branding-help">Make the station your own with a custom wrap and on-brand interface.</p>
-              <label class="check-card">
-                <input type="checkbox" id="opt-branding" name="branding" value="Yes" form="robokiosk-order" />
-                <div class="check-body">
-                  <span class="check-title">Add custom branding</span>
-                  <span class="check-meta" id="branding-bonus">Tailored to your brand or activation</span>
-                </div>
-              </label>
-              <div class="branding-details" id="branding-details" hidden>
-                <label class="field">
-                  <span class="field-label">Describe your brand or activation</span>
-                  <textarea name="branding_description" rows="3" form="robokiosk-order" placeholder="Brand name, color palette, tone, what the kiosk should say or do for your event..."></textarea>
-                </label>
-                <label class="field">
-                  <span class="field-label">Upload logo or brand reference (optional)</span>
-                  <input type="file" id="branding-upload" name="branding_upload" accept="image/*" form="robokiosk-order" />
-                  <span class="upload-hint">JPG, PNG, or SVG · up to 10 MB</span>
-                </label>
-              </div>
-            </fieldset>
-
-            <!-- 4. Apps -->
-            <fieldset class="opt-section">
-              <legend><span class="step">4</span> Simple app activations</legend>
-              <p class="opt-help">Preview the live demos and select the apps you’re interested in for your Smart Station.</p>
-
-              <h3 class="apps-group-title">Live demo apps</h3>
-              <div class="apps-grid">
-                <article class="app-card" data-app="Smart Queue" data-url="https://powerwyze-kiosk.vercel.app/#queue">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Smart Queue" /> <span>Smart Queue</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#queue" data-preview-title="Smart Queue">Preview</button>
-                </article>
-                <article class="app-card" data-app="Wayfinder" data-url="https://powerwyze-kiosk.vercel.app/#wayfind">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Wayfinder" /> <span>Wayfinder</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#wayfind" data-preview-title="Wayfinder">Preview</button>
-                </article>
-                <article class="app-card" data-app="Self-Order" data-url="https://powerwyze-kiosk.vercel.app/#order">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Self-Order" /> <span>Self-Order</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#order" data-preview-title="Self-Order">Preview</button>
-                </article>
-                <article class="app-card" data-app="Visitor Check-In" data-url="https://powerwyze-kiosk.vercel.app/#checkin">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Visitor Check-In" /> <span>Visitor Check-In</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#checkin" data-preview-title="Visitor Check-In">Preview</button>
-                </article>
-                <article class="app-card" data-app="Pulse Survey" data-url="https://powerwyze-kiosk.vercel.app/#survey">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Pulse Survey" /> <span>Pulse Survey</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#survey" data-preview-title="Pulse Survey">Preview</button>
-                </article>
-                <article class="app-card" data-app="Digital Signage" data-url="https://powerwyze-kiosk.vercel.app/#sign">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Digital Signage" /> <span>Digital Signage</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#sign" data-preview-title="Digital Signage">Preview</button>
-                </article>
-                <article class="app-card" data-app="AI Concierge" data-url="https://powerwyze-kiosk.vercel.app/#concierge">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="AI Concierge" /> <span>AI Concierge</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#concierge" data-preview-title="AI Concierge">Preview</button>
-                </article>
-                <article class="app-card" data-app="Scan & Identify" data-url="https://powerwyze-kiosk.vercel.app/#scan">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Scan & Identify" /> <span>Scan &amp; Identify</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#scan" data-preview-title="Scan &amp; Identify">Preview</button>
-                </article>
-                <article class="app-card" data-app="Wellness Check" data-url="https://powerwyze-kiosk.vercel.app/#wellness">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Wellness Check" /> <span>Wellness Check</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#wellness" data-preview-title="Wellness Check">Preview</button>
-                </article>
-                <article class="app-card" data-app="Pulse Catch" data-url="https://powerwyze-kiosk.vercel.app/#game">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Pulse Catch (game)" /> <span>Pulse Catch</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#game" data-preview-title="Pulse Catch">Preview</button>
-                </article>
-              </div>
-
-              <h3 class="apps-group-title">Mini-games</h3>
-              <div class="apps-grid">
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Tap Blitz (game)" /> <span>Tap Blitz</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#tapgame" data-preview-title="Tap Blitz">Preview</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Match Grid (game)" /> <span>Match Grid</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#matchgame" data-preview-title="Match Grid">Preview</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Charge Rush (game)" /> <span>Charge Rush</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#chargergame" data-preview-title="Charge Rush">Preview</button>
-                </article>
-              </div>
-
-              <h3 class="apps-group-title">Featured experiences</h3>
-              <div class="apps-grid">
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="PhotoBooth" /> <span>PhotoBooth</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#booth" data-preview-title="PhotoBooth">Preview</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Voice Agent" /> <span>Voice Agent</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#voice" data-preview-title="Voice Agent">Preview</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Data Dash" /> <span>Data Dash</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#data" data-preview-title="Data Dash">Preview</button>
-                </article>
-              </div>
-
-              <h3 class="apps-group-title">Concept cards <span class="muted-tag">(roadmap)</span></h3>
-              <div class="apps-grid">
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Charity Donation (concept)" /> <span>Charity Donation</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Charity Donation">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Smart Locker Pickup (concept)" /> <span>Smart Locker Pickup</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Smart Locker Pickup">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Loyalty Tap-In (concept)" /> <span>Loyalty Tap-In</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Loyalty Tap-In">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Lead Capture (concept)" /> <span>Lead Capture</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Lead Capture">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Event Schedule (concept)" /> <span>Event Schedule</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Event Schedule">Discover</button>
-                </article>
-                <article class="app-card">
-                  <label><input type="checkbox" name="app" form="robokiosk-order" value="Hardware Catalog (concept)" /> <span>Hardware Catalog</span></label>
-                  <button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Hardware Catalog">Discover</button>
-                </article>
-              </div>
-
-              <!-- Custom app request -->
-              <div class="custom-app">
-                <label class="check-card">
-                  <input type="checkbox" id="opt-custom-app" name="custom_app" value="Requested" form="robokiosk-order" />
-                  <div class="check-body">
-                    <span class="check-title">Request a custom simple app</span>
-                    <span class="check-meta">Describe what you need — we&rsquo;ll quote it separately</span>
-                  </div>
-                </label>
-                <div class="custom-app-details" id="custom-app-details" hidden>
-                  <label class="field">
-                    <span class="field-label">Custom app description</span>
-                    <textarea name="custom_app_description" rows="3" form="robokiosk-order" placeholder="What should this app do? Who is it for? Any data it needs to capture?"></textarea>
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-
-            <!-- 5. Order form -->
-            <fieldset class="opt-section" id="order-form">
-              <legend><span class="step">5</span> Request your quote</legend>
-              <p class="opt-help">No payment is taken on this page. We&rsquo;ll review your configuration and reach out within one business day to finalize scope and timeline.</p>
-
-                <input type="hidden" name="_subject" value="PowerWyze Smart Station inquiry" />
-                <input type="hidden" name="_next" value="https://powerwyze.com/thanks?type=order" />
-                <input type="hidden" name="_captcha" value="true" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="configuration" id="order-config-field" />
-                <label class="field">
-                  <span class="field-label">Full name</span>
-                  <input type="text" name="name" required autocomplete="name" />
-                </label>
-                <div class="field-row">
-                  <label class="field">
-                    <span class="field-label">Email</span>
-                    <input type="email" name="email" required autocomplete="email" />
-                  </label>
-                  <label class="field">
-                    <span class="field-label">Phone</span>
-                    <input type="tel" name="phone" required autocomplete="tel" />
-                  </label>
-                </div>
-                <label class="field">
-                  <span class="field-label">Company / event (optional)</span>
-                  <input type="text" name="company" autocomplete="organization" />
-                </label>
-
-                <div class="summary-box" aria-live="polite">
-                  <h4>Your configuration</h4>
-                  <ul id="order-summary-list">
-                    <li><span>Rent or buy</span><span id="sum-mode">Choose rent or buy</span></li>
-                    <li><span>Model</span><span id="sum-model">White Model</span></li>
-                    <li><span>Quantity</span><span id="sum-qty">1</span></li>
-                    <li><span>Branding</span><span id="sum-branding">—</span></li>
-                    <li><span>Apps selected</span><span id="sum-apps">0</span></li>
-                    <li><span>Custom app</span><span id="sum-custom">—</span></li>
-                  </ul>
-                </div>
-
-                <button type="submit" class="pill-cta light-on-light submit-btn">
-                  <span>Request a quote</span>
-                  <span class="arrow-badge" aria-hidden="true">↗</span>
-                </button>
-                <p class="form-fineprint">By submitting, you agree to be contacted by PowerWyze about your Smart Station inquiry. We respond within one business day. No payment is processed on this page.</p>
-            </fieldset>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <section class="section station-concepts" aria-labelledby="white-activations">
-        <div class="container">
-          <div class="section-heading centered">
-            <p class="kicker">The White Model</p>
-            <h2 id="white-activations">Built around your activation.</h2>
-            <p>Explore three live kiosk experiences, previewed on the White Model using screenshots from the demos.</p>
-          </div>
-          <div class="station-concept-grid"><figure class="station-concept-card station-demo-card"><img src="/assets/station-barcelo-demo.jpg" alt="White Smart Station displaying the Barceló kiosk demo — screen mockup" width="1122" height="1402" loading="lazy" /><figcaption><span class="station-concept-label">Live demo · Screen mockup</span><h3>Barceló</h3><p>Branded photo experience</p><a href="https://banana-photo-booth-vercel.vercel.app" target="_blank" rel="noopener">Explore the demo ↗</a></figcaption></figure>
-<figure class="station-concept-card station-demo-card"><img src="/assets/station-crown-studio-demo.jpg" alt="White Smart Station displaying the Crown Studio kiosk demo — screen mockup" width="1122" height="1402" loading="lazy" /><figcaption><span class="station-concept-label">Live demo · Screen mockup</span><h3>Crown Studio</h3><p>Virtual salon experience</p><a href="https://powerwyze-black-hair-salon-kiosk.vercel.app" target="_blank" rel="noopener">Explore the demo ↗</a></figcaption></figure>
-<figure class="station-concept-card station-demo-card"><img src="/assets/station-flow-demo.jpg" alt="White Smart Station displaying the Flow Fort Lauderdale kiosk demo — screen mockup" width="1122" height="1402" loading="lazy" /><figcaption><span class="station-concept-label">Live demo · Screen mockup</span><h3>Flow Fort Lauderdale</h3><p>Branded photo booth</p><a href="https://flow-fort-lauderdale-kiosk.vercel.app" target="_blank" rel="noopener">Explore the demo ↗</a></figcaption></figure>
-          </div>
-        </div>
-      </section>
-
-      <!-- Brand showcase strip -->
-      <section class="brand-strip">
-        <div class="container">
-          <p class="kicker centered">Recent kiosk activations</p>
-          <h2 class="centered">Wrapped, branded, and deployed in the field.</h2>
-          <div class="brand-cards">
-            <figure class="brand-card">
-              <img src="/assets/kiosk-elevate.png" alt="Elevate Driving Experiences custom kiosk" />
-              <figcaption>Elevate · Luxury driving experience activation</figcaption>
-            </figure>
-            <figure class="brand-card">
-              <img src="/assets/kiosk-techtuesday.png" alt="Tech Tuesday Miami crypto event kiosk" />
-              <figcaption>Tech Tuesday Miami · Crypto Week sponsorship</figcaption>
-            </figure>
-            <figure class="brand-card">
-              <img src="/assets/station-barcelo-demo.jpg" alt="Barceló kiosk activation" />
-              <figcaption>Barceló · Branded photo experience</figcaption>
-            </figure>
-            <figure class="brand-card">
-              <img src="/assets/kiosk-f1miami.png" alt="F1 Miami HQ NXU Circuit kiosk" />
-              <figcaption>NXU Circuit · F1 Miami HQ activation</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer dark-section" id="contact">
-      <div class="footer-inner">
-        <span class="footer-logo-frame"><img src="/assets/logo-color.png?v=12" alt="PowerWyze" class="footer-logo" /></span>
-        <hr />
-        <dl class="footer-contact">
-          <div><dt>Office:</dt><dd>1501 Biscayne Blvd, Suite 501, Miami, FL</dd></div>
-          <div><dt>Email:</dt><dd><a href="mailto:wyzer@powerwyze.com">wyzer@powerwyze.com</a></dd></div>
-          <div><dt>Site:</dt><dd><a href="https://powerwyze.com">powerwyze.com</a></dd></div>
-        </dl>
-        <p class="follow">Follow us</p>
-        <div class="socials" aria-label="Social links">
-          <a href="https://www.linkedin.com/company/powerwyze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.9H3.7v10.4h3.24V8.9ZM5.32 4.03a1.88 1.88 0 1 0 0 3.76 1.88 1.88 0 0 0 0-3.76Zm13.98 9.3c0-3.13-1.67-4.58-3.9-4.58-1.8 0-2.6.99-3.05 1.68V8.9H9.24v10.4h3.24v-5.14c0-1.36.26-2.68 1.95-2.68 1.66 0 1.69 1.55 1.69 2.77v5.05h3.24l-.06-5.97Z" fill="currentColor"/></svg></a>
-          <a href="https://www.instagram.com/powerwyze/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9a4.7 4.7 0 0 1-4.7 4.7h-9a4.7 4.7 0 0 1-4.7-4.7v-9A4.7 4.7 0 0 1 7.5 2.8Zm0 1.8a2.9 2.9 0 0 0-2.9 2.9v9a2.9 2.9 0 0 0 2.9 2.9h9a2.9 2.9 0 0 0 2.9-2.9v-9a2.9 2.9 0 0 0-2.9-2.9h-9Zm4.5 3a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8Zm0 1.8a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm5.03-2.08a1.03 1.03 0 1 1 0 2.06 1.03 1.03 0 0 1 0-2.06Z" fill="currentColor"/></svg></a>
-          <a href="https://www.youtube.com/@powerwyze" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.58 7.2a2.62 2.62 0 0 0-1.85-1.86C18.1 4.9 12 4.9 12 4.9s-6.1 0-7.73.44A2.62 2.62 0 0 0 2.42 7.2 27.2 27.2 0 0 0 2 12a27.2 27.2 0 0 0 .42 4.8 2.62 2.62 0 0 0 1.85 1.86c1.63.44 7.73.44 7.73.44s6.1 0 7.73-.44a2.62 2.62 0 0 0 1.85-1.86A27.2 27.2 0 0 0 22 12a27.2 27.2 0 0 0-.42-4.8ZM10 15.1V8.9l5.2 3.1L10 15.1Z" fill="currentColor"/></svg></a>
-          <a href="https://www.tiktok.com/@powerwyze" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.6 3h2.1c.2 1.8 1.4 3.3 3.1 3.8v2.1c-1.1.1-2.1-.2-3.1-.8v6.6c0 3.3-2.6 5.8-5.8 5.8S5.1 18 5.1 14.7c0-3.2 2.5-5.7 5.6-5.8v2.2c-1.9.1-3.4 1.7-3.4 3.6 0 2 1.6 3.6 3.6 3.6s3.6-1.6 3.6-3.6V3Z" fill="currentColor"/></svg></a>
-          <a href="https://www.facebook.com/powerwyze" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5V6.8c0-.7.5-1.3 1.2-1.3h1.3V3h-2.2C12.4 3 10.8 4.6 10.8 6.6v1.9H9v2.6h1.8V21h3.7v-9.9h2.2l.4-2.6h-2.6Z" fill="currentColor"/></svg></a>
-          <a href="https://x.com/powerwyze" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 3h3.1l-6.8 7.8L22 21h-6.2l-4.8-6.3L5.5 21H2.4l7.3-8.3L2 3h6.3l4.4 5.8L17.6 3Zm-1.1 16.2h1.7L7.6 4.7H5.8l10.7 14.5Z" fill="currentColor"/></svg></a>
-        </div>
-        <nav class="footer-nav" aria-label="Footer">
-          <a href="/about#system">System</a>
-          <a href="/about#field">In the field</a>
-          <a href="/">Products</a>
-          <a href="/about#faq">FAQ</a>
-          <a href="/ambassadors">Ambassadors</a>
-          <a href="/ai-cards">AI Cards</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-        </nav>
-        <hr />
-        <p class="copyright">© POWERWYZE — ALL RIGHTS RESERVED</p>
-      </div>
-    </footer>
-
-    <!-- App preview modal -->
-    <div class="preview-modal" id="preview-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="preview-title">
-      <div class="preview-overlay" data-preview-close></div>
-      <div class="preview-window">
-        <header class="preview-header">
-          <h3 id="preview-title">App preview</h3>
-          <div class="preview-actions">
-            <a id="preview-open" class="preview-link" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
-            <button type="button" class="preview-close" data-preview-close aria-label="Close preview">×</button>
-          </div>
-        </header>
-        <div class="preview-frame">
-          <iframe id="preview-iframe" src="about:blank" title="App preview" loading="lazy" referrerpolicy="no-referrer"></iframe>
-        </div>
-      </div>
-    </div>
-
-    <script src="/script.js?v=26" defer></script>
-    <script src="/products.js?v=9" defer></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Stations | PowerWyze</title>
+<meta name="description" content="Rent or buy a PowerWyze Smart Station. Choose the White or Black Model, configure interactive apps and branding, and request your quote.">
+<link rel="canonical" href="https://powerwyze.com/products/robokiosk">
+<meta property="og:title" content="Smart Stations | PowerWyze">
+<meta property="og:description" content="Rent or buy a PowerWyze Smart Station. Choose the White or Black Model, configure interactive apps and branding, and request your quote.">
+<meta property="og:url" content="https://powerwyze.com/products/robokiosk">
+<meta property="og:image" content="https://powerwyze.com/assets/og-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2454ff">
+<link rel="icon" href="/assets/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/products.css?v=13">
+<link rel="stylesheet" href="/station-concepts.css?v=2">
+<link rel="stylesheet" href="/experience-site.css?v=1">
+</head>
+<body class="experience-site station-page" id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="pw-header">
+<a class="pw-logo" href="/" aria-label="PowerWyze home">
+<img src="/assets/logo-color.png?v=12" alt="PowerWyze" width="190" height="54">
+</a>
+<nav class="desktop-nav" aria-label="Primary">
+<a href="/experiences">Experiences</a>
+<a href="/projects">Our work</a>
+<a href="/products/robokiosk" aria-current="page">Smart Stations</a>
+<a href="/about">About us</a>
+<a href="/ai-cards">The Card Bar</a>
+</nav>
+<div class="header-actions">
+<a class="button header-talk" href="/contact">Let’s talk<span aria-hidden="true">↗</span>
+</a>
+<button class="pw-menu-toggle" type="button" aria-expanded="false" aria-controls="pw-menu" aria-label="Open menu">
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+</header>
+<dialog class="pw-menu" id="pw-menu" aria-label="Site menu">
+<div class="menu-top">
+<a class="menu-brand" href="/">POWERWYZE</a>
+<button type="button" data-menu-close aria-label="Close menu">×</button>
+</div>
+<nav aria-label="All pages">
+<a href="/experiences">
+<small>01</small>Experiences<span aria-hidden="true">↗</span>
+</a>
+<a href="/projects">
+<small>02</small>Our work<span aria-hidden="true">↗</span>
+</a>
+<a href="/products/robokiosk">
+<small>03</small>Smart Stations<span aria-hidden="true">↗</span>
+</a>
+<a href="/about">
+<small>04</small>About us<span aria-hidden="true">↗</span>
+</a>
+<a href="/ai-cards">
+<small>05</small>The Card Bar<span aria-hidden="true">↗</span>
+</a>
+<a href="/corporate-gifting">
+<small>06</small>Corporate gifting<span aria-hidden="true">↗</span>
+</a>
+<a href="/ambassadors">
+<small>07</small>Become an ambassador<span aria-hidden="true">↗</span>
+</a>
+<a href="/contact">
+<small>08</small>Let’s talk<span aria-hidden="true">↗</span>
+</a>
+</nav>
+<a class="menu-email" href="mailto:wyzer@powerwyze.com">wyzer@powerwyze.com</a>
+</dialog>
+<main id="main">
+<!-- Breadcrumb -->
+<div class="container breadcrumb">
+<a href="/">Home</a>
+<span>/</span>
+<span>Smart Stations</span>
+</div>
+<section class="container station-intro">
+<p class="eyebrow">The PowerWyze Smart Station</p>
+<h1 id="product-title">Smart Stations.<br> Made for your brand.</h1>
+<p>Rent for your next event, or buy with a monthly software subscription. Choose your model, apps, and branding. We’ll build the experience around you.</p>
+</section>
+<section class="product-detail" aria-labelledby="product-title">
+<div class="container product-grid">
+<!-- Gallery -->
+<div class="product-gallery">
+<div class="gallery-main">
+<img id="gallery-main-img" src="/assets/station-white-model.jpg" alt="White Smart Station with slim stand and round base" />
+</div>
+<p id="gallery-caption" class="opt-help" aria-live="polite">White Model · Product reference</p>
+<div class="gallery-thumbs" aria-label="Smart Station gallery">
+<button class="thumb" type="button" data-src="/assets/station-barcelo-demo.jpg" data-alt="White Smart Station displaying Barceló — screen mockup" data-caption="Barceló — Live demo screen mockup" aria-label="Show Barceló demo">
+<img src="/assets/station-barcelo-demo.jpg" alt="" loading="lazy" />
+</button>
+<button class="thumb" type="button" data-src="/assets/station-crown-studio-demo.jpg" data-alt="White Smart Station displaying Crown Studio — screen mockup" data-caption="Crown Studio — Live demo screen mockup" aria-label="Show Crown Studio demo">
+<img src="/assets/station-crown-studio-demo.jpg" alt="" loading="lazy" />
+</button>
+<button class="thumb" type="button" data-src="/assets/station-flow-demo.jpg" data-alt="White Smart Station displaying Flow Fort Lauderdale — screen mockup" data-caption="Flow Fort Lauderdale — Live demo screen mockup" aria-label="Show Flow Fort Lauderdale demo">
+<img src="/assets/station-flow-demo.jpg" alt="" loading="lazy" />
+</button>
+<button class="thumb is-active" type="button" data-src="/assets/station-white-model.jpg" data-alt="White Smart Station with slim stand and round base" aria-label="Show White Model">
+<img src="/assets/station-white-model.jpg" alt="" />
+</button>
+<button class="thumb" type="button" data-src="/assets/station-black-model.jpg" data-alt="Black Smart Station enclosure" aria-label="Show Black Model">
+<img src="/assets/station-black-model.jpg" alt="" />
+</button>
+<button class="thumb" type="button" data-src="/assets/kiosk-lineup.png" data-alt="Full kiosk size lineup, 32 to 65 inch" aria-label="Show size lineup">
+<img src="/assets/kiosk-lineup.png" alt="" />
+</button>
+<button class="thumb" type="button" data-src="/assets/kiosk-robokiosk-hero.jpg" data-alt="PowerWyze Smart Station hero graphic" aria-label="Show Smart Station hero">
+<img src="/assets/kiosk-robokiosk-hero.jpg" alt="" />
+</button>
+<button class="thumb" type="button" data-src="/assets/kiosk-elevate.png" data-alt="Elevate Driving Experiences kiosk activation" aria-label="Show Elevate kiosk">
+<img src="/assets/kiosk-elevate.png" alt="" />
+</button>
+<button class="thumb" type="button" data-src="/assets/kiosk-techtuesday.png" data-alt="Tech Tuesday Miami crypto event kiosk" aria-label="Show Tech Tuesday kiosk">
+<img src="/assets/kiosk-techtuesday.png" alt="" />
+</button>
+<button class="thumb" type="button" data-src="/assets/station-barcelo-demo.jpg" data-alt="Barceló photo experience kiosk mockup" aria-label="Show Barceló kiosk">
+<img src="/assets/station-barcelo-demo.jpg" alt="" />
+</button>
+<button class="thumb" type="button" data-src="/assets/kiosk-f1miami.png" data-alt="F1 Miami HQ NXU Circuit kiosk" aria-label="Show F1 Miami kiosk">
+<img src="/assets/kiosk-f1miami.png" alt="" />
+</button>
+</div>
+</div>
+<!-- Configurator -->
+<div class="product-info">
+<h2 class="config-title">Make it yours.</h2>
+<form class="order-form" id="robokiosk-order" data-order-form action="https://formsubmit.co/wyzer@powerwyze.com" method="POST" enctype="multipart/form-data">
+<label class="field" for="order-type-field">
+<span class="field-label">How would you like your Smart Station?</span>
+<select id="order-type-field" name="order_type" required aria-describedby="ownership-help">
+<option value="">Choose rent or buy</option>
+<option value="Rent">Rent</option>
+<option value="Buy with monthly software subscription">Buy with a monthly software subscription</option>
+</select>
+</label>
+<p class="opt-help" id="ownership-help">Rent for an event, or own the hardware with a monthly software subscription. Tell us what you need and we’ll prepare a personalized quote.</p>
+<!-- 1. Model selector -->
+<fieldset class="opt-section">
+<legend>
+<span class="step">1</span> Choose your model</legend>
+<p class="opt-help">Choose the white display on a slim stand or the black enclosure. Both can be tailored to your brand and activation.</p>
+<div class="model-grid">
+<label class="model-option is-selected">
+<input type="radio" name="model" value="White Model" required checked />
+<img src="/assets/station-white-model.jpg" alt="White Smart Station with slim stand and round base" />
+<span class="model-name">White Model</span>
+<span class="model-description">Slim stand · White finish</span>
+</label>
+<label class="model-option">
+<input type="radio" name="model" value="Black Model" required />
+<img src="/assets/station-black-model.jpg" alt="Black Smart Station in a floor-standing enclosure" />
+<span class="model-name">Black Model</span>
+<span class="model-description">Full enclosure · Black finish</span>
+</label>
+</div>
+</fieldset>
+<!-- 2. Quantity -->
+<fieldset class="opt-section">
+<legend>
+<span class="step">2</span> How many Smart Stations?</legend>
+<p class="opt-help">Choose the number of stations for your event or locations.</p>
+<div class="qty-stepper" role="group" aria-label="Kiosk quantity">
+<button type="button" class="qty-btn" id="qty-minus" aria-label="Decrease quantity">−</button>
+<input type="number" id="qty" name="quantity" value="1" min="1" max="50" inputmode="numeric" aria-label="Quantity" form="robokiosk-order" />
+<button type="button" class="qty-btn" id="qty-plus" aria-label="Increase quantity">+</button>
+</div>
+</fieldset>
+<!-- 4. Branding -->
+<fieldset class="opt-section">
+<legend>
+<span class="step">3</span> Custom branding</legend>
+<p class="opt-help" id="branding-help">Make the station your own with a custom wrap and on-brand interface.</p>
+<label class="check-card">
+<input type="checkbox" id="opt-branding" name="branding" value="Yes" form="robokiosk-order" />
+<div class="check-body">
+<span class="check-title">Add custom branding</span>
+<span class="check-meta" id="branding-bonus">Tailored to your brand or activation</span>
+</div>
+</label>
+<div class="branding-details" id="branding-details" hidden>
+<label class="field">
+<span class="field-label">Describe your brand or activation</span>
+<textarea name="branding_description" rows="3" form="robokiosk-order" placeholder="Brand name, color palette, tone, what the kiosk should say or do for your event...">
+</textarea>
+</label>
+<label class="field">
+<span class="field-label">Upload logo or brand reference (optional)</span>
+<input type="file" id="branding-upload" aria-describedby="station-upload-status" name="attachment" accept="image/*" form="robokiosk-order" />
+<span class="upload-hint">JPG, PNG, or SVG · up to 10 MB</span>
+<span id="station-upload-status" role="status">
+</span>
+</label>
+</div>
+</fieldset>
+<!-- 4. Apps -->
+<fieldset class="opt-section">
+<legend>
+<span class="step">4</span> Simple app activations</legend>
+<p class="opt-help">Preview the live demos and select the apps you’re interested in for your Smart Station.</p>
+<h3 class="apps-group-title">Live demo apps</h3>
+<div class="apps-grid">
+<article class="app-card" data-app="Smart Queue" data-url="https://powerwyze-kiosk.vercel.app/#queue">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Smart Queue" />
+<span>Smart Queue</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#queue" data-preview-title="Smart Queue">Preview</button>
+</article>
+<article class="app-card" data-app="Wayfinder" data-url="https://powerwyze-kiosk.vercel.app/#wayfind">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Wayfinder" />
+<span>Wayfinder</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#wayfind" data-preview-title="Wayfinder">Preview</button>
+</article>
+<article class="app-card" data-app="Self-Order" data-url="https://powerwyze-kiosk.vercel.app/#order">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Self-Order" />
+<span>Self-Order</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#order" data-preview-title="Self-Order">Preview</button>
+</article>
+<article class="app-card" data-app="Visitor Check-In" data-url="https://powerwyze-kiosk.vercel.app/#checkin">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Visitor Check-In" />
+<span>Visitor Check-In</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#checkin" data-preview-title="Visitor Check-In">Preview</button>
+</article>
+<article class="app-card" data-app="Pulse Survey" data-url="https://powerwyze-kiosk.vercel.app/#survey">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Pulse Survey" />
+<span>Pulse Survey</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#survey" data-preview-title="Pulse Survey">Preview</button>
+</article>
+<article class="app-card" data-app="Digital Signage" data-url="https://powerwyze-kiosk.vercel.app/#sign">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Digital Signage" />
+<span>Digital Signage</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#sign" data-preview-title="Digital Signage">Preview</button>
+</article>
+<article class="app-card" data-app="AI Concierge" data-url="https://powerwyze-kiosk.vercel.app/#concierge">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="AI Concierge" />
+<span>AI Concierge</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#concierge" data-preview-title="AI Concierge">Preview</button>
+</article>
+<article class="app-card" data-app="Scan & Identify" data-url="https://powerwyze-kiosk.vercel.app/#scan">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Scan & Identify" />
+<span>Scan &amp; Identify</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#scan" data-preview-title="Scan &amp; Identify">Preview</button>
+</article>
+<article class="app-card" data-app="Wellness Check" data-url="https://powerwyze-kiosk.vercel.app/#wellness">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Wellness Check" />
+<span>Wellness Check</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#wellness" data-preview-title="Wellness Check">Preview</button>
+</article>
+<article class="app-card" data-app="Pulse Catch" data-url="https://powerwyze-kiosk.vercel.app/#game">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Pulse Catch (game)" />
+<span>Pulse Catch</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#game" data-preview-title="Pulse Catch">Preview</button>
+</article>
+</div>
+<h3 class="apps-group-title">Mini-games</h3>
+<div class="apps-grid">
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Tap Blitz (game)" />
+<span>Tap Blitz</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#tapgame" data-preview-title="Tap Blitz">Preview</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Match Grid (game)" />
+<span>Match Grid</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#matchgame" data-preview-title="Match Grid">Preview</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Charge Rush (game)" />
+<span>Charge Rush</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#chargergame" data-preview-title="Charge Rush">Preview</button>
+</article>
+</div>
+<h3 class="apps-group-title">Featured experiences</h3>
+<div class="apps-grid">
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="PhotoBooth" />
+<span>PhotoBooth</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#booth" data-preview-title="PhotoBooth">Preview</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Voice Agent" />
+<span>Voice Agent</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#voice" data-preview-title="Voice Agent">Preview</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Data Dash" />
+<span>Data Dash</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#data" data-preview-title="Data Dash">Preview</button>
+</article>
+</div>
+<h3 class="apps-group-title">Concept cards <span class="muted-tag">(roadmap)</span>
+</h3>
+<div class="apps-grid">
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Charity Donation (concept)" />
+<span>Charity Donation</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Charity Donation">Discover</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Smart Locker Pickup (concept)" />
+<span>Smart Locker Pickup</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Smart Locker Pickup">Discover</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Loyalty Tap-In (concept)" />
+<span>Loyalty Tap-In</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Loyalty Tap-In">Discover</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Lead Capture (concept)" />
+<span>Lead Capture</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Lead Capture">Discover</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Event Schedule (concept)" />
+<span>Event Schedule</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Event Schedule">Discover</button>
+</article>
+<article class="app-card">
+<label>
+<input type="checkbox" name="app" form="robokiosk-order" value="Hardware Catalog (concept)" />
+<span>Hardware Catalog</span>
+</label>
+<button type="button" class="app-preview" data-preview-url="https://powerwyze-kiosk.vercel.app/#discover" data-preview-title="Hardware Catalog">Discover</button>
+</article>
+</div>
+<!-- Custom app request -->
+<div class="custom-app">
+<label class="check-card">
+<input type="checkbox" id="opt-custom-app" name="custom_app" value="Requested" form="robokiosk-order" />
+<div class="check-body">
+<span class="check-title">Request a custom simple app</span>
+<span class="check-meta">Describe what you need — we&rsquo;ll quote it separately</span>
+</div>
+</label>
+<div class="custom-app-details" id="custom-app-details" hidden>
+<label class="field">
+<span class="field-label">Custom app description</span>
+<textarea name="custom_app_description" rows="3" form="robokiosk-order" placeholder="What should this app do? Who is it for? Any data it needs to capture?">
+</textarea>
+</label>
+</div>
+</div>
+</fieldset>
+<!-- 5. Order form -->
+<fieldset class="opt-section" id="order-form">
+<legend>
+<span class="step">5</span> Request your quote</legend>
+<p class="opt-help">No payment is taken on this page. We&rsquo;ll review your configuration and reach out within one business day to finalize scope and timeline.</p>
+<input type="hidden" name="_subject" value="PowerWyze Smart Station inquiry" />
+<input type="hidden" name="_next" value="https://powerwyze.com/thanks?type=order" />
+<input type="hidden" name="_captcha" value="true" />
+<input type="hidden" name="_template" value="table" />
+<input type="hidden" name="configuration" id="order-config-field" />
+<label class="field">
+<span class="field-label">Full name</span>
+<input type="text" name="name" required autocomplete="name" />
+</label>
+<div class="field-row">
+<label class="field">
+<span class="field-label">Email</span>
+<input type="email" name="email" required autocomplete="email" />
+</label>
+<label class="field">
+<span class="field-label">Phone</span>
+<input type="tel" name="phone" required autocomplete="tel" />
+</label>
+</div>
+<label class="field">
+<span class="field-label">Company / event (optional)</span>
+<input type="text" name="company" autocomplete="organization" />
+</label>
+<div class="summary-box" aria-live="polite">
+<h4>Your configuration</h4>
+<ul id="order-summary-list">
+<li>
+<span>Rent or buy</span>
+<span id="sum-mode">Choose rent or buy</span>
+</li>
+<li>
+<span>Model</span>
+<span id="sum-model">White Model</span>
+</li>
+<li>
+<span>Quantity</span>
+<span id="sum-qty">1</span>
+</li>
+<li>
+<span>Branding</span>
+<span id="sum-branding">—</span>
+</li>
+<li>
+<span>Apps selected</span>
+<span id="sum-apps">0</span>
+</li>
+<li>
+<span>Custom app</span>
+<span id="sum-custom">—</span>
+</li>
+</ul>
+</div>
+<button type="submit" class="pill-cta light-on-light submit-btn">
+<span>Request a quote</span>
+<span class="arrow-badge" aria-hidden="true">↗</span>
+</button>
+<p class="form-fineprint">By submitting, you agree to be contacted by PowerWyze about your Smart Station inquiry. We respond within one business day. No payment is processed on this page.</p>
+</fieldset>
+</form>
+</div>
+</div>
+</section>
+<section class="section station-concepts" aria-labelledby="white-activations">
+<div class="container">
+<div class="section-heading centered">
+<p class="kicker">The White Model</p>
+<h2 id="white-activations">Built around your activation.</h2>
+<p>Explore three live kiosk experiences, previewed on the White Model using screenshots from the demos.</p>
+</div>
+<div class="station-concept-grid">
+<figure class="station-concept-card station-demo-card">
+<img src="/assets/station-barcelo-demo.jpg" alt="White Smart Station displaying the Barceló kiosk demo — screen mockup" width="1122" height="1402" loading="lazy" />
+<figcaption>
+<span class="station-concept-label">Live demo · Screen mockup</span>
+<h3>Barceló</h3>
+<p>Branded photo experience</p>
+<a href="https://banana-photo-booth-vercel.vercel.app" target="_blank" rel="noopener">Explore the demo ↗</a>
+</figcaption>
+</figure>
+<figure class="station-concept-card station-demo-card">
+<img src="/assets/station-crown-studio-demo.jpg" alt="White Smart Station displaying the Crown Studio kiosk demo — screen mockup" width="1122" height="1402" loading="lazy" />
+<figcaption>
+<span class="station-concept-label">Live demo · Screen mockup</span>
+<h3>Crown Studio</h3>
+<p>Virtual salon experience</p>
+<a href="https://powerwyze-black-hair-salon-kiosk.vercel.app" target="_blank" rel="noopener">Explore the demo ↗</a>
+</figcaption>
+</figure>
+<figure class="station-concept-card station-demo-card">
+<img src="/assets/station-flow-demo.jpg" alt="White Smart Station displaying the Flow Fort Lauderdale kiosk demo — screen mockup" width="1122" height="1402" loading="lazy" />
+<figcaption>
+<span class="station-concept-label">Live demo · Screen mockup</span>
+<h3>Flow Fort Lauderdale</h3>
+<p>Branded photo booth</p>
+<a href="https://flow-fort-lauderdale-kiosk.vercel.app" target="_blank" rel="noopener">Explore the demo ↗</a>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<!-- Brand showcase strip -->
+<section class="brand-strip">
+<div class="container">
+<p class="kicker centered">Recent kiosk activations</p>
+<h2 class="centered">Wrapped, branded, and deployed in the field.</h2>
+<div class="brand-cards">
+<figure class="brand-card">
+<img src="/assets/kiosk-elevate.png" alt="Elevate Driving Experiences custom kiosk" />
+<figcaption>Elevate · Luxury driving experience activation</figcaption>
+</figure>
+<figure class="brand-card">
+<img src="/assets/kiosk-techtuesday.png" alt="Tech Tuesday Miami crypto event kiosk" />
+<figcaption>Tech Tuesday Miami · Crypto Week sponsorship</figcaption>
+</figure>
+<figure class="brand-card">
+<img src="/assets/station-barcelo-demo.jpg" alt="Barceló kiosk activation" />
+<figcaption>Barceló · Branded photo experience</figcaption>
+</figure>
+<figure class="brand-card">
+<img src="/assets/kiosk-f1miami.png" alt="F1 Miami HQ NXU Circuit kiosk" />
+<figcaption>NXU Circuit · F1 Miami HQ activation</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</main>
+<section class="contact-banner">
+<div class="container">
+<p class="eyebrow">Your next event starts here</p>
+<a href="/contact" class="big-contact">Let’s make<br> an impression.<span aria-hidden="true">↗</span>
+</a>
+<p>Have an event in mind? Bring us the brief. We’ll bring the ideas.</p>
+</div>
+</section>
+<footer class="pw-footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<a class="footer-wordmark" href="/">POWERWYZE<span>®</span>
+</a>
+<p>Interactive experiences.<br> Lasting connections.</p>
+</div>
+<div>
+<p class="eyebrow">Explore</p>
+<a href="/experiences">Experiences</a>
+<a href="/projects">Our work</a>
+<a href="/products/robokiosk">Smart Stations</a>
+<a href="/about">About us</a>
+<a href="/ai-cards">The Card Bar</a>
+</div>
+<div>
+<p class="eyebrow">Connect</p>
+<a href="/contact">Plan an event</a>
+<a href="/ambassadors">Become an ambassador</a>
+<a href="https://www.instagram.com/powerwyze/" target="_blank" rel="noopener">Instagram ↗</a>
+<a href="https://www.linkedin.com/company/powerwyze/" target="_blank" rel="noopener">LinkedIn ↗</a>
+<a href="https://www.youtube.com/@powerwyze" target="_blank" rel="noopener">YouTube ↗</a>
+<a href="https://www.tiktok.com/@powerwyze" target="_blank" rel="noopener">TikTok ↗</a>
+<a href="https://www.facebook.com/powerwyze" target="_blank" rel="noopener">Facebook ↗</a>
+<a href="https://x.com/powerwyze" target="_blank" rel="noopener">X ↗</a>
+</div>
+<div>
+<p class="eyebrow">Say hello</p>
+<a href="mailto:wyzer@powerwyze.com">wyzer@powerwyze.com</a>
+<p>1501 Biscayne Blvd<br> Suite 501<br> Miami, FL</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 PowerWyze. All rights reserved.</p>
+<div>
+<a href="/privacy">Privacy</a>
+<a href="/terms">Terms</a>
+</div>
+<a href="#top">Back to top ↑</a>
+</div>
+</div>
+</footer>
+<div class="preview-modal" id="preview-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+<div class="preview-overlay" data-preview-close>
+</div>
+<div class="preview-window">
+<header class="preview-header">
+<h3 id="preview-title">App preview</h3>
+<div class="preview-actions">
+<a id="preview-open" class="preview-link" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+<button type="button" class="preview-close" data-preview-close aria-label="Close preview">×</button>
+</div>
+</header>
+<div class="preview-frame">
+<iframe id="preview-iframe" src="about:blank" title="App preview" loading="lazy" referrerpolicy="no-referrer">
+</iframe>
+</div>
+</div>
+</div>
+<script src="/experience-site.js?v=1" defer>
+</script>
+<script src="/products.js?v=10" defer>
+</script>
+</body>
 </html>
