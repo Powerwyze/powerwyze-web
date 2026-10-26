@@ -7,3 +7,7 @@ Processed in the Higgsfield cloud sandbox with FFmpeg. Videos are hosted at conf
 - corporate-gifting-uv: Drive 10wqd8xLbputnXzczY0osP2Z2y7thHYoF. Original 720x1280, 42.79 seconds; retained HD resolution and full duration, H.264/AAC.
 
 Both event originals already exceeded HD; they were downsampled with Lanczos, not AI-upscaled. Original portrait framing and audio retained. No crops, trims, generated detail, or source-file modifications. Posters extracted at 1 second. Videos use controls, playsinline and preload=none.
+
+## Homepage gift-printing hero
+
+The hero uses the same confirmed Drive source `10wqd8xLbputnXzczY0osP2Z2y7thHYoF` as the existing corporate-gifting promo. The full 42.79-second clip shows real custom UV printing, golf balls, photo tiles and keepsakes. `corporate-gifting-hero-v1.mp4` is a site-hosted 540×960 H.264 derivative, 30 fps, fast-start metadata, no audio, with a JPEG poster. It appears once on the homepage, outside the Ai PhotoBooth event gallery. The source file and Drive sharing are unchanged.
