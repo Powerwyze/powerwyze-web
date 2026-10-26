@@ -1,0 +1,26 @@
+/* Keep the homepage introduction readable as its copy wraps on smaller screens. */
+.video-home .showreel-hero {
+  height: auto;
+  min-height: min(820px, calc(100svh - 86px));
+  max-height: none;
+}
+.video-home .hero-content { height: auto; min-height: inherit; }
+.video-home .hero-content .eyebrow { text-transform: none; }
+.video-home .hero-content h1 { margin-bottom: 26px; }
+.video-home .hero-bottom { display: block; }
+.video-home .hero-bottom .hero-summary {
+  max-width: 660px;
+  margin: 0 0 26px;
+  font-size: 18px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.video-home .hero-bottom .button { margin-top: 0; }
+.home-explore { display: flex; justify-content: center; padding-bottom: 70px; }
+.home-explore-button { min-width: 190px; color: var(--blue); background: transparent; }
+.home-explore-button:hover { color: var(--blue); background: #eef2ff; }
+@media (max-width: 800px) {
+  .video-home .showreel-hero { min-height: calc(100svh - 74px); }
+  .video-home .hero-bottom .hero-summary { font-size: 16px; line-height: 1.55; }
+  .home-explore { padding-bottom: 55px; }
+}

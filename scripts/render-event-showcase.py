@@ -26,12 +26,6 @@ def card(event, index):
 </a>
 </article>'''
 
-def moment(event):
-    return f'''<figure>
-{video(event, 'moment')}
-<figcaption><h3>{esc(event['name'])}</h3><p id="moment-{event['id']}-caption">{esc(event['copy'])}</p></figcaption>
-</figure>'''
-
 def project(event):
     alias = '<span id="turkish-tastes" aria-hidden="true"></span>' if event['id'] == 'americas-food-beverage' else ''
     return f'''<article class="project-detail" id="{esc(event['id'])}">
@@ -60,6 +54,5 @@ for event in events:
         assert (ROOT / event[key].lstrip('/')).is_file(), event[key]
 
 replace(ROOT / 'index.html', 'selected-events', '\n'.join(card(e, i) for i, e in enumerate(events[:3])))
-replace(ROOT / 'index.html', 'event-moments', '\n'.join(map(moment, events)))
 replace(ROOT / 'projects.html', 'event-projects', '\n'.join(map(project, events)))
 print(f'Rendered {len(events)} verified events.')
