@@ -1,0 +1,12 @@
+.enquiry-panel {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.enquiry-panel > p { margin: 0; font-size: 13px; color: var(--muted); }
+.optional-label { font-weight: 400; color: var(--muted); }
+#private-event-fields .request-radios label { min-height: 44px; }
+#private-information { min-height: 130px; }

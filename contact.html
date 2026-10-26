@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/experience-site.css?v=1">
+<link rel="stylesheet" href="/contact-form.css?v=1">
 </head>
 <body class="experience-site " id="top">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -93,7 +94,7 @@
 <aside>
 <span class="contact-icon" aria-hidden="true">↗</span>
 <h2>Let’s get<br> the details.</h2>
-<p>Complete the request below for a Smart Station rental or purchase. For gifting-only projects or an early idea, you can also email our team directly.</p>
+<p>Complete the request below for a Smart Station rental or purchase. For a birthday or wedding, choose Private Event. For gifting-only projects or an early idea, you can also email our team directly.</p>
 <p>We aim to respond within one business day.</p>
 <a href="mailto:wyzer@powerwyze.com" class="text-link">Email the team ↗</a>
 <p class="small-note">After submitting, complete the verification step to send your request.</p>
@@ -105,6 +106,17 @@
 <input type="hidden" name="_template" value="table" />
 <p>Fields marked * are required.</p>
 <h2>Tell us about your event.</h2>
+<div class="form-grid" data-enquiry-selector hidden>
+<label class="full" for="enquiry-type">Enquiry type
+<select id="enquiry-type" name="Enquiry Type" data-enquiry-type aria-controls="business-event-fields private-event-fields">
+<option value="Business Event / Smart Station Request">Business Event / Smart Station Request</option>
+<option value="Private Event (Birthday, Wedding)">Private Event (Birthday, Wedding)</option>
+</select>
+</label>
+</div>
+<p class="sr-only" id="enquiry-type-status" role="status" aria-live="polite"></p>
+<fieldset class="enquiry-panel" id="business-event-fields" data-enquiry-panel="Business Event / Smart Station Request">
+<legend class="sr-only">Business Event / Smart Station Request</legend>
 <fieldset class="request-section">
 <legend>Contact Information</legend>
 <div class="form-grid">
@@ -224,6 +236,31 @@
 </fieldset>
 <p id="request-file-status" role="status" aria-live="polite">
 </p>
+</fieldset>
+<fieldset class="enquiry-panel" id="private-event-fields" data-enquiry-panel="Private Event (Birthday, Wedding)" disabled hidden>
+<legend class="sr-only">Private Event (Birthday, Wedding)</legend>
+<fieldset class="request-section">
+<legend>Private Event Details</legend>
+<div class="form-grid">
+<label for="private-name">Name *<input id="private-name" name="Full Name" type="text" autocomplete="name" required></label>
+<label for="private-email">Email *<input id="private-email" name="email" type="email" autocomplete="email" required></label>
+<label for="private-phone">Phone number *<input id="private-phone" name="Phone Number" type="tel" autocomplete="tel" placeholder="(000) 000-0000" pattern="[0-9\s\(\)\+\.\-]{7,25}" required></label>
+<label for="private-date">Event date *<input id="private-date" name="Event Date" type="date" required></label>
+<label for="private-hours">Number of hours needed *<input id="private-hours" name="Hours Needed" type="number" min="0" step="any" inputmode="decimal" aria-describedby="private-hours-help" required>
+<small id="private-hours-help">Enter a number greater than 0. Partial hours are welcome.</small></label>
+<fieldset class="request-options full">
+<legend>Other services <span class="optional-label">(optional — select all that apply)</span></legend>
+<div class="request-radios">
+<label><input type="checkbox" name="Other Services - Printing" value="Printing"> Printing</label>
+<label><input type="checkbox" name="Other Services - Kiosk" value="Kiosk"> Kiosk</label>
+<label><input type="checkbox" name="Other Services - AI photo activation" value="AI photo activation"> AI photo activation</label>
+<label><input type="checkbox" name="Other Services - Other" value="Other"> Other</label>
+</div>
+</fieldset>
+<label class="full" for="private-information">Additional information (optional)<textarea id="private-information" name="Additional Information" rows="5"></textarea></label>
+</div>
+</fieldset>
+</fieldset>
 <button class="submit-btn" type="submit">Submit Request</button>
 </form>
 </div>
@@ -314,7 +351,7 @@
 </footer>
 <script src="/experience-site.js?v=1" defer>
 </script>
-<script src="/request-form.js" defer>
+<script src="/request-form.js?v=2" defer>
 </script>
 </body>
 </html>
