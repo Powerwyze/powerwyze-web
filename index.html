@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/experience-site.css?v=2">
-<link rel="stylesheet" href="/event-showcase.css?v=1">
-<link rel="stylesheet" href="/home-refinements.css?v=1">
+<link rel="stylesheet" href="/event-showcase.css?v=2">
+<link rel="stylesheet" href="/home-refinements.css?v=2">
 <script src="/event-showcase.js?v=1" defer></script>
 </head>
 <body class="experience-site video-home" id="top">
@@ -30,7 +30,7 @@
 </a>
 <nav class="desktop-nav" aria-label="Primary">
 <a href="/experiences">Experiences</a>
-<a href="/projects">Our work</a>
+<a href="/#our-work">Our work</a>
 <a href="/products/robokiosk">Smart Stations</a>
 <a href="/about">About us</a>
 <a href="/ai-cards">The Card Bar</a>
@@ -55,7 +55,7 @@
 <a href="/experiences">
 <small>01</small>Experiences<span aria-hidden="true">↗</span>
 </a>
-<a href="/projects">
+<a href="/#our-work">
 <small>02</small>Our work<span aria-hidden="true">↗</span>
 </a>
 <a href="/products/robokiosk">
@@ -80,78 +80,267 @@
 <a class="menu-email" href="mailto:wyzer@powerwyze.com">wyzer@powerwyze.com</a>
 </dialog>
 <main id="main">
-<section class="showreel-hero" data-scroll-videos aria-labelledby="home-heading">
+<section id="corporate-gifting" class="showreel-hero" data-scroll-videos aria-labelledby="home-heading">
 <div class="hero-media">
-<video class="hero-side hero-side-left" controls muted loop playsinline preload="none" poster="/assets/video/afb-event-8084.jpg" aria-label="Ron Barceló — AI photo experience">
-<source src="https://d2ol7oe51mr4n9.cloudfront.net/user_31ZTexML7xbbRd4o7DSwizTlZtJ/6630f497-827e-4c48-9121-b91054afe629.mp4" type="video/mp4">
-</video>
-<video id="hero-video" controls muted loop playsinline preload="metadata" poster="/assets/events/startup-ole-v1.jpg" aria-label="Startup OLÉ Miami — Ai PhotoBooth">
-<source src="/assets/events/startup-ole-v1.mp4" type="video/mp4">
-</video>
-<video class="hero-side hero-side-right" controls muted loop playsinline preload="none" poster="/assets/video/corporate-gifting-uv.jpg" aria-label="Urban Golf Weekend — Live printing & gifting">
-<source src="https://d2ol7oe51mr4n9.cloudfront.net/user_31ZTexML7xbbRd4o7DSwizTlZtJ/dd4654e7-1d1e-4ba2-ac1c-bb63db5a9b95.mp4" type="video/mp4">
+<video id="hero-video" controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/video/corporate-gifting-hero-v1.jpg" aria-label="Custom corporate gift printing — golf balls, photo tiles and keepsakes">
+<source src="/assets/video/corporate-gifting-hero-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/video/corporate-gifting-hero-v1.mp4">Download the gift-printing clip</a>.
 </video>
 </div>
 <div class="hero-shade">
 </div>
 <div class="hero-content container">
-<p class="eyebrow">Ai PhotoBooths. Live gifting. Brand experiences.</p>
+<p class="eyebrow">Custom gifts. Ai PhotoBooths. Brand experiences.</p>
 <h1 id="home-heading">Make your brand<br> the <em>main event.</em>
 </h1>
 <div class="hero-bottom">
-<p class="hero-summary">PowerWyze brings interactive experiences to events and brand activations. Our Ai PhotoBooths transform guests into custom themed portraits, creating a branded takeaway that makes the moment memorable.</p>
-<a class="button " href="/contact">Plan your activation<span aria-hidden="true">↗</span>
-</a>
+<p class="hero-summary">PowerWyze brings custom corporate gift printing and interactive photo experiences to events and brand activations. Our Ai PhotoBooths turn guests into themed portraits, while personalized gifts give them a memorable takeaway.</p>
+<div class="hero-actions"><a class="button" href="/contact">Plan your activation<span aria-hidden="true">↗</span></a>
+<a class="hero-explore" href="/#our-work">Explore More <span aria-hidden="true">↓</span></a></div>
 </div>
 </div>
 <button class="video-toggle" type="button" data-video-toggle hidden>Play videos</button>
 </section>
-<section class="section selected-work">
+<section class="section selected-work" id="our-work" aria-labelledby="work-heading">
 <div class="container">
 <div class="section-top">
 <div>
 <p class="eyebrow">Out in the world</p>
-<h2>See us in action.</h2>
+<h2 id="work-heading">See us in action.</h2>
 </div>
-<a class="text-link" href="/projects">All projects <span aria-hidden="true">↗</span>
-</a>
+<p class="gallery-intro">Real guests, custom portraits and moments from the event floor.</p>
 </div>
 <div class="work-grid event-showcase">
-<!-- selected-events:start -->
-<article class="work-card tone-0">
-<div class="work-image"><div class="scroll-video event-video">
-<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/imex-turespana-v1.jpg" aria-label="IMEX · Turespaña — Ai PhotoBooth event footage" aria-describedby="selected-imex-turespana-caption">
+<!-- homepage-events:start -->
+<article class="work-card" id="imex-turespana">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/imex-turespana-v1.jpg" aria-label="IMEX · Turespaña — Ai PhotoBooth" aria-describedby="gallery-imex-turespana-caption">
 <source src="/assets/events/imex-turespana-v1.mp4" type="video/mp4">
 Your browser does not support this video. <a href="/assets/events/imex-turespana-v1.mp4">Download the event clip</a>.
 </video>
-</div></div>
-<a class="work-caption" href="/projects#imex-turespana">
-<div><h3>IMEX · Turespaña</h3><p id="selected-imex-turespana-caption">Our Ai PhotoBooth turned visitors into Spain-inspired portraits.</p></div><span class="work-link-arrow" aria-hidden="true">↗</span>
-</a>
+</div>
+<div class="work-caption">
+<h3>IMEX · Turespaña</h3>
+<p id="gallery-imex-turespana-caption">Our Ai PhotoBooth turned visitors into Spain-inspired portraits.</p>
+</div>
 </article>
-<article class="work-card tone-1">
-<div class="work-image"><div class="scroll-video event-video">
-<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/startup-ole-v1.jpg" aria-label="Startup OLÉ Miami — Ai PhotoBooth event footage" aria-describedby="selected-startup-ole-caption">
+<article class="work-card" id="startup-ole">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/startup-ole-v1.jpg" aria-label="Startup OLÉ Miami — Ai PhotoBooth" aria-describedby="gallery-startup-ole-caption">
 <source src="/assets/events/startup-ole-v1.mp4" type="video/mp4">
 Your browser does not support this video. <a href="/assets/events/startup-ole-v1.mp4">Download the event clip</a>.
 </video>
-</div></div>
-<a class="work-caption" href="/projects#startup-ole">
-<div><h3>Startup OLÉ Miami</h3><p id="selected-startup-ole-caption">Our Ai PhotoBooth gave attendees personalized caricatures.</p></div><span class="work-link-arrow" aria-hidden="true">↗</span>
-</a>
+</div>
+<div class="work-caption">
+<h3>Startup OLÉ Miami</h3>
+<p id="gallery-startup-ole-caption">Our Ai PhotoBooth gave attendees personalized caricatures.</p>
+</div>
 </article>
-<article class="work-card tone-2">
-<div class="work-image"><div class="scroll-video event-video">
-<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/barcelo-v1.jpg" aria-label="Barceló Activation — Ai PhotoBooth event footage" aria-describedby="selected-barcelo-caption">
+<article class="work-card" id="barcelo">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/barcelo-v1.jpg" aria-label="Barceló Activation — Ai PhotoBooth" aria-describedby="gallery-barcelo-caption">
 <source src="/assets/events/barcelo-v1.mp4" type="video/mp4">
 Your browser does not support this video. <a href="/assets/events/barcelo-v1.mp4">Download the event clip</a>.
 </video>
-</div></div>
-<a class="work-caption" href="/projects#barcelo">
-<div><h3>Barceló Activation</h3><p id="selected-barcelo-caption">Our Ai PhotoBooth gave guests Barceló-themed caricatures.</p></div><span class="work-link-arrow" aria-hidden="true">↗</span>
-</a>
+</div>
+<div class="work-caption">
+<h3>Barceló Activation</h3>
+<p id="gallery-barcelo-caption">Our Ai PhotoBooth gave guests Barceló-themed caricatures.</p>
+</div>
 </article>
-<!-- selected-events:end -->
+<article class="work-card" id="dr-tradeshow">
+<div class="scroll-video event-video event-video-landscape">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="304" poster="/assets/events/dr-tradeshow-v1.jpg" aria-label="Dominican Republic Trade Show — Ai PhotoBooth" aria-describedby="gallery-dr-tradeshow-caption">
+<source src="/assets/events/dr-tradeshow-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/dr-tradeshow-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Dominican Republic Trade Show</h3>
+<p id="gallery-dr-tradeshow-caption">Our Ai PhotoBooth brought an interactive photo experience to the show.</p>
+</div>
+</article>
+<article class="work-card" id="sobewff">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="480" height="688" poster="/assets/events/sobewff-v1.jpg" aria-label="South Beach Wine &amp; Food Festival — Ai PhotoBooth" aria-describedby="gallery-sobewff-caption">
+<source src="/assets/events/sobewff-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/sobewff-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>South Beach Wine &amp; Food Festival</h3>
+<p id="gallery-sobewff-caption">Our Ai PhotoBooth gave festival guests a branded photo experience.</p>
+</div>
+</article>
+<article class="work-card" id="americas-food-beverage">
+<span id="turkish-tastes" aria-hidden="true"></span><div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/americas-food-beverage-v1.jpg" aria-label="Americas Food &amp; Beverage — Ai PhotoBooth" aria-describedby="gallery-americas-food-beverage-caption">
+<source src="/assets/events/americas-food-beverage-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/americas-food-beverage-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Americas Food &amp; Beverage</h3>
+<p id="gallery-americas-food-beverage-caption">Our Ai PhotoBooth turned visitors into food-inspired portraits.</p>
+</div>
+</article>
+<article class="work-card" id="urban-golf">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/urban-golf-v1.jpg" aria-label="Urban Golf Weekend — Ai PhotoBooth" aria-describedby="gallery-urban-golf-caption">
+<source src="/assets/events/urban-golf-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/urban-golf-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Urban Golf Weekend</h3>
+<p id="gallery-urban-golf-caption">Our Ai PhotoBooth added golf-themed portraits to the event.</p>
+</div>
+</article>
+<article class="work-card" id="film-festival">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/film-festival-v1.jpg" aria-label="Film Festival — Ai PhotoBooth" aria-describedby="gallery-film-festival-caption">
+<source src="/assets/events/film-festival-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/film-festival-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Film Festival</h3>
+<p id="gallery-film-festival-caption">Our Ai PhotoBooth gave festival guests personalized portraits.</p>
+</div>
+</article>
+<article class="work-card" id="taste-south-florida">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/taste-south-florida-v1.jpg" aria-label="Taste of South Florida — Ai PhotoBooth" aria-describedby="gallery-taste-south-florida-caption">
+<source src="/assets/events/taste-south-florida-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/taste-south-florida-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Taste of South Florida</h3>
+<p id="gallery-taste-south-florida-caption">Our Ai PhotoBooth brought event-branded portraits to the tasting.</p>
+</div>
+</article>
+<article class="work-card" id="barcelo-checked-shirt">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/barcelo-checked-shirt-v1.jpg" aria-label="Americas Food &amp; Beverage · Barceló Portrait — Ai PhotoBooth" aria-describedby="gallery-barcelo-checked-shirt-caption">
+<source src="/assets/events/barcelo-checked-shirt-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/barcelo-checked-shirt-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Americas Food &amp; Beverage · Barceló Portrait</h3>
+<p id="gallery-barcelo-checked-shirt-caption">Our Ai PhotoBooth turned guests into branded captain portraits.</p>
+</div>
+</article>
+<article class="work-card" id="barcelo-group">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/barcelo-group-v1.jpg" aria-label="Americas Food &amp; Beverage · Group Portrait — Ai PhotoBooth" aria-describedby="gallery-barcelo-group-caption">
+<source src="/assets/events/barcelo-group-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/barcelo-group-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Americas Food &amp; Beverage · Group Portrait</h3>
+<p id="gallery-barcelo-group-caption">Our Ai PhotoBooth created a shared branded keepsake.</p>
+</div>
+</article>
+<article class="work-card" id="barcelo-blue-blazer">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/barcelo-blue-blazer-v1.jpg" aria-label="Americas Food &amp; Beverage · Guest Reveal — Ai PhotoBooth" aria-describedby="gallery-barcelo-blue-blazer-caption">
+<source src="/assets/events/barcelo-blue-blazer-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/barcelo-blue-blazer-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Americas Food &amp; Beverage · Guest Reveal</h3>
+<p id="gallery-barcelo-blue-blazer-caption">Our Ai PhotoBooth gave guests a personalized brand moment.</p>
+</div>
+</article>
+<article class="work-card" id="bump-neon">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="576" poster="/assets/events/bump-neon-v1.jpg" aria-label="Americas Food &amp; Beverage · Bump — Ai PhotoBooth" aria-describedby="gallery-bump-neon-caption">
+<source src="/assets/events/bump-neon-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/bump-neon-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Americas Food &amp; Beverage · Bump</h3>
+<p id="gallery-bump-neon-caption">Our Ai PhotoBooth put guests inside a colorful Bump portrait.</p>
+</div>
+</article>
+<article class="work-card" id="trade-show-guest">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/trade-show-guest-v1.jpg" aria-label="Trade Show · Guest Experience — Ai PhotoBooth" aria-describedby="gallery-trade-show-guest-caption">
+<source src="/assets/events/trade-show-guest-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/trade-show-guest-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Trade Show · Guest Experience</h3>
+<p id="gallery-trade-show-guest-caption">Our Ai PhotoBooth turned a booth visit into a playful portrait moment.</p>
+</div>
+</article>
+<article class="work-card" id="dr-welcome">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="478" height="848" poster="/assets/events/dr-welcome-v1.jpg" aria-label="Dominican Republic Trade Show · Welcome — Ai PhotoBooth" aria-describedby="gallery-dr-welcome-caption">
+<source src="/assets/events/dr-welcome-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/dr-welcome-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Dominican Republic Trade Show · Welcome</h3>
+<p id="gallery-dr-welcome-caption">Our Ai PhotoBooth invited visitors into a destination-themed experience.</p>
+</div>
+</article>
+<article class="work-card" id="barcelo-group-experience">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/barcelo-group-experience-v1.jpg" aria-label="Barceló Activation · Group Experience — Ai PhotoBooth" aria-describedby="gallery-barcelo-group-experience-caption">
+<source src="/assets/events/barcelo-group-experience-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/barcelo-group-experience-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Barceló Activation · Group Experience</h3>
+<p id="gallery-barcelo-group-experience-caption">Our Ai PhotoBooth brought guests together for branded caricatures.</p>
+</div>
+</article>
+<article class="work-card" id="elevate-reactions">
+<div class="scroll-video event-video event-video-landscape">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="480" poster="/assets/events/elevate-reactions-v1.jpg" aria-label="Elevate · Guest Reactions — Ai PhotoBooth" aria-describedby="gallery-elevate-reactions-caption">
+<source src="/assets/events/elevate-reactions-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/elevate-reactions-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Elevate · Guest Reactions</h3>
+<p id="gallery-elevate-reactions-caption">Our Ai PhotoBooth created personalized portraits and memorable guest reactions.</p>
+</div>
+</article>
+<article class="work-card" id="barcelo-reveal">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="960" poster="/assets/events/barcelo-reveal-v1.jpg" aria-label="Americas Food &amp; Beverage · Barceló Reveal — Ai PhotoBooth" aria-describedby="gallery-barcelo-reveal-caption">
+<source src="/assets/events/barcelo-reveal-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/barcelo-reveal-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Americas Food &amp; Beverage · Barceló Reveal</h3>
+<p id="gallery-barcelo-reveal-caption">Our Ai PhotoBooth made branded portraits guests could enjoy together.</p>
+</div>
+</article>
+<article class="work-card" id="food-portrait">
+<div class="scroll-video event-video">
+<video data-event-video controls muted loop playsinline preload="none" width="540" height="768" poster="/assets/events/food-portrait-v1.jpg" aria-label="Americas Food &amp; Beverage · Food Portrait — Ai PhotoBooth" aria-describedby="gallery-food-portrait-caption">
+<source src="/assets/events/food-portrait-v1.mp4" type="video/mp4">
+Your browser does not support this video. <a href="/assets/events/food-portrait-v1.mp4">Download the event clip</a>.
+</video>
+</div>
+<div class="work-caption">
+<h3>Americas Food &amp; Beverage · Food Portrait</h3>
+<p id="gallery-food-portrait-caption">Our Ai PhotoBooth transformed a guest into food-inspired artwork.</p>
+</div>
+</article>
+<!-- homepage-events:end -->
 </div>
 </div>
 </section>
@@ -258,9 +447,6 @@ Your browser does not support this video. <a href="/assets/events/barcelo-v1.mp4
 </ul>
 </div>
 </section>
-<div class="container home-explore" id="examples">
-<a class="button home-explore-button" href="/projects" aria-label="Explore More event videos">Explore More<span aria-hidden="true">↗</span></a>
-</div>
 <section class="personalization-section" aria-labelledby="personalization-title">
 <div class="container">
 <div class="section-heading centered">
@@ -328,7 +514,7 @@ Your browser does not support this video. <a href="/assets/events/barcelo-v1.mp4
 <div>
 <p class="eyebrow">Explore</p>
 <a href="/experiences">Experiences</a>
-<a href="/projects">Our work</a>
+<a href="/#our-work">Our work</a>
 <a href="/products/robokiosk">Smart Stations</a>
 <a href="/about">About us</a>
 <a href="/ai-cards">The Card Bar</a>

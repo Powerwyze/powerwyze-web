@@ -17,6 +17,16 @@
       "source": "/products",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/#our-work",
+      "permanent": true
+    },
+    {
+      "source": "/projects.html",
+      "destination": "/#our-work",
+      "permanent": true
     }
   ],
   "rewrites": [

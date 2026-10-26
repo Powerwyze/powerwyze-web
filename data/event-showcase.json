@@ -6,7 +6,8 @@
     "video": "/assets/events/imex-turespana-v1.mp4",
     "poster": "/assets/events/imex-turespana-v1.jpg",
     "width": 540,
-    "height": 960
+    "height": 960,
+    "sourceDriveId": "1uNJTcfQsqJC4XJrUPmuVTeAXdzy1fx4F"
   },
   {
     "id": "startup-ole",
@@ -15,7 +16,8 @@
     "video": "/assets/events/startup-ole-v1.mp4",
     "poster": "/assets/events/startup-ole-v1.jpg",
     "width": 540,
-    "height": 960
+    "height": 960,
+    "sourceDriveId": "10qkb3GrLcLictflJulU9XLhj1uSxDlPW"
   },
   {
     "id": "barcelo",
@@ -24,7 +26,8 @@
     "video": "/assets/events/barcelo-v1.mp4",
     "poster": "/assets/events/barcelo-v1.jpg",
     "width": 540,
-    "height": 960
+    "height": 960,
+    "sourceDriveId": "13658xC8WmSL-SD1XL-CD9UJtPKroX_9n"
   },
   {
     "id": "dr-tradeshow",
@@ -33,7 +36,8 @@
     "video": "/assets/events/dr-tradeshow-v1.mp4",
     "poster": "/assets/events/dr-tradeshow-v1.jpg",
     "width": 540,
-    "height": 304
+    "height": 304,
+    "sourceDriveId": "1BDJaBse1s3kutbL6tg9gaePkVmB70ZPk"
   },
   {
     "id": "sobewff",
@@ -42,7 +46,8 @@
     "video": "/assets/events/sobewff-v1.mp4",
     "poster": "/assets/events/sobewff-v1.jpg",
     "width": 480,
-    "height": 688
+    "height": 688,
+    "sourceDriveId": "1MrYxQ75jD-hd0ejwE2-6mJEq9JL0shPZ"
   },
   {
     "id": "americas-food-beverage",
@@ -51,7 +56,8 @@
     "video": "/assets/events/americas-food-beverage-v1.mp4",
     "poster": "/assets/events/americas-food-beverage-v1.jpg",
     "width": 540,
-    "height": 960
+    "height": 960,
+    "sourceDriveId": "1vRyRhQGulcZFY9ArzUFd_-P3uvgi-Hym"
   },
   {
     "id": "urban-golf",
@@ -60,7 +66,8 @@
     "video": "/assets/events/urban-golf-v1.mp4",
     "poster": "/assets/events/urban-golf-v1.jpg",
     "width": 540,
-    "height": 960
+    "height": 960,
+    "sourceDriveId": "1AlLQ7rOoaPZygarMHDby96pwQN_Ij4uk"
   },
   {
     "id": "film-festival",
@@ -69,7 +76,8 @@
     "video": "/assets/events/film-festival-v1.mp4",
     "poster": "/assets/events/film-festival-v1.jpg",
     "width": 540,
-    "height": 960
+    "height": 960,
+    "sourceDriveId": "1Kde79GvUmbdKhE9gFxFkLn4AHLsBuMr-"
   },
   {
     "id": "taste-south-florida",
@@ -78,6 +86,107 @@
     "video": "/assets/events/taste-south-florida-v1.mp4",
     "poster": "/assets/events/taste-south-florida-v1.jpg",
     "width": 540,
-    "height": 960
+    "height": 960,
+    "sourceDriveId": "11BpcwD06zyaag2flB6Xt6lRSLxz-oIY2"
+  },
+  {
+    "id": "barcelo-checked-shirt",
+    "name": "Americas Food & Beverage · Barceló Portrait",
+    "copy": "Our Ai PhotoBooth turned guests into branded captain portraits.",
+    "video": "/assets/events/barcelo-checked-shirt-v1.mp4",
+    "poster": "/assets/events/barcelo-checked-shirt-v1.jpg",
+    "width": 540,
+    "height": 960,
+    "sourceDriveId": "1i-FzGbTz_dHX0pJKuwGJmsJuLDaWq_32"
+  },
+  {
+    "id": "barcelo-group",
+    "name": "Americas Food & Beverage · Group Portrait",
+    "copy": "Our Ai PhotoBooth created a shared branded keepsake.",
+    "video": "/assets/events/barcelo-group-v1.mp4",
+    "poster": "/assets/events/barcelo-group-v1.jpg",
+    "width": 540,
+    "height": 960,
+    "sourceDriveId": "1FDpQKtO1-5VpbOKSBNT9nmhm62W10J58"
+  },
+  {
+    "id": "barcelo-blue-blazer",
+    "name": "Americas Food & Beverage · Guest Reveal",
+    "copy": "Our Ai PhotoBooth gave guests a personalized brand moment.",
+    "video": "/assets/events/barcelo-blue-blazer-v1.mp4",
+    "poster": "/assets/events/barcelo-blue-blazer-v1.jpg",
+    "width": 540,
+    "height": 960,
+    "sourceDriveId": "1IXudWK6fyUB3vNaEmQN99CiWpTRh4VNj"
+  },
+  {
+    "id": "bump-neon",
+    "name": "Americas Food & Beverage · Bump",
+    "copy": "Our Ai PhotoBooth put guests inside a colorful Bump portrait.",
+    "video": "/assets/events/bump-neon-v1.mp4",
+    "poster": "/assets/events/bump-neon-v1.jpg",
+    "width": 540,
+    "height": 576,
+    "sourceDriveId": "126IW83Al2ruOMX-w2gZJcJe6AKwlM1-S"
+  },
+  {
+    "id": "trade-show-guest",
+    "name": "Trade Show · Guest Experience",
+    "copy": "Our Ai PhotoBooth turned a booth visit into a playful portrait moment.",
+    "video": "/assets/events/trade-show-guest-v1.mp4",
+    "poster": "/assets/events/trade-show-guest-v1.jpg",
+    "width": 540,
+    "height": 960,
+    "sourceDriveId": "1kjAB43ilew2ZJK7iadoQvsOv2imOnxAe"
+  },
+  {
+    "id": "dr-welcome",
+    "name": "Dominican Republic Trade Show · Welcome",
+    "copy": "Our Ai PhotoBooth invited visitors into a destination-themed experience.",
+    "video": "/assets/events/dr-welcome-v1.mp4",
+    "poster": "/assets/events/dr-welcome-v1.jpg",
+    "width": 478,
+    "height": 848,
+    "sourceDriveId": "1ksdq_Au0gesiR4mzuzgakpSNgUMFiVcn"
+  },
+  {
+    "id": "barcelo-group-experience",
+    "name": "Barceló Activation · Group Experience",
+    "copy": "Our Ai PhotoBooth brought guests together for branded caricatures.",
+    "video": "/assets/events/barcelo-group-experience-v1.mp4",
+    "poster": "/assets/events/barcelo-group-experience-v1.jpg",
+    "width": 540,
+    "height": 960,
+    "sourceDriveId": "1uMGSx4Yx8f8aG20MNLzLhmD9AxqLXiFh"
+  },
+  {
+    "id": "elevate-reactions",
+    "name": "Elevate · Guest Reactions",
+    "copy": "Our Ai PhotoBooth created personalized portraits and memorable guest reactions.",
+    "video": "/assets/events/elevate-reactions-v1.mp4",
+    "poster": "/assets/events/elevate-reactions-v1.jpg",
+    "width": 540,
+    "height": 480,
+    "sourceDriveId": "1D8-LxvrV6ibtu2HGxPFf0-HhsRqLMVFt"
+  },
+  {
+    "id": "barcelo-reveal",
+    "name": "Americas Food & Beverage · Barceló Reveal",
+    "copy": "Our Ai PhotoBooth made branded portraits guests could enjoy together.",
+    "video": "/assets/events/barcelo-reveal-v1.mp4",
+    "poster": "/assets/events/barcelo-reveal-v1.jpg",
+    "width": 540,
+    "height": 960,
+    "sourceDriveId": "11zXwHCDdWCirAWlXV--xmSI2_MobisS6"
+  },
+  {
+    "id": "food-portrait",
+    "name": "Americas Food & Beverage · Food Portrait",
+    "copy": "Our Ai PhotoBooth transformed a guest into food-inspired artwork.",
+    "video": "/assets/events/food-portrait-v1.mp4",
+    "poster": "/assets/events/food-portrait-v1.jpg",
+    "width": 540,
+    "height": 768,
+    "sourceDriveId": "1bg_-t8vndlUUYbt9gYqWVvWXbFSGGKTd"
   }
 ]

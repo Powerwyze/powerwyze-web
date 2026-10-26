@@ -3,3 +3,8 @@ REDESIGN_BRIEF.md
 SHEET_WEBHOOK.gs
 .git
 node_modules
+data/event-showcase.json
+assets/events/SOURCES.md
+assets/video/EVENT-VIDEO-SOURCES.md
+scripts/render-event-showcase.py
+scripts/check-home-gallery.py
