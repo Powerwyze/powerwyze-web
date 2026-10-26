@@ -1,0 +1,21 @@
+/* Event footage uses the site's existing typography, colors, and card layout. */
+.event-showcase .event-video { background: #111; }
+.event-showcase .event-video video { aspect-ratio: auto; object-fit: contain; height: auto; }
+.event-showcase .project-video > .event-video-landscape { width: 100%; }
+.event-showcase .work-image { aspect-ratio: 9 / 16; max-height: none; }
+.event-showcase .work-caption p { font-size: 14px; line-height: 1.5; text-transform: none; letter-spacing: 0; margin: 10px 0 0; }
+.event-showcase .work-caption h3 { margin: 0; }
+.event-showcase.video-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 24px; }
+.event-showcase.video-grid > figure { margin: 0; }
+.event-showcase.video-grid h3 { font-size: 22px; }
+.event-showcase.video-grid p { font-size: 14px; line-height: 1.5; }
+.event-showcase video:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.event-showcase .project-detail h2 { margin-bottom: 16px; }
+.event-showcase .eyebrow, .video-section .eyebrow { text-transform: none; }
+@media (max-width: 800px) {
+  .event-showcase.video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .event-showcase.video-grid { grid-template-columns: 1fr; gap: 30px; }
+  .video-home .event-showcase.video-grid video { aspect-ratio: auto; }
+}

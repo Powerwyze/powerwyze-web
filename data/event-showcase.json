@@ -1,0 +1,83 @@
+[
+  {
+    "id": "imex-turespana",
+    "name": "IMEX · Turespaña",
+    "copy": "Our Ai PhotoBooth turned visitors into Spain-inspired portraits.",
+    "video": "/assets/events/imex-turespana-v1.mp4",
+    "poster": "/assets/events/imex-turespana-v1.jpg",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "id": "startup-ole",
+    "name": "Startup OLÉ Miami",
+    "copy": "Our Ai PhotoBooth gave attendees personalized caricatures.",
+    "video": "/assets/events/startup-ole-v1.mp4",
+    "poster": "/assets/events/startup-ole-v1.jpg",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "id": "barcelo",
+    "name": "Barceló Activation",
+    "copy": "Our Ai PhotoBooth gave guests Barceló-themed caricatures.",
+    "video": "/assets/events/barcelo-v1.mp4",
+    "poster": "/assets/events/barcelo-v1.jpg",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "id": "dr-tradeshow",
+    "name": "Dominican Republic Trade Show",
+    "copy": "Our Ai PhotoBooth brought an interactive photo experience to the show.",
+    "video": "/assets/events/dr-tradeshow-v1.mp4",
+    "poster": "/assets/events/dr-tradeshow-v1.jpg",
+    "width": 540,
+    "height": 304
+  },
+  {
+    "id": "sobewff",
+    "name": "South Beach Wine & Food Festival",
+    "copy": "Our Ai PhotoBooth gave festival guests a branded photo experience.",
+    "video": "/assets/events/sobewff-v1.mp4",
+    "poster": "/assets/events/sobewff-v1.jpg",
+    "width": 480,
+    "height": 688
+  },
+  {
+    "id": "americas-food-beverage",
+    "name": "Americas Food & Beverage",
+    "copy": "Our Ai PhotoBooth turned visitors into food-inspired portraits.",
+    "video": "/assets/events/americas-food-beverage-v1.mp4",
+    "poster": "/assets/events/americas-food-beverage-v1.jpg",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "id": "urban-golf",
+    "name": "Urban Golf Weekend",
+    "copy": "Our Ai PhotoBooth added golf-themed portraits to the event.",
+    "video": "/assets/events/urban-golf-v1.mp4",
+    "poster": "/assets/events/urban-golf-v1.jpg",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "id": "film-festival",
+    "name": "Film Festival",
+    "copy": "Our Ai PhotoBooth gave festival guests personalized portraits.",
+    "video": "/assets/events/film-festival-v1.mp4",
+    "poster": "/assets/events/film-festival-v1.jpg",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "id": "taste-south-florida",
+    "name": "Taste of South Florida",
+    "copy": "Our Ai PhotoBooth brought event-branded portraits to the tasting.",
+    "video": "/assets/events/taste-south-florida-v1.mp4",
+    "poster": "/assets/events/taste-south-florida-v1.jpg",
+    "width": 540,
+    "height": 960
+  }
+]
