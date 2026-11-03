@@ -8,3 +8,7 @@ assets/events/SOURCES.md
 assets/video/EVENT-VIDEO-SOURCES.md
 scripts/render-event-showcase.py
 scripts/check-home-gallery.py
+
+scripts/check-request-uploads.cjs
+scripts/request-form-browser-tests.js
+scripts/test-request-form.py

@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/experience-site.css?v=1">
-<link rel="stylesheet" href="/contact-form.css?v=1">
+<link rel="stylesheet" href="/contact-form.css?v=2">
 </head>
 <body class="experience-site " id="top">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -193,9 +193,7 @@
 <label class="full">Specific use case and goal (e.g., lead capture, wayfinding, photo/video, voice interaction, other) *<textarea name="Specific use case and goal (e.g., lead capture, wayfinding, photo/video, voice interaction, other)" rows="4" required>
 </textarea>
 </label>
-<label class="full">Upload your Company logo here *<input name="attachment" type="file" required multiple aria-describedby="logo-help">
-<small id="logo-help">Upload your company logo files. Maximum 10 MB total.</small>
-</label>
+
 </div>
 </fieldset>
 <fieldset class="request-section">
@@ -234,8 +232,32 @@
 </label>
 </div>
 </fieldset>
-<p id="request-file-status" role="status" aria-live="polite">
-</p>
+<fieldset class="request-section request-uploads" id="request-uploads">
+<legend>Branding &amp; design references</legend>
+<p id="request-upload-help">Upload up to 10 files across all three categories, with a combined maximum of 10 MB. Include at least one company logo.</p>
+<noscript><p>Without JavaScript, you can choose one file per category. Keep all files together under 10 MB.</p></noscript>
+<div class="form-grid">
+<div class="full request-upload-group">
+<label for="company-logo">Upload your Company logo here *<input id="company-logo" name="attachment" type="file" required accept=".jpg,.jpeg,.png,.gif,.webp,.svg,.pdf" data-request-upload="Company logo" aria-describedby="request-upload-help logo-help company-logo-files request-file-status"></label>
+<small id="logo-help">JPG, JPEG, PNG, GIF, WebP, SVG, or PDF.</small>
+<ul id="company-logo-files" class="request-file-list" aria-label="Selected company logos"></ul>
+<button type="button" class="request-clear-upload" data-clear-upload="company-logo" hidden>Clear company logos</button>
+</div>
+<div class="full request-upload-group">
+<label for="ai-photo-reference">Upload an Example of Your Desired AI Photo Transformation<input id="ai-photo-reference" name="ai-photo-reference" type="file" accept=".jpg,.jpeg,.png,.gif" data-request-upload="AI photo transformation" aria-describedby="request-upload-help ai-reference-help ai-photo-reference-files request-file-status"></label>
+<small id="ai-reference-help">Optional. We’ll use this as a visual reference when creating your custom AI experience. JPG, JPEG, PNG, or GIF.</small>
+<ul id="ai-photo-reference-files" class="request-file-list" aria-label="Selected AI photo references"></ul>
+<button type="button" class="request-clear-upload" data-clear-upload="ai-photo-reference" hidden>Clear AI photo references</button>
+</div>
+<div class="full request-upload-group">
+<label for="first-screen-reference">What should the first screen guests see look like?<input id="first-screen-reference" name="first-screen-reference" type="file" accept=".jpg,.jpeg,.png,.gif,.webp" data-request-upload="First screen inspiration" aria-describedby="request-upload-help screen-reference-help first-screen-reference-files request-file-status"></label>
+<small id="screen-reference-help">Optional. Upload an image, screenshot, or design example for inspiration. JPG, JPEG, PNG, GIF, or WebP.</small>
+<ul id="first-screen-reference-files" class="request-file-list" aria-label="Selected first-screen references"></ul>
+<button type="button" class="request-clear-upload" data-clear-upload="first-screen-reference" hidden>Clear first-screen references</button>
+</div>
+</div>
+<p id="request-file-status" role="status" aria-live="polite"></p>
+</fieldset>
 </fieldset>
 <fieldset class="enquiry-panel" id="private-event-fields" data-enquiry-panel="Private Event (Birthday, Wedding)" disabled hidden>
 <legend class="sr-only">Private Event (Birthday, Wedding)</legend>
@@ -261,6 +283,7 @@
 </div>
 </fieldset>
 </fieldset>
+<p id="request-submit-status" role="status" aria-live="polite"></p>
 <button class="submit-btn" type="submit">Submit Request</button>
 </form>
 </div>
@@ -351,7 +374,7 @@
 </footer>
 <script src="/experience-site.js?v=1" defer>
 </script>
-<script src="/request-form.js?v=2" defer>
+<script src="/request-form.js?v=3" defer>
 </script>
 </body>
 </html>
