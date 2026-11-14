@@ -33,7 +33,7 @@
             title: 'Thanks — we received your AI Cards request.',
             body: 'We’ll review the details and follow up within one business day to confirm artwork, quantity, and next steps.',
             cta: 'Back to AI Cards',
-            href: '/ai-cards'
+            href: 'https://twncard.app'
           }
         };
         const selected = copy[type];
