@@ -3,6 +3,51 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/ai-cards/:path*",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
+      "source": "/ai-cards.html",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
+      "source": "/ai-cards-builder",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
+      "source": "/ai-cards-builder.html",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
+      "source": "/ai-cards-pricing",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
+      "source": "/ai-cards-pricing.html",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
+      "source": "/ai-cards-thanks",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
+      "source": "/ai-cards-thanks.html",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
+      "source": "/api/ai-cards/:path*",
+      "destination": "https://twncard.app",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
@@ -30,34 +75,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/ai-cards/thanks",
-      "destination": "/ai-cards-thanks"
-    },
-    {
-      "source": "/ai-cards/builder",
-      "destination": "/ai-cards-builder"
-    },
-    {
-      "source": "/ai-cards/pricing",
-      "destination": "/ai-cards-pricing"
-    },
-    {
-      "source": "/ai-cards",
-      "destination": "/ai-cards.html"
-    },
-    {
-      "source": "/ai-cards/",
-      "destination": "/ai-cards.html"
-    },
-    {
-      "source": "/api/ai-cards",
-      "destination": "/ai-cards.html"
-    },
-    {
-      "source": "/api/ai-cards/",
-      "destination": "/ai-cards.html"
-    },
     {
       "source": "/thanks",
       "destination": "/thanks.html"
