@@ -10,3 +10,16 @@
 .optional-label { font-weight: 400; color: var(--muted); }
 #private-event-fields .request-radios label { min-height: 44px; }
 #private-information { min-height: 130px; }
+.request-uploads > p { font-size: 14px; color: var(--muted); }
+.request-upload-group { min-width: 0; }
+.request-upload-group > label { display: grid; gap: 10px; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.request-upload-group input[type="file"] { max-width: 100%; font-size: 14px; }
+.request-upload-group small { display: block; margin-top: 8px; }
+.request-file-list { margin: 8px 0; padding-left: 20px; font-size: 13px; overflow-wrap: anywhere; }
+.request-file-list:empty { display: none; }
+.request-clear-upload { padding: 10px 14px; min-height: 44px; border: 1px solid currentColor; border-radius: 6px; background: transparent; color: inherit; font: inherit; font-size: 13px; cursor: pointer; }
+.request-clear-upload[hidden] { display: none; }
+#request-file-status { overflow-wrap: anywhere; }
+#request-file-status[data-error="true"] { color: #a32020; font-weight: 600; }
+#request-submit-status:empty { display: none; }
+.submit-btn:disabled { opacity: .7; cursor: wait; }
