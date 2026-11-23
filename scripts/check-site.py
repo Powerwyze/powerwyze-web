@@ -54,6 +54,13 @@ for name in PAGES + ["ai-cards-builder.html"]:
                 errors.append(f"{name}: incorrect form destination")
             if attrs.get("method", "").lower() != "post":
                 errors.append(f"{name}: form must POST")
-assert len(forms) == 4, f"Expected four submission flows, found {forms}"
+assert set(forms) == {"products/robokiosk.html", "ambassadors.html", "ai-cards-builder.html"}, f"Unexpected native submission flows: {forms}"
+contact = Document((ROOT / "contact.html").read_text())
+hosted_form = "https://form.jotform.com/262035571422046"
+frames = [a for t, a in contact.tags if t == "iframe"]
+assert len(frames) == 1 and frames[0].get("src") == hosted_form, "Contact page must use the hosted event form"
+assert frames[0].get("title"), "Hosted form needs an accessible title"
+assert any(t == "a" and a.get("href") == hosted_form for t, a in contact.tags), "Hosted form needs a direct fallback link"
+assert not any(t == "form" for t, a in contact.tags), "Contact page must not retain the failed native form"
 print(json.dumps({"pages": len(PAGES), "local_targets": len(targets), "forms": forms, "errors": errors}, indent=2))
 raise SystemExit(bool(errors))

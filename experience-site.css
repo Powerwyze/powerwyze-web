@@ -68,3 +68,14 @@ h1,h2,h3,h4,p,figure{margin:0}h1,h2,h3,h4{font-family:var(--font-display);font-w
  .video-home .video-grid p{font-size:12px}
  .video-home .video-grid figcaption{padding:16px 0 0}
 }
+
+/* Hosted event form keeps uploads, validation, and verification in one flow. */
+.jotform-contact-layout{grid-template-columns:minmax(220px,.65fr) minmax(0,1.65fr);gap:50px}
+.event-request-embed{min-width:0;width:100%}
+.event-request-intro{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px;flex-wrap:wrap}
+.event-request-intro h2{font-size:28px;margin:0}
+.event-request-intro .text-link{font-size:13px}
+.event-request-frame{display:block;width:100%;height:1800px;border:0;background:#fff}
+.event-request-embed>.small-note{margin-top:18px}
+.event-request-embed>.small-note a{text-decoration:underline}
+@media(max-width:800px){.jotform-contact-layout{grid-template-columns:1fr;gap:30px}.event-request-frame{height:1900px}.event-request-intro{align-items:flex-start;flex-direction:column;gap:10px}}
